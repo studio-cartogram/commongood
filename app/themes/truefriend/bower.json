@@ -9,12 +9,6 @@
   ],
   "dependencies": {
     "jquery": "~2.0.2",
-    "inuit.css": "~5.0.0",
-    "classie": "~1.0.0",
-    "jquery-throttle-debounce": "*",
-    "flexslider": "*",
-    "headroom.js": "~0.3.9",
-    "magnific-popup": "~0.9.8",
-    "jquery-fittext.js": "*"
+    "inuit.css": "~5.0.0"
   }
 }

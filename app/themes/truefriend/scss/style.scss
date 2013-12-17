@@ -49,53 +49,36 @@ Version: 1.0
  * Theme Styles
  */
 
-@import "ecobee/iconfont";
-@import "ecobee/colors";
-
-@import "ecobee/logo";
-
-@import "ecobee/screen";
-@import "ecobee/buttons";
-@import "ecobee/navs";
-
-@import "ecobee/header";
-@import "ecobee/footer";
-
-@import "ecobee/menu";
-
-@import "ecobee/type";
-@import "ecobee/headings";
-@import "ecobee/lists";
-@import "ecobee/links";
-
-@import "ecobee/images";
-@import "ecobee/islands";
-@import "ecobee/forms";
-@import "ecobee/drawer";
-
-@import "ecobee/tabs";
-@import "ecobee/indicator";
-@import "ecobee/hexagon";
-
-@import "ecobee/icons";
-
-
-@import "ecobee/boxed";
-@import "ecobee/ruled";
+@import "commongood/colors";
+@import "commongood/logo";
+@import "commongood/screen";
+@import "commongood/buttons";
+@import "commongood/navs";
+@import "commongood/type";
+@import "commongood/headings";
+@import "commongood/lists";
+@import "commongood/links";
+@import "commongood/iconfont";
+@import "commongood/icons";
+@import "commongood/images";
+@import "commongood/forms";
 
 /**
  * Theme Parts
  */
 
+@import "commongood/header";
+@import "commongood/footer";
 
 /**
  * Vendor
  */
 
 
-@import "vendor/superslides";
-@import "vendor/magnific-popup";
-@import "vendor/twitterfetcher";
 
-@import "ecobee/shame";
+/**
+ * Shame
+ */
+
+@import "commongood/shame";
 
