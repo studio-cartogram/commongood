@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+
+/*
+*	Adds a small dot before bulleted list items
+*/
+
+.list--bulleted {
+	margin-left:0em;
+	list-style:none;
+	li {
+		margin-bottom:$half-spacing-unit;
+		&:before {
+			content:'.';
+			position:relative;
+			top:-4px;
+			padding-right:$half-spacing-unit;
+			font-size:20px;
+			line-height: 0;
+			color:$grey;
+		}
+	}
+}
+
+/*
+*	Extends our secondary style
+*/
+
+.list--secondary {
+	margin-left:0em;
+	list-style:none;
+	li {
+		margin-bottom:$half-spacing-unit;
+		a {
+			@extend .link--secondary;
+		}
+	}
+}

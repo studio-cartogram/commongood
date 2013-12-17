@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+.btn {
+	background:none;
+	border:none;
+	color:$green;
+	@include transition(background .2s, color .2s, border-color .2s);
+
+}
+/*------------------------------------*\
+    $FUNCTIONS
+\*------------------------------------*/
+/**
+ * Button function modifiers.
+ */
+
+
+.btn--primary {
+	background:$green;
+	color:$white;
+	&:hover {
+		color:$white;
+		background:$green-dark;
+	}
+}
+
+.btn--secondary {
+	color:$grey;
+	background:none;
+	border:3px solid;
+	&:hover {
+		color:$blue;
+	}
+}
+
+.btn--tertiary {
+	background:$blue-light;
+	color:$blue;
+	&:hover {
+		color:$blue-dark;
+	}
+}
+
+.btn--inverted {
+	background:$white;
+	color:$green;
+	&:hover {
+		color:$green-dark;
+	}
+}
+
+/*------------------------------------*\
+    $SIZES
+\*------------------------------------*/
+/**
+ * Button size modifiers.
+ *
+ * These all follow the same sizing rules as above; text is 1em, space around it
+ * remains uniform.
+ */
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Button font-size modifiers.
+ */
+
+
+
+.btn--milli {
+	font-size:.9rem;
+}
+
+

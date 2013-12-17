@@ -1,0 +1,69 @@
+/*------------------------------------*\
+    $BOXED
+\*------------------------------------*/
+/**
+ * `.boxed` is a to define our weird spacings and rules. Not sure how this will fold out overtime.
+ */
+
+
+@include media-query(lap-and-up) {
+	.boxed {
+		height:100%;
+		position:relative;
+		* {
+			position:relative;
+			z-index: 1;
+		}
+		&:before,
+		&:after {
+			position:absolute;
+			content: ' ';
+			top:0;
+			bottom:-200px;
+			right:0;
+			left:0;
+			display:block;
+			z-index: 0;
+			background: $grey-light;
+		}
+		&:after {
+			display:none;
+		}
+		
+		
+
+		&.boxed--inner:before {
+			right:$base-spacing-unit * 2;
+			left:$base-spacing-unit * 2;
+		}
+		&.boxed--outer:before {
+			right:-$base-spacing-unit * 2;
+			left:-$base-spacing-unit * 2;
+			background: $grey-darker;
+		}
+
+		&.boxed--off-right:after {
+			display:block;
+			width:100%;
+			margin-right:100%;
+			left:auto;
+			background: $grey-darker;
+		}
+		
+	}
+
+
+	.boxed--grey-light {
+		@extend .boxed;
+		&:before {
+			background: $grey-lighter;
+		}
+		&:after {
+			display:block;
+			width:100%;
+			margin-right:100%;
+			left:auto;
+			background: $grey-lighter;
+		}
+	}
+}	

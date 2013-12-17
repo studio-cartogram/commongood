@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    $HEXAGON
+\*------------------------------------*/
+/*
+Example:
+<div class="hexagon">
+	<div class="hexagon__target"></div>
+</div>';
+*/
+
+$unit:120px;
+$unit__border : 6px;
+
+.hexagon {
+	margin:15px auto 0;
+	width: $unit;
+	height: $unit/2 + 20px;
+	background: $grey-light;
+	position: relative;
+}
+.hexagon:before {
+	content: "";
+	position: absolute;
+	top: -$unit/4;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: $unit/2 solid transparent;
+	border-right: $unit/2 solid transparent;
+	border-bottom: $unit/4 solid $grey-light;
+}
+.hexagon:after {
+	content: "";
+	position: absolute;
+	bottom: -$unit/4;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: $unit/2 solid transparent;
+	border-right: $unit/2 solid transparent;
+	border-top: $unit/4 solid $grey-light;
+}
+.hexagon__target {
+	display:block;
+	position:absolute;
+	z-index:1;
+	top:-$unit/4;
+	width:$unit - $unit__border * 2;
+	height:$unit - $unit__border * 2 + 20px;
+	margin:$unit__border;
+	@include vendor(clip-path, polygon(50% 0, 100% 21%, 100% 79%, 50% 100%, 0 79%, 0 21%));
+	@include transition(all .2s);
+	background-size:cover;
+	
+}

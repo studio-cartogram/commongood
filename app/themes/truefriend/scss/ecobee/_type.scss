@@ -1,0 +1,75 @@
+/*------------------------------------*\
+    $Typography
+\*------------------------------------*/
+
+/*------------------------------------*\
+    $PARAGRAPHS
+\*------------------------------------*/
+
+p {
+	color:$grey-dark;
+    font-weight:300;
+}
+
+.strong {
+	font-weight:bold !important;; 
+}
+
+p.lead {
+	@include font-size(18px);
+	line-height: 1.6em;
+}
+
+
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
+
+blockquote{
+	text-indent:0;
+	position:relative;
+    p:first-of-type:before,
+    p:last-of-type:after{
+    	@include font-size(80px);
+    	line-height: 0;
+    	left:-60px;
+    	bottom:90%;
+    	position: absolute;
+    	color:$grey-light;
+    }
+    p:last-of-type:after{
+    	left:auto;
+    	bottom:10%;
+    	right:-60px;
+    	top:auto;
+       
+    }
+}
+
+.source{
+    display:block;
+    text-indent:0;
+	font-weight:normal;
+	@include font-size($milli-size);
+    &:before{
+        content: "...";
+        top: -3px;
+        position: relative;
+        letter-spacing: 2px;
+        font-weight: bold;
+        @include font-size($micro-size);
+        padding-right: 5px;
+    }
+}
+
+
+
+/*------------------------------------*\
+    $ADDRESS
+\*------------------------------------*/
+
+.address, address {
+    font-style:normal;  
+}
+
+

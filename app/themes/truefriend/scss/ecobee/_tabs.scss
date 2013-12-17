@@ -1,0 +1,29 @@
+.ecobee-tabs-wrap {
+	position: relative;
+
+	ul.ecobee-tabs {
+		overflow: hidden; // used to be clearfix
+	}
+	a.active {
+		opacity:0.5;
+	}
+	.ecobee-tabs-container {
+		position: relative;
+		@include transition(all .2s  ease-in-out);
+		overflow:hidden;
+		.ecobee-tab-content {
+			position: absolute;
+			width:auto;
+			right:0;
+			left:0;
+			@include transition(all .2s  ease-in-out);
+			&.ecobee-hide {
+				opacity:0;
+			}
+			&.ecobee-show {
+				@include transition-delay(0.3s);
+				opacity: 1;
+			}
+		}	
+	}	
+}

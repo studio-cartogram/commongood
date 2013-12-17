@@ -1,0 +1,220 @@
+/*------------------------------------*\
+    $MENU
+\*------------------------------------*/
+/**
+ * All Logic dealing with the top bar navigation.
+ */
+
+
+.nav--fixed {
+	top: 0;
+	left: 0;
+	right:0;
+	left:0;
+	width: auto;
+	z-index:11;
+	position: absolute;
+	@include transform(translate3d(0, 0%, 0));
+	@include transition(all .3s);
+	
+	.state-nav-is-shown & {
+		@include media-query(desk) {
+			@include transform(translate3d(0, $drawer-height, 0));
+			top:0;
+		}
+		top:100%;
+		@include transform(translate3d(0, -100%, 0));
+		@include transition(all .3s);
+		&.is-unpinned {
+			margin:0;
+		}
+	}
+	
+	
+	&.is-unpinned {
+		position:fixed;
+		@include transition(all .3s);
+		margin-top:-$menu-spacing-unit;
+		&.is-hovered {
+			margin:0;
+		}
+	}
+
+	&.is-pinned, 
+	&.is-hovered, 
+	.state-page-at-bottom &.is-unpinned,
+	.state-page-at-top &.is-hovered,
+	.state-nav-is-shown &,
+	.state-nav-is-shown.state-page-at-top &
+	{
+		position:fixed;
+		margin-top:0;
+		@include transition(all .3s);
+		&:after {
+			@include transition(all .3s);
+			background:rgba($white, 1);
+			@include box-shadow(0px 6px 0 rgba($grey, 0.3));
+		}
+	}
+
+	.state-page-at-top &
+	 {
+		&:after {
+			@include transition(background .3s);
+			@include box-shadow(0px 0px 0 rgba($grey, 0));
+			background:rgba($white, 0);
+		}
+		&.is-hovered,
+
+		&:hover:after {
+			@include box-shadow(0px 0px 0 rgba($grey, 0));
+		}
+
+	}
+	&:after {
+		content:' ';
+		height:auto;
+		width:auto;
+		right:0;
+		left:0;
+		position:absolute;
+		bottom:0;
+		top:0;
+
+		@include transition(all .3s);
+		background:rgba($white, 0);
+		@include box-shadow(0px 0px 0 rgba($grey, 0));
+
+	}
+	&:before {
+		content: "";
+		position:absolute;
+		top:0%;
+		right:0;
+		left:0;
+		bottom:-20px;
+		height:auto;
+		width:auto;
+	}
+
+}
+
+
+.nav--global {
+	margin: 0 auto;
+	padding: 0 0 0 $base-spacing-unit;
+	list-style: none;
+	line-height: $menu-spacing-unit;
+	height:$menu-spacing-unit;
+	max-width: $site-width + $base-spacing-unit * 2;
+	
+	a {
+		display: block;
+		height: 100%;
+		cursor: pointer;
+		line-height:$menu-spacing-unit;
+		@extend .link--tertiary;
+		
+	}
+
+	
+	> li {
+		display: inline-block;
+		float: right;
+		height: 100%;
+		text-align: center;
+		> a {
+			padding: 0 $base-spacing-unit;
+			z-index: 1;
+			position:relative;
+
+		}
+		&.menu-item-88, &.button {
+			height: auto; 
+			padding: 0 $half-spacing-unit;
+			a {
+				@extend .btn;
+				@extend .btn--secondary;
+				line-height: 2;
+			}
+		}
+		a.nav__trigger {
+			padding-right:$menu-spacing-unit;
+			padding-left: $half-spacing-unit;
+			.state-nav-is-shown & {
+				color:$blue;
+			}
+		}
+
+	}
+}
+
+
+.nav__trigger__icon {
+	position: absolute;
+	top: 50%;
+	right: $menu-spacing-unit/3;
+	display: block;
+	width: $menu-spacing-unit/3.5;
+	height: 2px;
+	margin-top:-2px;
+	background-color: $grey;
+	font-size: 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	&:before,
+	&:after {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background:  $grey;
+		content: '';
+		@include transition(transform .3s);
+	}
+	&:before {
+		@include transform(translateY(-300%));
+	}
+	&:after {
+		@include transform(translateY(300%));
+	}
+	
+	&:hover,
+	.nav__trigger:hover & {
+		&, 
+		&:before,
+		&:after {
+			background-color: $blue;
+		}
+	}
+	.state-nav-is-shown &:before,
+	.state-nav-is-shown &:after {
+		@include transform(translateY(0%));
+		background:$blue;
+	}
+
+	
+}
+
+
+@include media-query(palm) {
+	.nav__trigger__icon {
+		right: $menu-spacing-unit/4;
+	}
+	.nav--global {
+		@include font-size(13px);
+		line-height:$menu-spacing-unit;
+		> li > a {
+			padding: 0 8px;
+			&.nav__trigger {
+				padding-right:$menu-spacing-unit / 1.3;
+				padding-left:0;
+			}
+		}
+	}
+}
