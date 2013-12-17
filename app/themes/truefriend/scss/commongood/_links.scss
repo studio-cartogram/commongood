@@ -1,36 +1,27 @@
 a {
-	color:$green;
-	text-decoration:none;
 	@include transition(color .2s);
 	
 	&.link--secondary {
-		color:$blue;
-		color:$blue-dark;
+	
 	}
 
 	&.link--tertiary {
-		color:$grey-dark;
+		
 		&:hover {
-			color:$blue;
+			
 		}
 	}
 
 	&.link--inverted {
-		color:$white;
+		
 		&:hover {
-			color:$green;
+			
 		}
 	}
 
 	&.link--natural {
-		color:inherit;
+		
 		&:hover {
-			color:inherit;
 		}
 	}
-}
-
-
-.link--secondary > a {
-	@extend .link--secondary;
 }

@@ -1,12 +1,7 @@
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
 .footer {
-	background:$grey-darker;
-	overflow:hidden;
-	* {
-		color:$white;
-	}
-	a {
-		@extend .link--inverted;
-	}
 
-}   
-
+}
