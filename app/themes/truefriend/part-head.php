@@ -15,3 +15,9 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class('loading main'); ?> id="main">
+		<div class="edge" id="left"></div>
+		<div class="edge" id="right"></div>
+		<div class="edge" id="right-logo"></div>
+		<div class="edge" id="left-logo"></div>
+
+		<div id="main">

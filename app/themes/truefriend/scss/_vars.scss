@@ -71,7 +71,7 @@ $color-secondary:$blue;
  * Declare specific font families and weights
  */
 
-$font-family-body: "Gotham A", "Gotham B","Helvetica Neue", sans-serif;
+$font-family-body: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 $weight--light:300;
 $weight--normal:400;
@@ -85,7 +85,7 @@ $weight--bold:700;
 /**
  * Declare specific font families and weights
  */
-$site-width : 1400px;
+$site-width : 904px;
 $banner-size : 60px;
 $drawer-height : 450px;
 $menu-spacing-unit:80px;
@@ -142,7 +142,7 @@ $base-line-height:  24px!default;
  * Base font-family. 
  */
 $base-font-family:  sans-serif!default;
-$base-font-family: "Gotham A", "Gotham B", sans-serif;
+$base-font-family: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 /**
  * Default colour for objects’ borders etc.
@@ -159,7 +159,7 @@ $base-ui-color:     #ccc!default;
 /**
  * Responsiveness?
  */
-$responsive:        true!default;
+$responsive:        false!default;
 
 /**
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
@@ -171,25 +171,25 @@ $responsive-extra:  false!default;
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
-$push:              true!default;
+$push:              false!default;
 /**
  * Note: `$push` variable above must be set to true before enabling these.
  */
-$palm-push:         true;
-$lap-push:          true;
-$lap-and-up-push:   true;
-$portable-push:     true;
-$desk-push:         true;
+$palm-push:         false;
+$lap-push:          false;
+$lap-and-up-push:   false;
+$portable-push:     false;
+$desk-push:         false;
 
-$pull:              true!default;
+$pull:              false!default;
 /**
  * Note: `$pull` variable above must be set to true before enabling these.
  */
-$palm-pull:         true;
-$lap-pull:          true;
+$palm-pull:         false;
+$lap-pull:          false;
 $lap-and-up-pull:   false!default;
 $portable-pull:     false!default;
-$desk-pull:         true;
+$desk-pull:         false;
 /**
  * Tell inuit.css when breakpoints start.
  */
@@ -259,7 +259,7 @@ $close-quote:   null;
  * Brand stuff
  */
 $brand-color:       #4a8ec2!default;
-$brand-face:        "Gotham A", "Gotham B", sans-serif!default;
+$brand-face:        "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 /**
  * How big would you like round corners to be by default?
@@ -276,18 +276,18 @@ $brand-round:        4px!default;
 /**
  * Which objects and abstractions would you like to use?
  */
-$use-grids:         true;
+$use-grids:         false;
 $use-flexbox:       false!default;
 $use-columns:       false!default;
-$use-nav:           true;
+$use-nav:           false;
 $use-options:       false!default;
-$use-pagination:    true;
+$use-pagination:    false;
 $use-breadcrumb:    false!default;
-$use-media:         true;
+$use-media:         false;
 $use-marginalia:    false!default;
-$use-island:        true;
+$use-island:        false;
 $use-block-list:    false!default;
-$use-matrix:        true;
+$use-matrix:        false;
 $use-split:         false!default;
 $use-this-or-this:  false!default;
 $use-link-complex:  false!default;
@@ -295,11 +295,11 @@ $use-flyout:        false!default;
 $use-arrows:        false!default;
 $use-sprite:        false!default;
 $use-icon-text:     false!default;
-$use-beautons:      true;
+$use-beautons:      false;
 $use-lozenges:      false!default;
 $use-rules:         false!default;
 $use-stats:         false!default;
-$use-greybox:       true;
+$use-greybox:       false;
 
 
 

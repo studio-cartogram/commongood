@@ -25,14 +25,7 @@
 	======================================================================================================================== */
 
 	register_nav_menus( array(
-		'support' => 'Support Navigation Menu',
-		'resources' => 'Resources Navigation Menu',
-		'about' => 'About Navigation Menu',
-		'product' => 'Product Navigation Menu',
-		'social' => 'Social Navigation Menu',
-		'primary' => 'Primary Navigation Menu',
-		'commercial' => 'Commercial Navigation Menu',
-		'apps' => 'App Store Links'
+		'primary' => 'Primay Navigation Menu'
 	) );
 
 	/* ========================================================================================================================
