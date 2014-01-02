@@ -5,7 +5,7 @@ body {
 	height:100%;
 	color:#0F0F46;
 	background:url(../images/logo-sides.png) -25px center no-repeat #e1e1e2;
-	text-align:center;
+	overflow-x:hidden;
 }
 
 html {
@@ -17,4 +17,66 @@ html {
 	max-width:$site-width;
 	margin:auto;
 	
+}
+
+.row--dashed {
+	position:relative;
+	
+	&:after , &:before {
+		height:1px;
+		width:20px;
+		background:$navy;
+		content: ' ';
+		position:absolute;
+		top:0;
+	}
+	
+	&:before {
+		right:110%;
+	}
+	
+	&:after {
+		left:110%;
+	}
+	&.row--dashed--bottom {
+		&:after, &:before {
+			top:auto;
+			bottom:0;
+		}
+	}
+}
+
+
+/* edges 
+-----------------------------------------------------------------------------*/
+
+#left, #right, #right-logo, #left-logo {
+	background: black;
+	display: none;
+	opacity:1;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 88px;
+}
+#left, #right {
+	opacity:0.5;
+}
+#left {
+	left: 0;
+	background: url(../images/left.png) left center repeat-y;
+}
+#right {
+	right: 0;
+	background: url(../images/right.png) right center repeat-y;
+}
+#right-logo {
+	background:url("../images/logo-sides.png") no-repeat scroll left center transparent;
+	right:0;
+	width:25px;
+}
+#left-logo {
+	background:url("../images/logo-sides.png") no-repeat scroll right center transparent;
+	left:0;
+	width:25px;
 }

@@ -10,11 +10,19 @@ p {
 	
 }
 
-.strong {
-	font-weight:bold !important;; 
-}
+
 
 p.lead {
 	
 }
 
+
+strong, b {
+	font-weight:normal;
+	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+}
+em, i {
+	font-family: 'ConduitITCStdLightItalic', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	  font-style: normal;
+}

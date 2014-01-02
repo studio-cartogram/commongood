@@ -1,12 +1,10 @@
 
-<div class="wrap">
-	<div class="wrap-inner">
-		<input type="text" ng-model="search" class="search-query" style="width: 80px">
-        <button type="submit" class="btn">Search</button>
-		<ul>
-			<li ng-repeat="video in videos | filter:search" >
-				<vimeo-video video="video"></vimeo-video>
-			</li>
-		</ul> 
+<div class="row">
+	<div class="grid">
+		<div ng-repeat="video in videos " class="one-whole soft--bottom  grid__item " ng-animate=" " >
+			<vimeo-video video="video"></vimeo-video>
+		</div>
 	</div>	
-</div>	
+</div>
+
+

@@ -2,3 +2,14 @@
 
 }
 	
+	
+.nav--global {
+	text-align:right;
+	margin:0;
+	li {
+		text-transform: uppercase;
+		font-weight:bold;
+		margin-top:55px;
+		padding-left:$base-spacing-unit;
+	}
+}

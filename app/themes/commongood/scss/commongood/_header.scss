@@ -1,3 +1,20 @@
-.scroll-indicator {
-  
+$site-header-height : 70px;
+
+.header {
+	height: $site-header-height;
 }
+.site-title {
+	position:absolute;
+	bottom:0;
+	left:0;
+	margin:0;
+	a {
+		background:url(../images/logo.png) no-repeat center center;
+		height:22px;
+		width:167px;
+		text-indent:-9999px;
+		display:block;
+		border:none;
+	}		
+}
+

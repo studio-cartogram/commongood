@@ -1,13 +1,11 @@
-<div class="wrap">
-	<div class="wrap-inner">
-		<input type="text" ng-model="search" class="search-query" style="width: 80px">
-        <button type="submit" class="btn">Search</button>
-		<ul>
-			<li ng-repeat="video in videos | filter:search" ng-animate=" " >
-				<h4>{{ video.title }}</h4>
-				<a href="/video/{{video.id}}"><img ng-src="{{video.thumbnail_large}}" /></a>
-			</li>
-		</ul> 
+<div class="row row--dashed">
+	<div class="grid">
+		<div ng-repeat="video in videos " class="palm-one-whole lap-one-third desk-one-quarter soft--bottom grid__item" ng-animate=" " >
+			<a class="work-block" href="/video/{{video.id}}">
+				<img ng-src="{{video.thumbnail_large}}" />
+				<h4 class="work-block__text">{{ video.title }}</h4>
+			</a>
+		</div>
 	</div>	
 	<a ng-show='{{ more }}' ng-click="moreVideos()">More</a>
 </div>

@@ -17,52 +17,13 @@
  * Brand Colours
  */
 
-/** Primary Colours */
-
-$green: rgb(91,135,39);
-$grey: #9b9b9b;
-$orange: #f37720;
-
-/** Secondary Colours */
-
-$green-dark: #006738;
-$grey-medium: #707071;
-$orange-dark: #f05a28;
-$blue-dark:#1b75bb;
-
-/** Architectural Colours */
-
-$olive: #717756;
-$olive-light:tint($olive,80%);
-
-$rust: #9b6e59;
-$rust-light:tint($rust,80%);
-
-$steel:#555f60;
-$steel-light:tint($steel,80%);
-
-$blue: #76b4db;
-$blue-light:tint($blue,80%);
-
-
-$grey-darker:#393939;
-$grey-dark:#555251;
-$grey-light:#e0e0e0;
-$grey-lighter:tint($grey-light,50%);
-$grey-lightest:tint($grey-light,90%);
 
 /**
  * Generic
  */
 $white: #fff;
-
 $black: #101011;
-
-/** Links */
-
-$error:$orange;
-$color-primary:$green;
-$color-secondary:$blue;
+$navy : #0F0F46;
 
 /*------------------------------------*\
     $FONTS
@@ -72,6 +33,7 @@ $color-secondary:$blue;
  */
 
 $font-family-body: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-family-medium : 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 $weight--light:300;
 $weight--normal:400;
@@ -89,7 +51,7 @@ $site-width : 904px;
 $banner-size : 60px;
 $drawer-height : 450px;
 $menu-spacing-unit:80px;
-$border: 1px solid $grey-light;
+$border: 1px solid $black;
 
 /*------------------------------------*\
     $DEFAULTS
@@ -159,7 +121,7 @@ $base-ui-color:     #ccc!default;
 /**
  * Responsiveness?
  */
-$responsive:        false!default;
+$responsive:        true!default;
 
 /**
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
@@ -193,8 +155,8 @@ $desk-pull:         false;
 /**
  * Tell inuit.css when breakpoints start.
  */
-$lap-start:         681px!default;
-$desk-start:        1024px!default;
+$lap-start:         500px!default;
+$desk-start:        800px!default;
 $desk-wide-start:   1200px!default;
 
 
@@ -276,10 +238,10 @@ $brand-round:        4px!default;
 /**
  * Which objects and abstractions would you like to use?
  */
-$use-grids:         false;
+$use-grids:         true;
 $use-flexbox:       false!default;
 $use-columns:       false!default;
-$use-nav:           false;
+$use-nav:           true;
 $use-options:       false!default;
 $use-pagination:    false;
 $use-breadcrumb:    false!default;
@@ -287,7 +249,7 @@ $use-media:         false;
 $use-marginalia:    false!default;
 $use-island:        false;
 $use-block-list:    false!default;
-$use-matrix:        false;
+$use-matrix:        true;
 $use-split:         false!default;
 $use-this-or-this:  false!default;
 $use-link-complex:  false!default;

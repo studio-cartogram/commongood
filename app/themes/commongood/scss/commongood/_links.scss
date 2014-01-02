@@ -1,5 +1,12 @@
 a {
 	@include transition(color .2s);
+	color:$navy;
+	text-decoration:none;
+
+	p > &,
+	li > & {
+		border-bottom:1px solid;
+	}
 	
 	&.link--secondary {
 	

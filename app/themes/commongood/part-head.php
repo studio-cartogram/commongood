@@ -7,7 +7,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?php bloginfo( 'name' ); ?><?php wp_title( '|' ); ?></title>
+	<title><?php bloginfo( 'name' ); ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -28,4 +28,3 @@
 	<div class="edge" id="right-logo"></div>
 	<div class="edge" id="left-logo"></div>
 	
-	<div id="main">
