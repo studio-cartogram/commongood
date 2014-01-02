@@ -1,0 +1,27 @@
+a {
+	@include transition(color .2s);
+	
+	&.link--secondary {
+	
+	}
+
+	&.link--tertiary {
+		
+		&:hover {
+			
+		}
+	}
+
+	&.link--inverted {
+		
+		&:hover {
+			
+		}
+	}
+
+	&.link--natural {
+		
+		&:hover {
+		}
+	}
+}

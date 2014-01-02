@@ -5,7 +5,7 @@
  * Contains the WP_JSON_Server class.
  *
  * @package WordPress
- * @version 0.6
+ * @version 0.8
  */
 
 require_once ABSPATH . 'wp-admin/includes/admin.php';
@@ -15,7 +15,7 @@ require_once ABSPATH . 'wp-admin/includes/admin.php';
  *
  * @package WordPress
  */
-class WP_JSON_Server {
+class WP_JSON_Server implements WP_JSON_ResponseHandler {
 	const METHOD_GET    = 1;
 	const METHOD_POST   = 2;
 	const METHOD_PUT    = 4;
@@ -51,6 +51,44 @@ class WP_JSON_Server {
 		'PATCH'  => self::METHOD_PATCH,
 		'DELETE' => self::METHOD_DELETE,
 	);
+
+	/**
+	 * Requested path (relative to the API root, wp-json.php)
+	 *
+	 * @var string
+	 */
+	public $path = '';
+
+	/**
+	 * Requested method (GET/HEAD/POST/PUT/PATCH/DELETE)
+	 *
+	 * @var string
+	 */
+	public $method = 'HEAD';
+
+	/**
+	 * Request parameters
+	 *
+	 * This acts as an abstraction of the superglobals
+	 * (GET => $_GET, POST => $_POST)
+	 *
+	 * @var array
+	 */
+	public $params = array( 'GET' => array(), 'POST' => array() );
+
+	/**
+	 * Request headers
+	 *
+	 * @var array
+	 */
+	public $headers = array();
+
+	/**
+	 * Request files (matches $_FILES)
+	 *
+	 * @var array
+	 */
+	public $files = array();
 
 	/**
 	 * Check the authentication headers if supplied
@@ -135,18 +173,18 @@ class WP_JSON_Server {
 		$jsonp_enabled = apply_filters( 'json_jsonp_enabled', true );
 
 		if ( ! $enabled ) {
-			echo $this->json_error( 'json_disabled', 'The JSON API is disabled on this site.', 404 );
+			echo $this->json_error( 'json_disabled', __( 'The JSON API is disabled on this site.' ), 404 );
 			return false;
 		}
 		if ( isset($_GET['_jsonp']) ) {
 			if ( ! $jsonp_enabled ) {
-				echo $this->json_error( 'json_callback_disabled', 'JSONP support is disabled on this site.', 400 );
+				echo $this->json_error( 'json_callback_disabled', __( 'JSONP support is disabled on this site.' ), 400 );
 				return false;
 			}
 
 			// Check for invalid characters (only alphanumeric allowed)
 			if ( preg_match( '/\W/', $_GET['_jsonp'] ) ) {
-				echo $this->json_error( 'json_callback_invalid', 'The JSONP callback function is invalid.', 400 );
+				echo $this->json_error( 'json_callback_invalid', __( 'The JSONP callback function is invalid.' ), 400 );
 				return false;
 			}
 		}
@@ -158,17 +196,22 @@ class WP_JSON_Server {
 				$path = '/';
 		}
 
-		$method = $_SERVER['REQUEST_METHOD'];
+		$this->path = $path;
+		$this->method = $_SERVER['REQUEST_METHOD'];
+		$this->params['GET'] = $_GET;
+		$this->params['POST'] = $_POST;
+		$this->headers = $this->get_headers( $_SERVER );
+		$this->files = $_FILES;
 
 		// Compatibility for clients that can't use PUT/PATCH/DELETE
 		if ( isset( $_GET['_method'] ) ) {
-			$method = strtoupper( $_GET['_method'] );
+			$this->method = strtoupper( $_GET['_method'] );
 		}
 
 		$result = $this->check_authentication();
 
 		if ( ! is_wp_error( $result ) ) {
-			$result = $this->dispatch( $path, $method );
+			$result = $this->dispatch();
 		}
 
 		if ( is_wp_error( $result ) ) {
@@ -182,16 +225,18 @@ class WP_JSON_Server {
 
 		// This is a filter rather than an action, since this is designed to be
 		// re-entrant if needed
-		$served = apply_filters( 'json_serve_request', false, $result, $path, $method );
+		$served = apply_filters( 'json_serve_request', false, $result, $path, $this->method );
 
 		if ( ! $served ) {
-			if ( 'HEAD' === $method )
+			if ( 'HEAD' === $this->method )
 				return;
 
+			$result = json_encode( $this->prepare_response( $result ) );
+
 			if ( isset($_GET['_jsonp']) )
-				echo $_GET['_jsonp'] . '(' . json_encode( $result ) . ')';
+				echo $_GET['_jsonp'] . '(' . $result . ')';
 			else
-				echo json_encode( $result );
+				echo $result;
 		}
 	}
 
@@ -247,8 +292,8 @@ class WP_JSON_Server {
 	 * @param string $path Requested route
 	 * @return mixed The value returned by the callback, or a WP_Error instance
 	 */
-	public function dispatch( $path, $method = self::METHOD_GET ) {
-		switch ( $method ) {
+	public function dispatch() {
+		switch ( $this->method ) {
 			case 'HEAD':
 			case 'GET':
 				$method = self::METHOD_GET;
@@ -281,7 +326,7 @@ class WP_JSON_Server {
 				if ( !( $supported & $method ) )
 					continue;
 
-				$match = preg_match( '@^' . $route . '$@i', $path, $args );
+				$match = preg_match( '@^' . $route . '$@i', $this->path, $args );
 
 				if ( !$match )
 					continue;
@@ -289,9 +334,9 @@ class WP_JSON_Server {
 				if ( ! is_callable( $callback ) )
 					return new WP_Error( 'json_invalid_handler', __( 'The handler for the route is invalid' ), array( 'status' => 500 ) );
 
-				$args = array_merge( $args, $_GET );
+				$args = array_merge( $args, $this->params['GET'] );
 				if ( $method & self::METHOD_POST ) {
-					$args = array_merge( $args, $_POST );
+					$args = array_merge( $args, $this->params['POST'] );
 				}
 				if ( $supported & self::ACCEPT_JSON ) {
 					$data = json_decode( $this->get_raw_data(), true );
@@ -303,9 +348,9 @@ class WP_JSON_Server {
 
 				$args['_method']  = $method;
 				$args['_route']   = $route;
-				$args['_path']    = $path;
-				$args['_headers'] = $this->get_headers( $_SERVER );
-				$args['_files']   = $_FILES;
+				$args['_path']    = $this->path;
+				$args['_headers'] = $this->headers;
+				$args['_files']   = $this->files;
 
 				$args = apply_filters( 'json_dispatch_args', $args, $callback );
 
@@ -433,6 +478,11 @@ class WP_JSON_Server {
 	 * @param boolean $replace Should we replace the existing header?
 	 */
 	public function header( $key, $value, $replace = true ) {
+		// Sanitize as per RFC2616 (Section 4.2):
+		//   Any LWS that occurs between field-content MAY be replaced with a
+		//   single SP before interpreting the field value or forwarding the
+		//   message downstream.
+		$value = preg_replace( '/\s+/', ' ', $value );
 		header( sprintf( '%s: %s', $key, $value ), $replace );
 	}
 
@@ -450,7 +500,7 @@ class WP_JSON_Server {
 	 * @param array $other Other parameters to send, as an assocative array
 	 */
 	public function link_header( $rel, $link, $other = array() ) {
-		$header = 'Link: <' . $link . '>; rel="' . $rel . '"';
+		$header = '<' . $link . '>; rel="' . $rel . '"';
 		foreach ( $other as $key => $value ) {
 			if ( 'title' == $key )
 				$value = '"' . $value . '"';
@@ -512,6 +562,49 @@ class WP_JSON_Server {
 	}
 
 	/**
+	 * Prepares response data to be serialized to JSON
+	 *
+	 * This supports the JsonSerializable interface for PHP 5.2-5.3 as well.
+	 *
+	 * @param mixed $data Native representation
+	 * @return array|string Data ready for `json_encode()`
+	 */
+	public function prepare_response($data) {
+		if ( ! defined( 'WP_JSON_SERIALIZE_COMPATIBLE' ) || WP_JSON_SERIALIZE_COMPATIBLE === false ) {
+			return $data;
+		}
+
+		switch ( gettype( $data ) ) {
+			case 'boolean':
+			case 'integer':
+			case 'double':
+			case 'string':
+			case 'NULL':
+				// These values can be passed through
+				return $data;
+
+			case 'array':
+				// Arrays must be mapped in case they also return objects
+				return array_map( array( $this, 'prepare_response' ), $data);
+
+			case 'object':
+				if ( $data instanceof JsonSerializable ) {
+					$data = $data->jsonSerialize();
+				}
+				else {
+					$data = get_object_vars( $data );
+				}
+
+				// Now, pass the array (or whatever was returned from
+				// jsonSerialize through.)
+				return $this->prepare_response( $data );
+
+			default:
+				return null;
+		}
+	}
+
+	/**
 	 * Parse an RFC3339 timestamp into a DateTime
 	 *
 	 * @param string $date RFC3339 timestamp
@@ -555,39 +648,25 @@ class WP_JSON_Server {
 	}
 
 	/**
-	 * Retrieve the avatar for a user who provided a user ID or email address.
+	 * Retrieve the avatar url for a user who provided a user ID or email address.
 	 *
 	 * {@see get_avatar()} doesn't return just the URL, so we have to
-	 * reimplement this here.
+	 * extract it here.
 	 *
-	 * @todo Rework how we do this. Copying it is a hack.
-	 *
-	 * @since 2.5
 	 * @param string $email Email address
-	 * @return string <img> tag for the user's avatar
+	 * @return string url for the user's avatar
 	*/
-	public function get_avatar( $email ) {
-		if ( ! get_option( 'show_avatars' ) )
-			return false;
+	public function get_avatar_url( $email ) {
+		$avatar_html = get_avatar( $email );
+		// strip the avatar url from the get_avatar img tag.
+		preg_match('/src=["|\'](.+)[\&|"|\']/U', $avatar_html, $matches);
 
-		$email_hash = md5( strtolower( trim( $email ) ) );
+		if ( isset( $matches[1] ) && ! empty( $matches[1] ) ) {
 
-		if ( is_ssl() ) {
-			$host = 'https://secure.gravatar.com';
-		} else {
-			if ( !empty($email) )
-				$host = sprintf( 'http://%d.gravatar.com', ( hexdec( $email_hash[0] ) % 2 ) );
-			else
-				$host = 'http://0.gravatar.com';
+			return esc_url_raw( $matches[1] );
 		}
 
-		$avatar = "$host/avatar/$email_hash&d=404";
-
-		$rating = get_option( 'avatar_rating' );
-		if ( !empty( $rating ) )
-			$avatar .= "&r={$rating}";
-
-		return apply_filters( 'get_avatar', $avatar, $email, '96', '404', '' );
+		return '';
 	}
 
 	/**

@@ -1,0 +1,73 @@
+/*------------------------------------*\
+$HEADINGS
+\*------------------------------------*/
+
+
+h1,.alpha{
+	font-size: 13px; /* Equivalent to 12pt */
+	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	text-transform:uppercase;
+	font-size: 1.3em;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+
+h2,.beta{
+	font-size: 13px; /* Equivalent to 12pt */
+	font-family: 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	text-transform:uppercase;
+	font-weight:normal;
+}
+
+h3,.gamma{
+	font-size: 14px; /* Equivalent to 12pt */
+	text-transform:uppercase;
+	font-weight:normal;
+	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight:normal;
+}
+
+h4,.delta{
+	background:url(images/0F0F37-75.png);
+	color:#FFFFFF;
+	font-size: 11px;
+	bottom: 12px;
+	left: 8px;
+	padding:2px 7px;
+	position:absolute;
+	width:170px;
+	display:none;
+	font-weight:normal;
+	font-family: 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	a {
+		color:#FFFFFF;
+	}
+}
+
+h5,.epsilon{
+	font-size: 12px; /* Equivalent to 12pt */
+	line-height:15px;
+}
+
+h6,.zeta{
+}
+
+.hN{
+
+}
+
+
+.title-overlay {
+	background:url(images/0F0F37-75.png);
+	color:#FFFFFF;
+	font-size: 11px;
+	bottom: 12px;
+	left: 8px;
+		padding:2px 7px;
+	position:absolute;
+	width:170px;
+	display:none;
+	font-weight:normal;
+	font-family: 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+

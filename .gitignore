@@ -12,8 +12,8 @@
 /app/plugins/acf-flexible-content
 
 /app/themes/*
-!/app/themes/truefriend
-/app/themes/truefriend/.sass-cache
-/app/themes/truefriend/bower_components
-/app/themes/truefriend/node_modules
+!/app/themes/commongood
+/app/themes/commongood/.sass-cache
+/app/themes/commongood/bower_components
+/node_modules
 
