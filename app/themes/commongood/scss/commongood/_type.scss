@@ -16,6 +16,10 @@ p.lead {
 }
 
 
+/*------------------------------------*\
+    $Inline
+\*------------------------------------*/
+
 strong, b {
 	font-weight:normal;
 	font-family: $font-family-bold;
@@ -24,4 +28,16 @@ strong, b {
 em, i {
 	font-family: $font-family-italic;
 	font-style: normal;
+}
+
+
+/*------------------------------------*\
+    $Special
+\*------------------------------------*/
+
+
+.video__meta {
+	span {
+		line-height: 1.35;
+	}
 }

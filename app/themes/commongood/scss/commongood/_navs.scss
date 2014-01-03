@@ -13,10 +13,28 @@
 		padding-left:$base-spacing-unit;
 		font-family:$font-family-bold;
 		a {
-			border-bottom:2px solid $grey;
 			padding-bottom:2px;
-			&:hover {
-				border-bottom:2px solid $navy; 
+			position:relative;
+			border:none;
+			z-index: 1;
+			&:after {
+				bottom:0;
+				left:0;
+				right:0;
+				content:'';
+				position:absolute;
+				height:0px;
+				background:$navy;
+				opacity:0;
+				z-index: 0;
+				@include transition(all .2s);
+				@include transform(translate(0, -3px));
+			}
+			&:hover:after {	
+				opacity:1;
+				height:2px;
+				@include transition(all .2s);	
+				@include transform(translate(0%, 0));
 			}
 		}
 	}
