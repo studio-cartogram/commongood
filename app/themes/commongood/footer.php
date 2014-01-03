@@ -6,9 +6,8 @@ Template Name: Footer
 
 
 
-echo '<div id="footer" role="contentinfo" class="row">';
-	
-	echo '<div class="grid">';
+echo '<div id="footer" role="contentinfo" class="row row--dashed ">';
+	echo '<div class="grid soft--top">';
 		echo '<div class="grid__item nine-tenths">';
 			echo '<ul class="nav">';
 				if (is_page('contact')) { 
