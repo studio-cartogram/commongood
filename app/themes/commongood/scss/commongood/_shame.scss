@@ -10,14 +10,14 @@
 .work-block__text {
 	background:rgba($navy, 0.7);;
 	color:#FFFFFF;
-	font-size: 11px;
 	bottom: 12px;
 	left: 8px;
 	right:8px;
-	padding:2px 7px;
+	padding:3px 7px;
 	margin:0;
 	position:absolute;
 	width:auto;
+	line-height:1.2;
 	@include transition(opacity 0.2s ease);
 	@include opacity(0);
 }

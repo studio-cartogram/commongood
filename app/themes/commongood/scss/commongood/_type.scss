@@ -6,8 +6,7 @@
     $PARAGRAPHS
 \*------------------------------------*/
 
-p {
-	
+p, li {
 }
 
 
@@ -19,10 +18,10 @@ p.lead {
 
 strong, b {
 	font-weight:normal;
-	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: $font-family-bold;
 
 }
 em, i {
-	font-family: 'ConduitITCStdLightItalic', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	  font-style: normal;
+	font-family: $font-family-italic;
+	font-style: normal;
 }

@@ -24,6 +24,7 @@
 $white: #fff;
 $black: #101011;
 $navy : #0F0F46;
+$grey: #e1e1e2;
 
 /*------------------------------------*\
     $FONTS
@@ -32,8 +33,11 @@ $navy : #0F0F46;
  * Declare specific font families and weights
  */
 
-$font-family-body: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-family-light: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $font-family-medium : 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-family-bold : 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font-family-italic : 'ConduitITCStdLightItalic', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
 
 $weight--light:300;
 $weight--normal:400;
@@ -88,23 +92,19 @@ $debug-mode:        false!default;
 $global-border-box: true!default;
 
 
-
-
-
 /*------------------------------------*\
     $BASE
 \*------------------------------------*/
 /**
  * Base stuff
  */
-$base-font-size:    16px!default;
+$base-font-size:    14px;
 $base-line-height:  24px!default;
 
 /**
  * Base font-family. 
  */
-$base-font-family:  sans-serif!default;
-$base-font-family: "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$base-font-family: $font-family-light;
 
 /**
  * Default colour for objects’ borders etc.
@@ -175,8 +175,8 @@ $kilo-size:         48px!default;
 
 $h1-size:           55px!default; // .alpha
 $h2-size:           28px!default; // .beta
-$h3-size:           20px!default; // .gamma
-$h4-size:           18px!default; // .delta
+$h3-size:           14px!default; // .gamma
+$h4-size:           12px!default; // .delta
 $h5-size:           16px!default; // .epsilon
 $h6-size:           16px!default; // .zeta
 

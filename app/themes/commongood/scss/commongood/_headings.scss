@@ -4,32 +4,31 @@ $HEADINGS
 
 
 h1,.alpha{
-	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: $font-family-bold;
 	text-transform:uppercase;
 	font-weight: normal;
 }
 
 h2,.beta{
-	font-size: 13px; /* Equivalent to 12pt */
-	font-family: 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family:  $font-family-medium;
 	text-transform:uppercase;
 	font-weight:normal;
 }
 
 h3,.gamma{
-	font-size: 14px; /* Equivalent to 12pt */
 	text-transform:uppercase;
 	font-weight:normal;
-	font-family: 'ConduitITCStdBold', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: $font-family-bold;
 	font-weight:normal;
 }
 
 h4,.delta{
 	display:block;
 	font-weight:normal;
-	font-family: $font-family-medium;
+	font-family:$font-family-light;
 	a {
-		color:#FFFFFF;
+		color:$white;
+
 	}
 }
 

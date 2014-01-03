@@ -8,8 +8,25 @@
 	margin:0;
 	li {
 		text-transform: uppercase;
-		font-weight:bold;
+		font-weight:normal;
 		margin-top:55px;
 		padding-left:$base-spacing-unit;
+		font-family:$font-family-bold;
+		a {
+			border-bottom:2px solid $grey;
+			padding-bottom:2px;
+			&:hover {
+				border-bottom:2px solid $navy; 
+			}
+		}
+	}
+	@include media-query(palm) {
+		text-align: left;
+		margin:10px 0 40px;
+		li {
+			display:block;
+			margin-top:5px;
+			padding-left:0;
+		}
 	}
 }

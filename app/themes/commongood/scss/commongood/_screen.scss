@@ -1,14 +1,14 @@
 body {
-	font: 11px/1.3 "ConduitITCStdLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	margin:0 !important;
-	background:$white;
 	height:100%;
-	color:#0F0F46;
-	background:url(../images/logo-sides.png) -25px center no-repeat #e1e1e2;
+	color:$navy;
+	background:$grey;
 	overflow-x:hidden;
+	font-family:$font-family-light;
 }
 
 html {
+	-webkit-font-smoothing: antialiased;
 	height:100%;
 }
 
@@ -16,12 +16,13 @@ html {
 	width:100%;
 	max-width:$site-width;
 	margin:auto;
+	padding:0 $half-spacing-unit;
 	
 }
 
 .row--dashed {
 	position:relative;
-	
+
 	&:after , &:before {
 		height:1px;
 		width:20px;
@@ -46,6 +47,10 @@ html {
 	}
 }
 
+
+.flex-video {
+	margin-bottom:0;
+}
 
 /* edges 
 -----------------------------------------------------------------------------*/
