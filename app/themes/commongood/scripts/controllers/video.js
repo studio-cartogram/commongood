@@ -2,20 +2,22 @@
 
 angular.module('ngCommongoodApp')
 .controller('VideoCtrl', function ($scope, videos, $route, $routeParams, $sanitize, $sce) {
-	$scope.videos = [];
+	$scope.video = $route.current.locals.video;
+
+	console.log($route.current.locals.video);
 
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
-	var videosCollection = $route.current.locals.video;
+	// var videosCollection = '';
 
 
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
-	videosCollection.forEach(function(video) {
-		$scope.videos.push(video);
-	});
+	// videosCollection.forEach(function(video) {
+	// 	$scope.videos.push(video);
+	// });
 
 	
 
@@ -29,5 +31,5 @@ angular.module('ngCommongoodApp')
 	/*
 	*	Add the video url to the scope
 	*/
-	$scope.playerUrl = playerUrl($scope.videos[0].id);
+	$scope.playerUrl = playerUrl($scope.video.post_meta.vimeo_id);
 });

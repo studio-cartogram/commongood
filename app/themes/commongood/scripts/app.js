@@ -44,6 +44,7 @@ var cgApp = angular.module('ngCommongoodApp', [
 		resolve: {
 			video : function($q, $route, videos) {
 				var deferred = $q.defer();
+				
 				videos.getVideo($route.current.pathParams.videoId)
 					.then(function(video) { deferred.resolve(video); });
 

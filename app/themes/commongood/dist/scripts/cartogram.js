@@ -24322,6 +24322,7 @@ var cgApp = angular.module('ngCommongoodApp', [
 		resolve: {
 			video : function($q, $route, videos) {
 				var deferred = $q.defer();
+				
 				videos.getVideo($route.current.pathParams.videoId)
 					.then(function(video) { deferred.resolve(video); });
 
@@ -24350,7 +24351,7 @@ cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $lo
 	*	TODO:
 	*	logic for handling page numbers, not sure how to handle this yet.
 	*/
-	$scope.page = $route.current.params.number;
+	//$scope.page = $route.current.params.number;
 
 	if(!$scope.page) {
 		$scope.page = 1;
@@ -24360,14 +24361,14 @@ cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $lo
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
 	var videosCollection = $route.current.locals.videos;
-
+	console.log(videosCollection);
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
 	videosCollection.forEach(function(videos) {
 		$scope.videos.push(videos);
 	});
-
+	console.log($scope.videos[0].featured_image.attachment_meta.sizes.medium.url);
 	//console.log($scope.videos.length);
 	
 	/*
@@ -24407,8 +24408,7 @@ angular.module('ngCommongoodApp')
 angular.module('ngCommongoodApp')
 .factory('videos', function ($resource, $q, $timeout) {
 
-	var baseUrl = 'http://vimeo.com/api/v2/';
-	var output = '.json';
+	var baseUrl = '/wp-json.php/posts';
 
 	return {
 		getVideos : function (pageNum) {
@@ -24416,7 +24416,7 @@ angular.module('ngCommongoodApp')
 			var deferred = $q.defer();
 			
 			
-				$resource(baseUrl + 'commongood/videos' + output + '?page=:number').query({number:pageNum},
+				$resource(baseUrl + '?type=works').query(
 
 					function(data) {
 				
@@ -24441,7 +24441,7 @@ angular.module('ngCommongoodApp')
 			var deferred = $q.defer();
 
 			
-				$resource(baseUrl + 'video/:videoId' + output).query({videoId:Id},
+				$resource(baseUrl + '/:videoId').get({videoId:Id},
 
 					function(data) {
 				
@@ -24477,20 +24477,22 @@ angular.module('ngCommongoodApp').filter('aspectRatio', function () {
 
 angular.module('ngCommongoodApp')
 .controller('VideoCtrl', function ($scope, videos, $route, $routeParams, $sanitize, $sce) {
-	$scope.videos = [];
+	$scope.video = $route.current.locals.video;
+
+	console.log($route.current.locals.video);
 
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
-	var videosCollection = $route.current.locals.video;
+	// var videosCollection = '';
 
 
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
-	videosCollection.forEach(function(video) {
-		$scope.videos.push(video);
-	});
+	// videosCollection.forEach(function(video) {
+	// 	$scope.videos.push(video);
+	// });
 
 	
 
@@ -24504,5 +24506,5 @@ angular.module('ngCommongoodApp')
 	/*
 	*	Add the video url to the scope
 	*/
-	$scope.playerUrl = playerUrl($scope.videos[0].id);
+	$scope.playerUrl = playerUrl($scope.video.post_meta.vimeo_id);
 });

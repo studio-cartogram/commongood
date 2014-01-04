@@ -3,8 +3,7 @@
 angular.module('ngCommongoodApp')
 .factory('videos', function ($resource, $q, $timeout) {
 
-	var baseUrl = 'http://vimeo.com/api/v2/';
-	var output = '.json';
+	var baseUrl = '/wp-json.php/posts';
 
 	return {
 		getVideos : function (pageNum) {
@@ -12,7 +11,7 @@ angular.module('ngCommongoodApp')
 			var deferred = $q.defer();
 			
 			
-				$resource(baseUrl + 'commongood/videos' + output + '?page=:number').query({number:pageNum},
+				$resource(baseUrl + '?type=works').query(
 
 					function(data) {
 				
@@ -37,7 +36,7 @@ angular.module('ngCommongoodApp')
 			var deferred = $q.defer();
 
 			
-				$resource(baseUrl + 'video/:videoId' + output).query({videoId:Id},
+				$resource(baseUrl + '/:videoId').get({videoId:Id},
 
 					function(data) {
 				

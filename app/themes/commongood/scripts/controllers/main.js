@@ -7,7 +7,7 @@ cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $lo
 	*	TODO:
 	*	logic for handling page numbers, not sure how to handle this yet.
 	*/
-	$scope.page = $route.current.params.number;
+	//$scope.page = $route.current.params.number;
 
 	if(!$scope.page) {
 		$scope.page = 1;
@@ -17,14 +17,14 @@ cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $lo
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
 	var videosCollection = $route.current.locals.videos;
-
+	console.log(videosCollection);
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
 	videosCollection.forEach(function(videos) {
 		$scope.videos.push(videos);
 	});
-
+	console.log($scope.videos[0].featured_image.attachment_meta.sizes.medium.url);
 	//console.log($scope.videos.length);
 	
 	/*
