@@ -1,9 +1,17 @@
+.view-wrap {
+  display:block;
+  position:relative;
+  overflow:hidden;
+  width:100%;
+}
+
 .ng-enter, 
 .ng-leave
 { 
   @include transition(200ms ease-in all);
-  position: relative;
+  position: absolute;
   display: block;
+  top:0;
 } 
 
 .ng-leave {
