@@ -1,10 +1,17 @@
 'use strict';
 
 angular.module('ngCommongoodApp')
-.controller('VideoCtrl', function ($scope, videos, $route, $routeParams, $sanitize, $sce) {
+.controller('VideoCtrl', function ($scope, $route, player) {
+	/*
+	*	Set the videos on our scope to be the resolve promise from our route.
+	*/
 	$scope.video = $route.current.locals.video;
 
-	console.log($route.current.locals.video);
+	/*
+	*	Add the video url to the scope
+	*/
+	$scope.player = player($scope.video.post_meta.vimeo_id);
+
 
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
@@ -19,17 +26,4 @@ angular.module('ngCommongoodApp')
 	// 	$scope.videos.push(video);
 	// });
 
-	
-
-	/*
-	*	Function to return our safe video url
-	*/
-	var playerUrl = function(videoId) {
-		return	$sce.trustAsResourceUrl( 'http://player.vimeo.com/video/' + videoId + '?autoplay=1&autopause=1&title=0&byline=0&badge=0&portrait=0');;
-	}
-
-	/*
-	*	Add the video url to the scope
-	*/
-	$scope.playerUrl = playerUrl($scope.video.post_meta.vimeo_id);
 });

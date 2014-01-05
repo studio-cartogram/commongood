@@ -1,4 +1,10 @@
 <div class="row">
+	<div class="grid">s
+		<vimeo-video playing="active" player="player"></vimeo-video>
+	</div>	
+</div>
+
+<div class="row">
 	<div class="grid">
 		<div ng-repeat="video in videos " class="palm-one-half lap-one-third desk-one-quarter soft--bottom grid__item" ng-animate=" " >
 			<a class="work-block" href="/video/{{video.ID}}">
@@ -7,7 +13,6 @@
 			</a>
 		</div>
 	</div>	
-	<a ng-show='{{ more }}' ng-click="moreVideos()">More</a>
 </div>
 
 

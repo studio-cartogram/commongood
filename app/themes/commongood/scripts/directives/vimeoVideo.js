@@ -6,8 +6,9 @@ angular.module('ngCommongoodApp')
 		restrict: 'E',
 		replace : true,
 		templateUrl : '/app/themes/commongood/views/directive-vimeo-video.html',
-		scrope : {
-			video: "@"
+		scope : {
+			playing: "=video",
+			player: '=player'
 		}
 	};
 });

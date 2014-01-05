@@ -340,6 +340,7 @@ module.exports = function (grunt) {
 				'<%= yeoman.app %>/scripts/controllers/main.js',
 				'<%= yeoman.app %>/scripts/directives/vimeoVideo.js',
 				'<%= yeoman.app %>/scripts/services/videos.js',
+				'<%= yeoman.app %>/scripts/services/player.js',
 				'<%= yeoman.app %>/scripts/filters/aspectRatio.js',
 				'<%= yeoman.app %>/scripts/controllers/video.js'
 

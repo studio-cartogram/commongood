@@ -1,6 +1,6 @@
 'use strict';
 
-cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $location) {
+cgApp.controller('MainCtrl', function ($scope, videos, $route,  player) {
 	$scope.videos = [];
 	
 	/*
@@ -9,23 +9,29 @@ cgApp.controller('MainCtrl', function ($scope, videos, $routeParams, $route, $lo
 	*/
 	//$scope.page = $route.current.params.number;
 
-	if(!$scope.page) {
-		$scope.page = 1;
-	}
+	// if(!$scope.page) {
+	// 	$scope.page = 1;
+	// }
 	
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
 	var videosCollection = $route.current.locals.videos;
-	console.log(videosCollection);
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
 	videosCollection.forEach(function(videos) {
 		$scope.videos.push(videos);
 	});
-	console.log($scope.videos[0].featured_image.attachment_meta.sizes.medium.url);
-	//console.log($scope.videos.length);
+
+	$scope.active = $scope.videos[0];
+	/*
+	*	Add the video url to the scope
+	*/
+	$scope.player = player($scope.active.post_meta.vimeo_id);
+
+
+	// console.log($scope.videos.length);
 	
 	/*
 	*	TODO:
