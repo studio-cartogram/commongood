@@ -9,7 +9,7 @@
 		<div ng-repeat="video in videos " class="palm-one-half lap-one-third desk-one-quarter soft--bottom grid__item" ng-animate=" " >
 			<a class="work-block" href="/video/{{video.ID}}">
 				<img ng-src="{{video.featured_image.attachment_meta.sizes.medium.url}}" />
-				<h4 class="work-block__text">{{ video.title }}</h4>
+				<h4 class="work-block__text" ng-bind-html="video.title"></h4>
 			</a>
 		</div>
 	</div>	
