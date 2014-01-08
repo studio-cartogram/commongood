@@ -1,7 +1,8 @@
 'use strict';
 
-cgApp.controller('MainCtrl', function ($scope, videos, $route,  player) {
+cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $state, $rootScope) {
 	$scope.videos = [];
+	$scope.vids = [];
 	
 	/*
 	*	TODO:
@@ -16,19 +17,44 @@ cgApp.controller('MainCtrl', function ($scope, videos, $route,  player) {
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
-	var videosCollection = $route.current.locals.videos;
+	var videosCollection = videos.getVideos();
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
-	videosCollection.forEach(function(videos) {
-		$scope.videos.push(videos);
+	videosCollection.then(function(response){
+		
+		response.forEach(function(videos) {
+			$scope.videos.push(videos);
+			$scope.vids.push(videos.ID);
+		});
+		$scope.playing = $scope.videos[0];
+		$scope.player = player.getUrl($scope.playing.post_meta.vimeo_id);
+
+		var where = $scope.vids.indexOf(18);
+		console.log(where);
+
 	});
 
-	$scope.active = $scope.videos[0];
+	console.log($state.current);
+
+
+	$scope.playVideo = function(video) {
+		$scope.playing = video;
+		$scope.player = player.getUrl(video.post_meta.vimeo_id);
+		$state.go('video', {videoId : video.Id});
+	};
+	$rootScope.$on('$stateChangeStart', function(event, toState){ 
+		// var greeting = toState.data.videoId + " " + toState.data.videoId;
+		// console.log(greeting);
+		
+
+	    // Would print "Hello World!" when 'parent' is activated
+	    // Would print "Hello UI-Router!" when 'parent.child' is activated
+	})
 	/*
 	*	Add the video url to the scope
 	*/
-	$scope.player = player($scope.active.post_meta.vimeo_id);
+	
 
 
 	// console.log($scope.videos.length);

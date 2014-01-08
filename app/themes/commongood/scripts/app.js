@@ -5,63 +5,92 @@ var cgApp = angular.module('ngCommongoodApp', [
 	'ngResource',
 	'ngSanitize',
 	'ngRoute',
-	'ngAnimate'
+	'ngAnimate',
+	'ui.router'
 	])
-.config(function ($routeProvider, $locationProvider) {
-	$routeProvider
-	.when('/', {
-		templateUrl: '/app/themes/commongood/views/main.html',
-		controller: 'MainCtrl',
-		resolve: {
-			videos : function($q, $route, videos) {
-				var deferred = $q.defer();
-				videos.getVideos()
-					.then(function(videos) { deferred.resolve(videos); });
+.config(function ($stateProvider, $locationProvider) {
+	var videos = {
+		name: 'videos',
+		url: '/',
+		templateUrl: '/app/themes/commongood/views/videos.html',
+		controller: 'MainCtrl'
+	},
+	video = {
+		name: 'video',
+		url: 'video/:videoId',
+		parent: videos,
+		data:{
+			// customData1 inherited from 'parent'
+	         // but we'll overwrite customData2
+	         customData2:  "UI-Router!"
+	     }
+	 };
 
-				return deferred.promise;
-				}
-			}
-		}
-	)
-	.when('/page/:pageNum', {
-		templateUrl: '/app/themes/commongood/views/main.html',
-		controller: 'MainCtrl',
-		resolve: {
-			videos : function($q, $route, videos) {
-				var deferred = $q.defer();
-				
-				videos.getVideos($route.current.pathParams.pageNum)
-					.then(function(videos) { deferred.resolve(videos); });
+	 $stateProvider.state(videos);
+	 $stateProvider.state(video);
 
-				return deferred.promise;
-				}
-			}
-		}
-	)
-	.when('/video/:videoId', {
-		templateUrl: '/app/themes/commongood/views/video.html',
-		controller: 'VideoCtrl',
-		resolve: {
-			video : function($q, $route, videos) {
-				var deferred = $q.defer();
-				
-				videos.getVideo($route.current.pathParams.videoId)
-					.then(function(video) { deferred.resolve(video); });
 
-				return deferred.promise;
-				}
-			}
-		}
-	)
+	// $routeProvider
+	// .when('/', {
+	// 	templateUrl: '/app/themes/commongood/views/main.html',
+	// 	controller: 'MainCtrl',
+	// 	resolve: {
+	// 		videos : function($q, $route, videos) {
+	// 			var deferred = $q.defer();
+	// 			videos.getVideos()
+	// 				.then(function(videos) { deferred.resolve(videos); });
+
+	// 			return deferred.promise;
+	// 			}
+	// 		}
+	// 	}
+	// )
+	// .when('/page/:pageNum', {
+	// 	templateUrl: '/app/themes/commongood/views/main.html',
+	// 	controller: 'MainCtrl',
+	// 	resolve: {
+	// 		videos : function($q, $route, videos) {
+	// 			var deferred = $q.defer();
+
+	// 			videos.getVideos($route.current.pathParams.pageNum)
+	// 				.then(function(videos) { deferred.resolve(videos); });
+
+	// 			return deferred.promise;
+	// 			}
+	// 		}
+	// 	}
+	// )
+	//.when('/video/:videoId', {
+	//	templateUrl: '/app/themes/commongood/views/video.html',
+	//	controller: 'VideoCtrl',
+		// resolve: {
+		// 	video : function($q, $route, videos) {
+		// 		var deferred = $q.defer();
+
+		// 		videos.getVideo($route.current.pathParams.videoId)
+		// 			.then(function(video) { deferred.resolve(video); });
+
+		// 		return deferred.promise;
+		// 		}
+		// 	}
+		// }
+	//)
 
 	// .when('/page/:number', {
 	// 	templateUrl: 'views/main.html',
 	// 	controller: 'MainCtrl'
 	// })
-	.otherwise({
-		redirectTo: '/'
-	});
-	
-	$locationProvider.html5Mode(true)
+	// .otherwise({
+	// 	redirectTo: '/'
+	// });
+
+$locationProvider.html5Mode(true)
 
 });
+// .run(['$state', function ($state) {
+
+// 	$state.transitionTo('videos'); 
+// }]);
+
+
+

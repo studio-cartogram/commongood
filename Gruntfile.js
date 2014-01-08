@@ -326,7 +326,7 @@ module.exports = function (grunt) {
 				'<%= yeoman.app %>/bower_components/angular-sanitize/angular-sanitize.js',
 				'<%= yeoman.app %>/bower_components/angular-route/angular-route.js',
 				'<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
-				
+				'<%= yeoman.app %>/bower_components/angular-ui-router/release/angular-ui-router.js',
 				// App Modules
 
 				'<%= yeoman.app %>/scripts/Cartogram.js',

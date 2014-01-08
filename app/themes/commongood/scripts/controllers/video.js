@@ -1,16 +1,18 @@
 'use strict';
 
 angular.module('ngCommongoodApp')
-.controller('VideoCtrl', function ($scope, $route, player) {
+.controller('VideoCtrl', function ($scope, videos, $stateParams, player) {
 	/*
 	*	Set the videos on our scope to be the resolve promise from our route.
 	*/
-	$scope.video = $route.current.locals.video;
+	$scope.playing = videos.getVideo($stateParams.videoId);
+	
+	console.log($stateParams.videoId);
 
 	/*
 	*	Add the video url to the scope
 	*/
-	$scope.player = player($scope.video.post_meta.vimeo_id);
+	//$scope.player = player.getUrl($route.current.locals.video.post_meta.vimeo_id[0]);
 
 
 	/*

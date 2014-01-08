@@ -2,22 +2,22 @@
 	<div class="flex-video widescreen vimeo video__player">
 		<iframe src="{{player}}" width="100%" height="360px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
-	<ul class="multi-list soft-half--top four-cols video__meta">
-		<li>
-			<span class="gamma" ng-bind-html="playing.title"></span>
-		</li>
-		<li class="soft--left">
+	<div class="soft--top grid video__meta">
+		<div class="grid__item one-quarter palm-one-half">
+			<span class="gamma" >{{playing.title}}</span>
+		</div><!--
+		--><div class="grid__item one-quarter palm-one-half">
 			<span ng-show="{{ playing.post_meta.agency }}" class="gamma soft-half--right">Agency</span> 
 			<span ng-bind-html="playing.post_meta.agency"></span>
-		</li>
-		<li class="soft--left">
+		</div><!--
+		--><div class="grid__item one-quarter palm-one-half">
 			<span ng-show="{{ playing.post_meta.director }}" class="gamma soft-half--right">Director</span> 
 			<span ng-bind-html="playing.post_meta.director"></span>
-		</li>
-		<li class="soft--left">
+		</div><!--
+		--><div class="grid__item one-quarter palm-one-half">
 			<span ng-show="{{ playing.post_meta.client }}" class="gamma soft-half--right">Client</span> 
 			<span ng-bind-html="playing.post_meta.client"></span>
-		</li>
-	</ul>
+		</div>
+	</div>
 </div>
 
