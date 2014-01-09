@@ -3,17 +3,16 @@
 cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $route) {
 	$scope.videos = [];
 	$scope.vids = [];
+	$scope.ready = false;
 
-	console.log($route.current);
 	$scope.playVideo = function(video) {
-		console.log(video);
 		var id = video.ID;
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
-
-
-		console.log($scope.vids.indexOf(id));
 	};
+			
+	
+	
 	//	$anchorScroll();
 
 
@@ -46,19 +45,42 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
 	//var videosCollection = videos.getVideos();
-	var videosCollection = $route.current.locals.videos;
-	/*
-	*	Iterate over the collection, pushing each item to the scope.
-	*/
+
+	$scope.videosCollection = videos.getVideos();
+
+	$scope.videosCollection.then(function(videos) { 
 		
-	videosCollection.forEach(function(videos) {
-		$scope.videos.push(videos);
-		$scope.vids.push(videos.ID);
+		if ($routeParams.videoId) {
+			$scope.playVideo(videos[$routeParams.videoId]);
+		} else {
+			$scope.playVideo(videos[0]);
+		}
+		$scope.ready = true;
+		
+
+		videos.forEach(function(video) {
+			$scope.videos.push(video);
+			$scope.vids.push(video.ID);
+		});
+
+
+	}, function(status) {
+		
+		console.log(status);
+	
 	});
 
 	
 
-	$scope.playVideo($scope.videos[0]);
+	//var videosCollection = $route.current.locals.videos;
+	/*
+	*	Iterate over the collection, pushing each item to the scope.
+	*/
+		
+	
+
+	
+
 	
 	
 	/*

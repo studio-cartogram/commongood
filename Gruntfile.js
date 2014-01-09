@@ -319,7 +319,7 @@ module.exports = function (grunt) {
 		},
 		dist: {
 			src: [
-
+				'<%= yeoman.app %>/bower_components/jquery/jquery.js',
 				'<%= yeoman.app %>/bower_components/angular/angular.js',
 
 				// Bower Components
@@ -329,6 +329,10 @@ module.exports = function (grunt) {
 				'<%= yeoman.app %>/bower_components/angular-route/angular-route.js',
 				'<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
 				'<%= yeoman.app %>/bower_components/angular-ui-router/release/angular-ui-router.js',
+				
+
+				'<%= yeoman.app %>/bower_components/jquery.easing/js/jquery.easing.js',
+
 				// App Modules
 
 				'<%= yeoman.app %>/scripts/Cartogram.js',
@@ -341,6 +345,7 @@ module.exports = function (grunt) {
 				'<%= yeoman.app %>/scripts/app.js',
 				'<%= yeoman.app %>/scripts/controllers/main.js',
 				'<%= yeoman.app %>/scripts/directives/vimeoVideo.js',
+				'<%= yeoman.app %>/scripts/directives/scrollOnClick.js',
 				'<%= yeoman.app %>/scripts/services/videos.js',
 				'<%= yeoman.app %>/scripts/services/player.js',
 				'<%= yeoman.app %>/scripts/filters/aspectRatio.js',

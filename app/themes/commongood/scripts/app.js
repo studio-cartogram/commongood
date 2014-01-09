@@ -11,16 +11,12 @@ var cgApp = angular.module('ngCommongoodApp', [
 	$routeProvider
 	.when('/', {
 		templateUrl: '/app/themes/commongood/views/main.html',
-		controller: 'MainCtrl',
-		resolve: {
-			videos : function($q, $route, videos) {
-				var deferred = $q.defer();
-				videos.getVideos()
-					.then(function(videos) { deferred.resolve(videos); });
-
-				return deferred.promise;
-				}
-			}
+		controller: 'MainCtrl'
+		}
+	)
+	.when('/video/:videoId', {
+		templateUrl: '/app/themes/commongood/views/main.html',
+		controller: 'MainCtrl'
 		}
 	)
 	.when('/studio', {
