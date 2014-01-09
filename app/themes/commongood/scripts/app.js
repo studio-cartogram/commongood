@@ -10,38 +10,37 @@ var cgApp = angular.module('ngCommongoodApp', [
 	])
 .config(function ($stateProvider, $locationProvider) {
 	var videos = {
-			name: 'videos',
-			url: '/',
-			templateUrl: '/app/themes/commongood/views/videos.html',
-			controller: 'MainCtrl'
-		},
-		video = {
-			name: 'video',
-			url: 'video/:videoId',
-			parent: videos,
-			data:{
-				// customData1 inherited from 'parent'
-		         // but we'll overwrite customData2
-		         customData2:  "UI-Router!"
-		     }
-		 },
-		 contact = {
-		 	name: 'contact',
-			url: '/contact',
-			templateUrl: '/app/themes/commongood/views/contact.html'
+		name: 'videos',
+		url: '/',
+		templateUrl: '/app/themes/commongood/views/videos.html',
+		controller: 'MainCtrl'
+	},
+	video = {
+		name: 'video',
+		url: 'video/:videoId',
+		parent: videos,
+		data:{
+			
+			customData2:  "UI-Router!"
+		}
+	},
+	contact = {
+		name: 'contact',
+		url: '/contact',
+		templateUrl: '/app/themes/commongood/views/contact.html'
 
-		 },
-		 studio = {
-		 	name: 'studio',
-			url: '/studio',
-			templateUrl: '/app/themes/commongood/views/studio.html'
+	},
+	studio = {
+		name: 'studio',
+		url: '/studio',
+		templateUrl: '/app/themes/commongood/views/studio.html'
 
-		 }
+	}
 
-	 $stateProvider.state(videos);
-	 $stateProvider.state(video);
-	 $stateProvider.state(contact);
-	  $stateProvider.state(studio);
+	$stateProvider.state(videos);
+	$stateProvider.state(video);
+	$stateProvider.state(contact);
+	$stateProvider.state(studio);
 
 
 	// $routeProvider

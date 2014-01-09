@@ -20,7 +20,7 @@ p.lead {
     $Inline
 \*------------------------------------*/
 
-strong, b {
+strong, b, .strong {
 	font-weight:normal;
 	font-family: $font-family-bold;
 
@@ -28,6 +28,11 @@ strong, b {
 em, i {
 	font-family: $font-family-italic;
 	font-style: normal;
+}
+
+.text--medium {
+	font-weight:normal;
+	font-family: $font-family-medium;
 }
 
 
