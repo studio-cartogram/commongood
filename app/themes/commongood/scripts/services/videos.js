@@ -52,6 +52,28 @@ angular.module('ngCommongoodApp')
 		
 		return deferred.promise;
 
+		},
+		getPage : function (slug) {
+		
+			var deferred = $q.defer();
+
+			
+				$resource(baseUrl + '/:slug').get({slug:slug},
+
+					function(data) {
+				
+						deferred.resolve(data);
+					
+					}, function(response) {
+				
+						deferred.reject(response);
+
+					}
+				);
+
+		
+		return deferred.promise;
+
 		}
 
 	};			

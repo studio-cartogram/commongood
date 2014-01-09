@@ -13,7 +13,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class('loading main'); ?>  ng-app="ngCommongoodApp">
+<body <?php body_class('loading main'); ?> ng-app="ngCommongoodApp">
 	<!--[if lt IE 7]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -28,3 +28,4 @@
 	<div class="edge" id="right-logo"></div>
 	<div class="edge" id="left-logo"></div>
 	
+	<a id="play"></a>

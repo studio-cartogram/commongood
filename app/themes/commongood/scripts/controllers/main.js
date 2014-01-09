@@ -1,6 +1,6 @@
 'use strict';
 
-cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $state, $rootScope) {
+cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $state, $rootScope, $location, $anchorScroll) {
 	$scope.videos = [];
 	$scope.vids = [];
 	
@@ -33,6 +33,8 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $st
 		var where = $scope.vids.indexOf(18);
 		console.log(where);
 
+
+
 	});
 
 	console.log($state.current);
@@ -42,11 +44,13 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $st
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 		$state.go('video', {videoId : video.Id});
+		$location.hash('playing-'+video.Id);
+		$anchorScroll();
 	};
 	$rootScope.$on('$stateChangeStart', function(event, toState){ 
 		// var greeting = toState.data.videoId + " " + toState.data.videoId;
 		// console.log(greeting);
-		
+
 
 	    // Would print "Hello World!" when 'parent' is activated
 	    // Would print "Hello UI-Router!" when 'parent.child' is activated
