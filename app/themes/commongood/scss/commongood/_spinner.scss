@@ -1,7 +1,8 @@
 .spinner {
-  width: 30px;
-  height: 30px;
-  background-color: #333;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid $navy;
+  border-bottom: 1px solid $navy;
 
   margin: 100px auto;
   -webkit-animation: rotateplane 1.2s infinite ease-in-out;
