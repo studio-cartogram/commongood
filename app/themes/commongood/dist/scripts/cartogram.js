@@ -26204,7 +26204,9 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $st
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 		$state.go('video', {videoId : video.Id});
-		$location.hash('playing-'+video.Id);
+		$location.hash();
+		$location.hash('play');
+		console.log(video);
 		$anchorScroll();
 	};
 	$rootScope.$on('$stateChangeStart', function(event, toState){ 
