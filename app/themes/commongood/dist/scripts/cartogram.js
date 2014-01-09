@@ -35125,6 +35125,7 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 	$scope.ready = false;
 
 	$scope.playVideo = function(video) {
+		
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 	};
@@ -35361,7 +35362,7 @@ angular.module('ngCommongoodApp')
 .factory('player', function ($sanitize, $sce) {
 	return {
 		getUrl : function (videoId) {
-			return	$sce.trustAsResourceUrl( 'http://player.vimeo.com/video/' + videoId + '?autopause=1&title=0&byline=0&badge=0&portrait=0');
+			return	$sce.trustAsResourceUrl( 'http://player.vimeo.com/video/' + videoId + '?autoplay=1&autopause=1&title=0&byline=0&badge=0&portrait=0');
 		}
 	};			
 });

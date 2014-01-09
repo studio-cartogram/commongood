@@ -7,6 +7,7 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 	$scope.ready = false;
 
 	$scope.playVideo = function(video) {
+		
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 	};
