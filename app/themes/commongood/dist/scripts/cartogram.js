@@ -35073,7 +35073,8 @@ var cgApp = angular.module('ngCommongoodApp', [
 	$routeProvider
 	.when('/', {
 		templateUrl: '/app/themes/commongood/views/main.html',
-		controller: 'MainCtrl'
+		controller: 'MainCtrl',
+		reloadOnSearch: false
 		}
 	)
 	.when('/video/:videoId', {
@@ -35110,7 +35111,7 @@ var cgApp = angular.module('ngCommongoodApp', [
 	// 	controller: 'MainCtrl'
 	// })
 	.otherwise({
-		redirectTo: '/video/0'
+		redirectTo: '/'
 	});
 	
 	$locationProvider.html5Mode(true)
@@ -35167,8 +35168,8 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 
 	$scope.videosCollection.then(function(videos) { 
 		
-		if ($routeParams.videoId) {
-			$scope.playVideo(videos[$routeParams.videoId]);
+		if ($routeParams.v) {
+			$scope.playVideo(videos[$routeParams.v]);
 		} else {
 			$scope.playVideo(videos[0]);
 		}

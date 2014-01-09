@@ -50,8 +50,8 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 
 	$scope.videosCollection.then(function(videos) { 
 		
-		if ($routeParams.videoId) {
-			$scope.playVideo(videos[$routeParams.videoId]);
+		if ($routeParams.v) {
+			$scope.playVideo(videos[$routeParams.v]);
 		} else {
 			$scope.playVideo(videos[0]);
 		}

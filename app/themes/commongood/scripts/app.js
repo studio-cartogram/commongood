@@ -11,7 +11,8 @@ var cgApp = angular.module('ngCommongoodApp', [
 	$routeProvider
 	.when('/', {
 		templateUrl: '/app/themes/commongood/views/main.html',
-		controller: 'MainCtrl'
+		controller: 'MainCtrl',
+		reloadOnSearch: false
 		}
 	)
 	.when('/video/:videoId', {
