@@ -21,6 +21,7 @@
 		margin-top:55px;
 		padding-left:$base-spacing-unit;
 		font-family:$font-family-bold;
+		@include font-size(15px);
 		a {
 			padding-bottom:2px;
 			position:relative;
