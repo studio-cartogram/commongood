@@ -26034,116 +26034,91 @@ var cgApp = angular.module('ngCommongoodApp', [
 	'ngResource',
 	'ngSanitize',
 	'ngRoute',
-	'ngAnimate',
-	'ui.router'
+	'ngAnimate'
 	])
-.config(function ($stateProvider, $locationProvider) {
-	var videos = {
-		name: 'videos',
-		url: '/',
-		templateUrl: '/app/themes/commongood/views/videos.html',
-		controller: 'MainCtrl'
-	},
-	video = {
-		name: 'video',
-		url: 'video/:videoId',
-		parent: videos,
-		data:{
+.config(function ($routeProvider, $locationProvider) {
+	$routeProvider
+	.when('/', {
+		templateUrl: '/app/themes/commongood/views/main.html',
+		controller: 'MainCtrl',
+		resolve: {
+			videos : function($q, $route, videos) {
+				var deferred = $q.defer();
+				videos.getVideos()
+					.then(function(videos) { deferred.resolve(videos); });
 
-			customData2:  "UI-Router!"
+				return deferred.promise;
+				}
+			}
 		}
-	},
-	contact = {
-		name: 'contact',
-		url: '/contact',
-		templateUrl: '/app/themes/commongood/views/contact.html'
-
-	},
-	studio = {
-		name: 'studio',
-		url: '/studio',
+	)
+	.when('/studio', {
 		templateUrl: '/app/themes/commongood/views/studio.html'
-
-	}
-
-	$stateProvider.state(videos);
-	$stateProvider.state(video);
-	$stateProvider.state(contact);
-	$stateProvider.state(studio);
-
-
-	// $routeProvider
-	// .when('/', {
-	// 	templateUrl: '/app/themes/commongood/views/main.html',
-	// 	controller: 'MainCtrl',
+		}
+	)
+	.when('/contact', {
+		templateUrl: '/app/themes/commongood/views/contact.html'
+		}
+	)
+	// .when('/video/:videoId', {
+	// 	templateUrl: '/app/themes/commongood/views/video.html',
+	// 	controller: 'VideoCtrl',
 	// 	resolve: {
-	// 		videos : function($q, $route, videos) {
+	// 		video : function($q, $route, videos) {
 	// 			var deferred = $q.defer();
-	// 			videos.getVideos()
-	// 				.then(function(videos) { deferred.resolve(videos); });
+				
+	// 			videos.getVideo($route.current.pathParams.videoId)
+	// 				.then(function(video) { deferred.resolve(video); });
 
 	// 			return deferred.promise;
 	// 			}
 	// 		}
 	// 	}
 	// )
-	// .when('/page/:pageNum', {
-	// 	templateUrl: '/app/themes/commongood/views/main.html',
-	// 	controller: 'MainCtrl',
-	// 	resolve: {
-	// 		videos : function($q, $route, videos) {
-	// 			var deferred = $q.defer();
-
-	// 			videos.getVideos($route.current.pathParams.pageNum)
-	// 				.then(function(videos) { deferred.resolve(videos); });
-
-	// 			return deferred.promise;
-	// 			}
-	// 		}
-	// 	}
-	// )
-	//.when('/video/:videoId', {
-	//	templateUrl: '/app/themes/commongood/views/video.html',
-	//	controller: 'VideoCtrl',
-		// resolve: {
-		// 	video : function($q, $route, videos) {
-		// 		var deferred = $q.defer();
-
-		// 		videos.getVideo($route.current.pathParams.videoId)
-		// 			.then(function(video) { deferred.resolve(video); });
-
-		// 		return deferred.promise;
-		// 		}
-		// 	}
-		// }
-	//)
 
 	// .when('/page/:number', {
 	// 	templateUrl: 'views/main.html',
 	// 	controller: 'MainCtrl'
 	// })
-	// .otherwise({
-	// 	redirectTo: '/'
-	// });
+	.otherwise({
+		redirectTo: '/'
+	});
+	
+	$locationProvider.html5Mode(true)
 
-$locationProvider.html5Mode(true)
+});;'use strict';
 
-}).run(['$rootScope', '$state', '$stateParams',	function ($rootScope, $state, $stateParams) {
-	// It's very handy to add references to $state and $stateParams to the $rootScope
-	// so that you can access them from any scope within your applications.For example,
-	// <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-	// to active whenever 'contacts.list' or one of its decendents is active.
-	$rootScope.$state = $state;
-	$rootScope.$stateParams = $stateParams;
-}]);
-
-
-
-;'use strict';
-
-cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $state, $rootScope, $location, $anchorScroll) {
+cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $route) {
 	$scope.videos = [];
 	$scope.vids = [];
+
+	console.log($route.current);
+	$scope.playVideo = function(video) {
+		console.log(video);
+		var id = video.ID;
+		$scope.playing = video;
+		$scope.player = player.getUrl(video.post_meta.vimeo_id);
+
+
+		console.log($scope.vids.indexOf(id));
+	};
+	//	$anchorScroll();
+
+
+	// 	$state.go('video', {videoId : video.Id});
+	// 	
+	// 	
+	// 	
+	// 	
+	// };
+	// $rootScope.$on('$stateChangeStart', function(event, toState){ 
+	// 	// var greeting = toState.data.videoId + " " + toState.data.videoId;
+	// 	// console.log(greeting);
+
+
+	//     // Would print "Hello World!" when 'parent' is activated
+	//     // Would print "Hello UI-Router!" when 'parent.child' is activated
+	
 	
 	/*
 	*	TODO:
@@ -26158,46 +26133,22 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $stateParams, $st
 	/*
 	*	Set the video Collection to be the resolve promise from our route.
 	*/
-	var videosCollection = videos.getVideos();
+	//var videosCollection = videos.getVideos();
+	var videosCollection = $route.current.locals.videos;
 	/*
 	*	Iterate over the collection, pushing each item to the scope.
 	*/
-	videosCollection.then(function(response){
 		
-		response.forEach(function(videos) {
-			$scope.videos.push(videos);
-			$scope.vids.push(videos.ID);
-		});
-		$scope.playing = $scope.videos[0];
-		$scope.player = player.getUrl($scope.playing.post_meta.vimeo_id);
-
-		var where = $scope.vids.indexOf(18);
-		console.log(where);
-
-
-
+	videosCollection.forEach(function(videos) {
+		$scope.videos.push(videos);
+		$scope.vids.push(videos.ID);
 	});
 
-	console.log($state.current);
+	
 
-
-	$scope.playVideo = function(video) {
-		$scope.playing = video;
-		$scope.player = player.getUrl(video.post_meta.vimeo_id);
-		$state.go('video', {videoId : video.Id});
-		$location.hash();
-		$location.hash('play');
-		console.log(video);
-		$anchorScroll();
-	};
-	$rootScope.$on('$stateChangeStart', function(event, toState){ 
-		// var greeting = toState.data.videoId + " " + toState.data.videoId;
-		// console.log(greeting);
-
-
-	    // Would print "Hello World!" when 'parent' is activated
-	    // Would print "Hello UI-Router!" when 'parent.child' is activated
-	})
+	$scope.playVideo($scope.videos[0]);
+	
+	
 	/*
 	*	Add the video url to the scope
 	*/

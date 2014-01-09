@@ -17,10 +17,11 @@ echo '<div class="row row--dashed row--dashed--bottom header push-half--bottom">
 		echo '<div class="grid__item  one-whole">';
 			//wp_nav_menu( $navGlobal );
 			echo '<ul class="nav nav--global">';?>
-				<li><a ui-sref="videos" ng-class="{ active: $state.includes('videos') }">Work</a></li>
-				<li><a ui-sref="studio" ng-class="{ active: $state.includes('studio') }">Studio</a></li>
-				<li><a ui-sref="contact" ng-class="{ active: $state.includes('contact') }">Contact</a></li>
-		<?php echo '</div>';	
+				<li><a ng-href="/" >Work</a></li>
+				<li><a ng-href="/studio" >Studio</a></li>
+				<li><a ng-href="/contact">Contact</a></li>
+		<?php echo '</ul>';
+		echo '</div>';	
 	echo '</div>';
 echo '</div>';
 

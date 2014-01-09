@@ -29,7 +29,9 @@ module.exports = function (grunt) {
 	watch: {
 		js: {
 			files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-			tasks: ['newer:jshint:all', 'ngmin', 'concat', 'uglify']
+			// tasks: ['newer:jshint:all', 'ngmin', 'concat', 'uglify']
+			tasks: ['ngmin', 'concat', 'uglify']
+
 		},
 		jsTest: {
 			files: ['test/spec/{,*/}*.js'],
