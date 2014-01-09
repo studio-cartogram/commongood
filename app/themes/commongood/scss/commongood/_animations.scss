@@ -2,7 +2,7 @@
 .ng-enter, 
 .ng-leave
 { 
-  @include transition(200ms ease-in all);
+  @include transition(300ms ease-in all);
 } 
 
 .ng-leave {

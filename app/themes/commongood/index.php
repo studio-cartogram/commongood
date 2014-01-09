@@ -8,7 +8,7 @@ get_template_part('part-head');
 get_header();
 ?>
 	<!-- Add your site or application content here -->
-	<ui-view>
+	<ui-view ng-animate="">
         <span class="text--center loading">Loading</span>
     </ui-view>
     
