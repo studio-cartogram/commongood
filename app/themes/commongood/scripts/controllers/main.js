@@ -3,10 +3,10 @@
 cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $route) {
 	$scope.videos = [];
 	$scope.vids = [];
+	$scope.vs = [];
 	$scope.ready = false;
 
 	$scope.playVideo = function(video) {
-		var id = video.ID;
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 	};
@@ -49,19 +49,31 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 	$scope.videosCollection = videos.getVideos();
 
 	$scope.videosCollection.then(function(videos) { 
-		
-		if ($routeParams.v) {
-			$scope.playVideo(videos[$routeParams.v]);
-		} else {
-			$scope.playVideo(videos[0]);
-		}
-		$scope.ready = true;
-		
-
+	
 		videos.forEach(function(video) {
 			$scope.videos.push(video);
 			$scope.vids.push(video.ID);
+			$scope.vs.push(video.slug);
 		});
+
+		console.log($routeParams.vid);
+		console.log($routeParams.v);
+		console.log($scope.vs.indexOf($routeParams.v));
+		console.log($scope.vids.indexOf($routeParams.vid));
+		console.log($scope.vs);
+		console.log($scope.vids);
+
+		$scope.router = 0;
+
+		if ($routeParams.v) {
+			$scope.router = $scope.vs.indexOf($routeParams.v);
+		} else {
+			$scope.router = 0;
+		}
+
+		$scope.ready = true;
+		$scope.playVideo(videos[$scope.router]);
+
 
 
 	}, function(status) {
