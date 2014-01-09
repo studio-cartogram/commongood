@@ -9,7 +9,7 @@ get_header();
 ?>
 	<!-- Add your site or application content here -->
 	<ui-view>
-        <span class="loading">Loading</span>
+        <span class="text--center loading">Loading</span>
     </ui-view>
     
 <?php
