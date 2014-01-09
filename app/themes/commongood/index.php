@@ -8,9 +8,9 @@ get_template_part('part-head');
 get_header();
 ?>
 	<!-- Add your site or application content here -->
-	<ui-view>
-        <i>Loading</i>
-    </ui-view>
+	<div class="view-wrap">
+		<div class="container" ng-view="" ng-animate=""></div>
+	</div>
     
 <?php
 get_footer();

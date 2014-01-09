@@ -1,6 +1,4 @@
 body {
-	margin:0 !important;
-	height:100%;
 	color:$navy;
 	background:$grey;
 	overflow-x:hidden;
@@ -55,32 +53,31 @@ html {
 /* edges 
 -----------------------------------------------------------------------------*/
 
-#left, #right, #right-logo, #left-logo {
-	background: black;
-	opacity:1;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	width: 88px;
+body {
+  	@include background-image(linear-gradient(left, $white, $grey 25%, $grey 75%, $white 100%));
+	&:before, &:after {
+		content:' ';
+		top:0;
+		bottom:0;
+		position:fixed;
+		background-position:center center;
+		width:49px;
+		background-repeat:no-repeat;
+	}
+
+	&:before {
+		left:-24px;
+		z-index:-1;
+		background-image: url(../images/logo-sides.png);
+	}
+	
+	&:after {
+		right:-24px;
+		z-index:-1;
+		background-image: url(../images/logo-sides.png);
+	}
 }
-#left, #right {
-	opacity:0.5;
-}
-#left {
-	left: 0;
-	background: url(../images/left.png) left center repeat-y;
-}
-#right {
-	right: 0;
-	background: url(../images/right.png) right center repeat-y;
-}
-#right-logo {
-	background:url("../images/logo-sides.png") no-repeat scroll left center transparent;
-	right:0;
-	width:25px;
-}
-#left-logo {
-	background:url("../images/logo-sides.png") no-repeat scroll right center transparent;
-	left:0;
-	width:25px;
+
+.flex-video.widescreen {
+	padding-bottom: 56.4%;
 }

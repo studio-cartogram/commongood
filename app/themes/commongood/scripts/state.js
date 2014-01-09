@@ -12,16 +12,16 @@ var cgApp = angular.module('ngCommongoodApp', [
 	.when('/', {
 		templateUrl: '/app/themes/commongood/views/main.html',
 		controller: 'MainCtrl'
-		// resolve: {
-		// 	videos : function($q, $route, videos) {
-		// 		var deferred = $q.defer();
-		// 		videos.getVideos()
-		// 			.then(function(videos) { deferred.resolve(videos); });
+		resolve: {
+			videos : function($q, $route, videos) {
+				var deferred = $q.defer();
+				videos.getVideos()
+					.then(function(videos) { deferred.resolve(videos); });
 
-		// 		return deferred.promise;
-		// 		}
-		// 	}
-		// }
+				return deferred.promise;
+				}
+			}
+		}
 	)
 	.when('/page/:pageNum', {
 		templateUrl: '/app/themes/commongood/views/main.html',

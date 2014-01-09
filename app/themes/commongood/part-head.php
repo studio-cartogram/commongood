@@ -23,9 +23,5 @@
 		<script src="bower_components/json3/lib/json3.min.js"></script>
 	<![endif]-->
 
-	<div class="edge" id="left"></div>
-	<div class="edge" id="right"></div>
-	<div class="edge" id="right-logo"></div>
-	<div class="edge" id="left-logo"></div>
 	
 	<a id="play"></a>
