@@ -1,23 +1,25 @@
 <div class="video one-whole grid__item " >
-	<div class="flex-video widescreen vimeo video__player">
+	<div class="flex-video widescreen vimeo video__player ">
 		<iframe src="{{player}}" width="100%" height="360px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
-	<div class="soft--top soft--bottom grid video__meta">
-		<div class="grid__item one-quarter palm-one-half">
-			<h3 class="flush--bottom" ng-bind-html="playing.title" ></h3>
-		</div><!--
-		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right" ng-show="playing.post_meta.agency">Agency</span> 
-			<span ng-bind-html="playing.post_meta.agency"></span>
-		</div><!--
-		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right" ng-show="playing.post_meta.director">Director</span> 
-			<span ng-bind-html="playing.post_meta.director"></span>
-		</div><!--
-		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right" ng-show="playing.post_meta.client">Client</span> 
-			<span ng-bind-html="playing.post_meta.client"></span>
-		</div>
-	</div>
+	<div class="grid grid--full row--dashed row--dashed--meta">
+		<div class="soft--top soft--bottom grid video__meta">
+			<div class="grid__item one-quarter palm-one-half">
+				<h3 class="flush--bottom" ng-bind-html="playing.title" ></h3>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span  class="gamma soft-half--right" ng-show="playing.post_meta.agency">Agency</span> 
+				<span ng-bind-html="playing.post_meta.agency"></span>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span  class="gamma soft-half--right" ng-show="playing.post_meta.director">Director</span> 
+				<span ng-bind-html="playing.post_meta.director"></span>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span  class="gamma soft-half--right" ng-show="playing.post_meta.client">Client</span> 
+				<span ng-bind-html="playing.post_meta.client"></span>
+			</div>
+		</div>	
+	</div>	
 </div>
 

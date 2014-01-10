@@ -14,6 +14,7 @@ html {
 	max-width:$site-width;
 	margin:auto;
 	padding:0 $half-spacing-unit;
+
 	
 }
 
@@ -40,6 +41,14 @@ html {
 		&:after, &:before {
 			top:auto;
 			bottom:0;
+		}
+	}
+	&.row--dashed--meta {
+		&:before {
+			@include transform(translateX(-14px));
+		}
+		&:after {
+			@include transform(translateX(14px));
 		}
 	}
 }
