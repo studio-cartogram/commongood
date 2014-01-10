@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngCommongoodApp')
-.factory('videos', function ($resource, $q, $timeout) {
+.factory('videos', function ($resource, $q) {
 
 	var baseUrl = '/wp-json.php/posts';
 

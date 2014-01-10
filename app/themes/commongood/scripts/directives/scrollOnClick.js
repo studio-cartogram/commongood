@@ -9,13 +9,11 @@ angular.module('ngCommongoodApp')
 			$elm.on('click', function() {
 				var $target;
 				if (idToScroll) {
-					$target = $(idToScroll);
+					$target = $(idToScroll).offset().top;
 				} else {
-					$target = $elm;
+					$target = 0;
 				}
-				
-				$("body, html").animate({scrollTop: 0},  650, 'easeInOutExpo');
-				
+				$("body, html").animate({scrollTop: $target}, 450, 'easeInOutExpo');
 			});
 		}
 	}

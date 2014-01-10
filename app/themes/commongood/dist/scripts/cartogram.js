@@ -35118,14 +35118,14 @@ var cgApp = angular.module('ngCommongoodApp', [
 
 });;'use strict';
 
-cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $route) {
+cgApp.controller('MainCtrl', function ($scope, videos,  player, $routeParams) {
 	$scope.videos = [];
 	$scope.vids = [];
 	$scope.vs = [];
 	$scope.ready = false;
 
 	$scope.playVideo = function(video) {
-		
+
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 	};
@@ -35173,6 +35173,10 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 			$scope.videos.push(video);
 			$scope.vids.push(video.ID);
 			$scope.vs.push(video.slug);
+			
+
+			
+		
 		});
 
 		console.log($routeParams.vid);
@@ -35266,20 +35270,18 @@ angular.module('ngCommongoodApp')
 			$elm.on('click', function() {
 				var $target;
 				if (idToScroll) {
-					$target = $(idToScroll);
+					$target = $(idToScroll).offset().top;
 				} else {
-					$target = $elm;
+					$target = 0;
 				}
-				
-				$("body, html").animate({scrollTop: 0},  650, 'easeInOutExpo');
-				
+				$("body, html").animate({scrollTop: $target}, 450, 'easeInOutExpo');
 			});
 		}
 	}
 });;'use strict';
 
 angular.module('ngCommongoodApp')
-.factory('videos', function ($resource, $q, $timeout) {
+.factory('videos', function ($resource, $q) {
 
 	var baseUrl = '/wp-json.php/posts';
 

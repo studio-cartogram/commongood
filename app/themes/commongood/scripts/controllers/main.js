@@ -1,13 +1,13 @@
 'use strict';
 
-cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $route) {
+cgApp.controller('MainCtrl', function ($scope, videos,  player, $routeParams) {
 	$scope.videos = [];
 	$scope.vids = [];
 	$scope.vs = [];
 	$scope.ready = false;
 
 	$scope.playVideo = function(video) {
-		
+
 		$scope.playing = video;
 		$scope.player = player.getUrl(video.post_meta.vimeo_id);
 	};
@@ -55,6 +55,10 @@ cgApp.controller('MainCtrl', function ($scope, videos, player, $routeParams, $ro
 			$scope.videos.push(video);
 			$scope.vids.push(video.ID);
 			$scope.vs.push(video.slug);
+			
+
+			
+		
 		});
 
 		console.log($routeParams.vid);

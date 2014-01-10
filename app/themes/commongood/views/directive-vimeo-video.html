@@ -7,15 +7,15 @@
 			<h3 class="flush--bottom" ng-bind-html="playing.title" ></h3>
 		</div><!--
 		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right">Agency</span> 
+			<span  class="gamma soft-half--right" ng-show="playing.post_meta.agency">Agency</span> 
 			<span ng-bind-html="playing.post_meta.agency"></span>
 		</div><!--
 		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right">Director</span> 
+			<span  class="gamma soft-half--right" ng-show="playing.post_meta.director">Director</span> 
 			<span ng-bind-html="playing.post_meta.director"></span>
 		</div><!--
 		--><div class="grid__item one-quarter palm-one-half">
-			<span  class="gamma soft-half--right">Client</span> 
+			<span  class="gamma soft-half--right" ng-show="playing.post_meta.client">Client</span> 
 			<span ng-bind-html="playing.post_meta.client"></span>
 		</div>
 	</div>
