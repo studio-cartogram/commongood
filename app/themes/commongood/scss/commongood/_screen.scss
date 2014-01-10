@@ -80,3 +80,21 @@ body {
 .flex-video.widescreen {
 	padding-bottom: 56.4%;
 }
+
+
+#map {
+	background:$black;
+	@include transition(all .3s ease);  
+	overflow:hidden;
+	height:350px;
+	position:relative;
+	background-image: url(../images/map.jpg);
+
+	&.showmap {
+		overflow:visible;
+		height:350px;
+		@include opacity(1);    
+		@include transition(all .3s ease);  
+	}
+}
+

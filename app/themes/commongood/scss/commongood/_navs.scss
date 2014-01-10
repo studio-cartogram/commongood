@@ -23,30 +23,7 @@
 		font-family:$font-family-bold;
 		@include font-size(15px);
 		a {
-			padding-bottom:2px;
-			position:relative;
-			border:none;
-			z-index: 1;
-			&:after {
-				bottom:0;
-				left:0;
-				right:0;
-				content:'';
-				position:absolute;
-				height:0px;
-				background:$navy;
-				opacity:0;
-				z-index: 0;
-				@include transition(all .2s);
-				@include transform(translate(0, -3px));
-			}
-			&:hover:after, &.active:after {	
-				opacity:1;
-				height:2px;
-				@include transition(all .2s);	
-				@include transform(translate(0%, 0));
-			}
-			
+			@extend .link--secondary;
 		}
 	}
 	@include media-query(palm) {

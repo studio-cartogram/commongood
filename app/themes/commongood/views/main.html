@@ -8,7 +8,7 @@
 	<div class="grid">
 		<div ng-repeat="video in videos " class="palm-one-half lap-one-third desk-one-quarter soft--bottom grid__item" >
 			<a class="work-block" scroll-on-click ng-href="/?v={{video.slug}}" ng-click="playVideo(video)">
-				<img ng-src="{{video.post_meta.thumbnail}}" />
+				<img class="img--block" ng-src="{{video.post_meta.thumbnail}}" />
 				<h4 class="work-block__text" ng-bind-html="video.title"></h4>
 			</a>
 		</div>
