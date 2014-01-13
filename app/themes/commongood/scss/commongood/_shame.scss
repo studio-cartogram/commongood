@@ -1,6 +1,9 @@
 .work-block {
 	position:relative;
 	display:block;
+	height:104px;
+	background-size:cover;
+	background-position:center center;
 	&:hover .work-block__text, &.active .work-block__text{
 		@include transition(opacity 0.2s ease);
 		@include opacity(1);

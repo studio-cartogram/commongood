@@ -35179,12 +35179,12 @@ cgApp.controller('MainCtrl', function ($scope, videos,  player, $routeParams) {
 		
 		});
 
-		console.log($routeParams.vid);
-		console.log($routeParams.v);
-		console.log($scope.vs.indexOf($routeParams.v));
-		console.log($scope.vids.indexOf($routeParams.vid));
-		console.log($scope.vs);
-		console.log($scope.vids);
+		// console.log($routeParams.vid);
+		// console.log($routeParams.v);
+		// console.log($scope.vs.indexOf($routeParams.v));
+		// console.log($scope.vids.indexOf($routeParams.vid));
+		// console.log($scope.vs);
+		// console.log($scope.vids);
 
 		$scope.router = 0;
 

@@ -58,6 +58,10 @@ html {
 	margin-bottom:0;
 }
 
+.video__meta {
+	margin-left:-$base-spacing-unit !important;
+}
+
 /* edges 
 -----------------------------------------------------------------------------*/
 
@@ -87,7 +91,7 @@ body {
 }
 
 .flex-video.widescreen {
-	padding-bottom: 56.4%;
+	padding-bottom: 56.3%;
 }
 
 
