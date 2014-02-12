@@ -13,7 +13,7 @@
 	<meta property="og:title" content="Common Good">
 	<meta property="og:locale" content="en_CA">
 	<link rel="shortcut icon" href="/favicon.ico">
-	<meta property="og:url" content="<?php the_permalink() ?>"/>
+	<meta property="og:url" ng-href="/?v={{video.slug}}" content="http://commongood.ca/?v={{video.slug}}"/>
 	<meta property="og:image" content="<img ng-src="{{video.featured_image.attachment_meta.sizes.medium.url}}" />" /> 
 	<meta property="og:site_name" content="<?php bloginfo('name'); ?>" />  
 	<meta property="og:description" content="<?php bloginfo('description'); ?>" />  
