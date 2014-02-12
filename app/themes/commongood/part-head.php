@@ -10,7 +10,14 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
+	<meta property="og:title" content="Common Good">
+	<meta property="og:locale" content="en_CA">
 	<link rel="shortcut icon" href="/favicon.ico">
+	<meta property="og:url" content="<?php the_permalink() ?>"/>
+	<meta property="og:image" content="<img ng-src="{{video.featured_image.attachment_meta.sizes.medium.url}}" />" /> 
+	<meta property="og:site_name" content="<?php bloginfo('name'); ?>" />  
+	<meta property="og:description" content="<?php bloginfo('description'); ?>" />  
+	<meta property="og:type" content="website" /> 
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class('loading main'); ?> ng-app="ngCommongoodApp">
