@@ -86,6 +86,7 @@
 	*/
 
 	add_theme_support('post-thumbnails');
+	
 	add_image_size('img-medium',500, 500, true);
 	add_image_size('img-small',350, 200, true);
 	add_image_size('img-featured',2000, 500, true);
@@ -94,6 +95,8 @@
 
 	add_image_size('img-mast',2000, 400, true);
 	add_image_size('img-banner',1000, 600, true);
+
+	
 
 	
 	/* ========================================================================================================================
