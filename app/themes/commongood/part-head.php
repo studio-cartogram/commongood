@@ -15,7 +15,7 @@
 	<meta property="og:site_name" content="Common Good" />
 	<meta property="og:title" content="Common Good" />
 	<meta property="og:url" content="http://www.commongood.tv/" />
-	<link rel="canonical" href="{{videoId}}" />
+	<link rel="canonical" href="http://www.commongood.tv/?v={{video.slug}}" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
