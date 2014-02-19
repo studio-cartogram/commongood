@@ -10,6 +10,8 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
+	<meta property="og:title" content="Common Good">
+	<meta property="og:locale" content="en_CA">
 	<link rel="shortcut icon" href="/favicon.ico">
 	<?php wp_head(); ?>
 </head>
