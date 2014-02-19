@@ -20,6 +20,7 @@
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
+	<meta property="og:image" content="<?php if (function_exists(wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium'); }?>" />
 	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 
 	<link rel="shortcut icon" href="/favicon.ico">
