@@ -15,17 +15,18 @@
 	<meta property="og:site_name" content="Common Good" />
 	<meta property="og:title" content="Common Good" />
 	<meta property="og:url" content="http://www.commongood.tv/" />
-	<link rel="canonical" href="http://www.commongood.tv/?v=video.slug" />
+	<link rel="canonical" href="http://www.commongood.tv/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
-	preg_match('/<meta property="og:image" content="(.*?)" \/>/', $source, $matches);
+	<meta property="og:image" content="http://www.commongood.tv/" />
 	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 
 	<link rel="shortcut icon" href="/favicon.ico">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class('loading main'); ?> ng-app="ngCommongoodApp">
+
 	<!--[if lt IE 7]>
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
