@@ -19,7 +19,6 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
-	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 	<?php $fb_image = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID() ), 'thumbnail'); ?>
     <?php if ($fb_image) : ?>
     	<meta property="og:image" content="<?php echo $fb_image[0]; ?>" />
