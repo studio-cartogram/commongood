@@ -19,7 +19,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
-	<meta property="og:image" content="{{video.featured_image.attachment_meta.sizes.medium.url}}" />
+	preg_match('/<meta property="og:image" content="(.*?)" \/>/', $source, $matches);
 	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 
 	<link rel="shortcut icon" href="/favicon.ico">
