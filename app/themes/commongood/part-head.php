@@ -10,7 +10,7 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 	<meta name="description" content="A Canadian Directing Collective.">
 	<meta name="viewport" content="width=device-width">
-	<meta property="og:locale" content="en_US">
+	<!-- <meta property="og:locale" content="en_US">
 	<meta property="fb:app_id" content="729898417042523" />
 	<meta property="og:site_name" content="Common Good" />
 	<meta property="og:title" content="Common Good" />
@@ -20,7 +20,7 @@
 	<meta property="og:description" content="A Canadian Directing Collective." />
 	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
 	<meta property="og:image" content="{{video.featured_image.attachment_meta.sizes.medium.url}}" />
-	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
+	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" /> -->
 
 	<link rel="shortcut icon" href="/favicon.ico">
 	<?php wp_head(); ?>
