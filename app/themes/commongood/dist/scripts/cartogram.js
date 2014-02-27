@@ -35280,34 +35280,40 @@ angular.module('ngCommongoodApp')
 	}
 });;'use strict';
 
-angular.module('ngCommongoodApp')
-.factory('videos', function ($resource, $q) {
 
-	var baseUrl = '/wp-json.php/posts';
+angular.module('ngCommongoodApp').factory('videos', function ($resource, $q, $cacheFactory) {
 
+	var baseUrl = '/wp-json.php/posts',
+		cache = $cacheFactory('videos');
+	
 	return {
-		getVideos : function (pageNum) {
+		getVideos : function () {
 		
-			var deferred = $q.defer();
-			
-			
-				$resource(baseUrl + '?type=works').query(
-
-					function(data) {
+			var deferred = $q.defer(),
+				cachedVideos = cache.get('videos');
 				
-						deferred.resolve(data);
+				if (!cachedVideos) {
 				
-					}, function(response) {
-				
-						deferred.reject(response);
+					$resource(baseUrl + '?type=works').query(
 
-					}
-				);
+						function(data) {
+					
+							deferred.resolve(data);
+					
+						}, function(response) {
+					
+							deferred.reject(response);
 
+						}
+					);
 
+					cachedVideos = deferred.promise;
+
+					cache.put('videos', cachedVideos);
+
+				}
 		
-		
-		return deferred.promise;
+		return cachedVideos;
 
 		},
 
