@@ -21,33 +21,15 @@ var cgApp = angular.module('ngCommongoodApp', [
 		}
 	)
 	.when('/studio', {
-		templateUrl: '/app/themes/commongood/views/studio.html'
+		templateUrl: '/app/themes/commongood/views/studio.html',
+		controller: 'StudioCtrl'
 		}
 	)
 	.when('/contact', {
-		templateUrl: '/app/themes/commongood/views/contact.html'
+		templateUrl: '/app/themes/commongood/views/contact.html',
+		controller: 'ContactCtrl'
 		}
 	)
-	// .when('/video/:videoId', {
-	// 	templateUrl: '/app/themes/commongood/views/video.html',
-	// 	controller: 'VideoCtrl',
-	// 	resolve: {
-	// 		video : function($q, $route, videos) {
-	// 			var deferred = $q.defer();
-				
-	// 			videos.getVideo($route.current.pathParams.videoId)
-	// 				.then(function(video) { deferred.resolve(video); });
-
-	// 			return deferred.promise;
-	// 			}
-	// 		}
-	// 	}
-	// )
-
-	// .when('/page/:number', {
-	// 	templateUrl: 'views/main.html',
-	// 	controller: 'MainCtrl'
-	// })
 	.otherwise({
 		redirectTo: '/'
 	});

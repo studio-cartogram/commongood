@@ -3,18 +3,20 @@
 
 angular.module('ngCommongoodApp').factory('videos', function ($resource, $q, $cacheFactory) {
 
-	var baseUrl = '/wp-json.php/posts',
-		cache = $cacheFactory('videos');
+	var baseUrl = '/wp-json.php/',
+		cache = $cacheFactory('videos'),
+		requestType;
 	
 	return {
 		getVideos : function () {
 		
 			var deferred = $q.defer(),
-				cachedVideos = cache.get('videos');
+				cachedVideos = cache.get('videos'),
+				requestType = "posts";
 				
 				if (!cachedVideos) {
 				
-					$resource(baseUrl + '?type=works').query(
+					$resource(baseUrl + requestType + '?type=works').query(
 
 						function(data) {
 					
@@ -61,10 +63,11 @@ angular.module('ngCommongoodApp').factory('videos', function ($resource, $q, $ca
 		},
 		getPage : function (slug) {
 		
-			var deferred = $q.defer();
+			var deferred = $q.defer(),
+				requestType = "pages";
 
 			
-				$resource(baseUrl + '/:slug').get({slug:slug},
+				$resource(baseUrl + requestType +'/:slug').get({slug:slug},
 
 					function(data) {
 				

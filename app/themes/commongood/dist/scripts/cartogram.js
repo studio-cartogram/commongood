@@ -35083,33 +35083,15 @@ var cgApp = angular.module('ngCommongoodApp', [
 		}
 	)
 	.when('/studio', {
-		templateUrl: '/app/themes/commongood/views/studio.html'
+		templateUrl: '/app/themes/commongood/views/studio.html',
+		controller: 'StudioCtrl'
 		}
 	)
 	.when('/contact', {
-		templateUrl: '/app/themes/commongood/views/contact.html'
+		templateUrl: '/app/themes/commongood/views/contact.html',
+		controller: 'ContactCtrl'
 		}
 	)
-	// .when('/video/:videoId', {
-	// 	templateUrl: '/app/themes/commongood/views/video.html',
-	// 	controller: 'VideoCtrl',
-	// 	resolve: {
-	// 		video : function($q, $route, videos) {
-	// 			var deferred = $q.defer();
-				
-	// 			videos.getVideo($route.current.pathParams.videoId)
-	// 				.then(function(video) { deferred.resolve(video); });
-
-	// 			return deferred.promise;
-	// 			}
-	// 		}
-	// 	}
-	// )
-
-	// .when('/page/:number', {
-	// 	templateUrl: 'views/main.html',
-	// 	controller: 'MainCtrl'
-	// })
 	.otherwise({
 		redirectTo: '/'
 	});
@@ -35247,6 +35229,52 @@ cgApp.controller('MainCtrl', function ($scope, videos,  player, $routeParams) {
 });
 ;'use strict';
 
+cgApp.controller('StudioCtrl', function ($scope, videos, $route, $location) {
+	$scope.ready = false;
+	$scope.content = "";
+	$scope.featuredImage = "";
+	
+	$scope.pageContent = videos.getPage('studio');
+
+	$scope.pageContent.then(function(videos) { 
+		console.log($route.current);
+		console.log(videos);
+		console.log($location.path());
+		$scope.content = videos.content;
+		$scope.featuredImage = videos.featured_image.guid;
+		$scope.ready = true;
+
+
+
+	}, function(status) {
+		
+		console.log(status);
+	
+	});
+
+});
+;'use strict';
+
+cgApp.controller('ContactCtrl', function ($scope, videos, $route, $location) {
+	$scope.ready = false;
+	
+	$scope.pageContent = videos.getPage('contact');
+
+	$scope.pageContent.then(function(videos) { 
+		console.log(videos);
+		$scope.ready = true;
+
+
+
+	}, function(status) {
+		
+		console.log(status);
+	
+	});
+
+});
+;'use strict';
+
 angular.module('ngCommongoodApp')
 .directive('vimeoVideo', function () {
 	return {
@@ -35283,18 +35311,20 @@ angular.module('ngCommongoodApp')
 
 angular.module('ngCommongoodApp').factory('videos', function ($resource, $q, $cacheFactory) {
 
-	var baseUrl = '/wp-json.php/posts',
-		cache = $cacheFactory('videos');
+	var baseUrl = '/wp-json.php/',
+		cache = $cacheFactory('videos'),
+		requestType;
 	
 	return {
 		getVideos : function () {
 		
 			var deferred = $q.defer(),
-				cachedVideos = cache.get('videos');
+				cachedVideos = cache.get('videos'),
+				requestType = "posts";
 				
 				if (!cachedVideos) {
 				
-					$resource(baseUrl + '?type=works').query(
+					$resource(baseUrl + requestType + '?type=works').query(
 
 						function(data) {
 					
@@ -35341,10 +35371,11 @@ angular.module('ngCommongoodApp').factory('videos', function ($resource, $q, $ca
 		},
 		getPage : function (slug) {
 		
-			var deferred = $q.defer();
+			var deferred = $q.defer(),
+				requestType = "pages";
 
 			
-				$resource(baseUrl + '/:slug').get({slug:slug},
+				$resource(baseUrl + requestType +'/:slug').get({slug:slug},
 
 					function(data) {
 				

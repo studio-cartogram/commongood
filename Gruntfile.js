@@ -344,6 +344,8 @@ module.exports = function (grunt) {
 				// App
 				'<%= yeoman.app %>/scripts/app.js',
 				'<%= yeoman.app %>/scripts/controllers/main.js',
+				'<%= yeoman.app %>/scripts/controllers/studio.js',
+				'<%= yeoman.app %>/scripts/controllers/contact.js',
 				'<%= yeoman.app %>/scripts/directives/vimeoVideo.js',
 				'<%= yeoman.app %>/scripts/directives/scrollOnClick.js',
 				'<%= yeoman.app %>/scripts/services/videos.js',
