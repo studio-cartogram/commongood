@@ -11,19 +11,14 @@
 	<meta name="description" content="A Canadian Directing Collective.">
 	<meta name="viewport" content="width=device-width">
 	<meta property="og:locale" content="en_US">
-	<meta property="fb:app_id" content="729898417042523" />
 	<meta property="og:site_name" content="Common Good" />
 	<meta property="og:title" content="Common Good" />
 	<meta property="og:url" content="http://www.commongood.tv/" />
 	<link rel="canonical" href="http://www.commongood.tv/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="A Canadian Directing Collective." />
-	<meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
-	<?php $fb_image = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID() ), 'thumbnail'); ?>
-    <?php if ($fb_image) : ?>
-    	<meta property="og:image" content="<?php echo $fb_image[0]; ?>" />
-    <?php endif; ?>
-	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
+	<!-- <meta property="og:image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" />
+	<meta itemprop="image" content="http://www.commongood.tv/app/uploads/2014/02/logo-wide.png" /> -->
 
 	<link rel="shortcut icon" href="/favicon.ico">
 	<?php wp_head(); ?>
