@@ -17,3 +17,7 @@
 /app/themes/commongood/bower_components
 /node_modules
 
+
+!/app/themes/commongoodv2
+app/themes/commongoodv2/node_modules
+
