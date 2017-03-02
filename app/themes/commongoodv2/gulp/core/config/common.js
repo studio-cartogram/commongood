@@ -1,9 +1,9 @@
 // utils
-var deepMerge = require('../utils/deepMerge');
+const deepMerge = require('../utils/deepMerge')
 
 // config
-var project = require('../../../project.config');
-var overrides = require('../../config/common');
+const project = require('../../../project.config')
+const overrides = require('../../config/common')
 
 
 /**
@@ -12,14 +12,14 @@ var overrides = require('../../config/common');
  *
  */
 module.exports = deepMerge({
-	paths: {
-		theme: {
-			src: 'theme',
-			dest: '../' + project.name
-		},
-		assets: {
-			src: 'assets',
-			dest: '../' + project.name +  '/assets'
-		}
-	}
-}, overrides);
+  paths: {
+    theme: {
+      src: 'theme',
+      dest: `../${project.name}`,
+    },
+    assets: {
+      src: 'assets',
+      dest: `../${project.name}/assets`,
+    },
+  },
+}, overrides)

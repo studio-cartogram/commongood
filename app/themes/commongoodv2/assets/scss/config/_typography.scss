@@ -1,6 +1,6 @@
 /* =========================================
-		Typography
-   ========================================= */
+Typography
+========================================= */
 /**
  * Prefix typography vars with $t_
  * to make them easier to find with
@@ -8,12 +8,6 @@
  *
  */
 
-// examples:
-
-// font family
-$t_font_display: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
-
-$t_font_body: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
-
-// font size
-$t_size_base: 16px;
+$t-font-family: 'neuzeit-grotesk', sans-serif;
+$t-font-weight-regular: 300;
+$t-font-weight-bold: 700;

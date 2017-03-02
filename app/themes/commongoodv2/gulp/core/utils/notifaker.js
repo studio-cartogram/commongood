@@ -1,5 +1,5 @@
-var gutil    = require('gulp-util');
-var notifier = require('node-notifier');
+const gutil = require('gulp-util')
+const notifier = require('node-notifier')
 
 
 /**
@@ -9,17 +9,16 @@ var notifier = require('node-notifier');
  *
  * @param message
  */
-module.exports = function (message) {
+module.exports = function notifaker(message) {
+  gutil.log(
+    gutil.colors.cyan('gulp-notifier'),
+    `[${gutil.colors.blue('Gulp notification')}]`,
+    gutil.colors.green(message)
+  )
 
-	gutil.log(
-		gutil.colors.cyan('gulp-notifier'),
-		'[' + gutil.colors.blue('Gulp notification') + ']',
-		gutil.colors.green(message)
-	);
-
-	notifier.notify({
-		title: 'Gulp notification',
-		message: message,
-		onLast: true
-	});
-};
+  notifier.notify({
+    title: 'Gulp notification',
+    message,
+    onLast: true,
+  })
+}

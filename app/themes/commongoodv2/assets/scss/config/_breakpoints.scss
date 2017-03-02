@@ -1,23 +1,16 @@
 /* =========================================
-		Breakpoints
-   ========================================= */
+Breakpoints
+========================================= */
 /**
  * Prefix breakpoints with $b_
- * this makes them easier to find
- * with autocomplete
- *
  * You can use the 'bp' mixin to
- * easily use these breakpoints
- * in your sass code.
+ * easily add breakpoints
  */
 
-// examples:
+$bp-mobile: '(min-width: 400px)';
 
-// mobile first queries
-$b_mobile:  '(min-width: 400px)';
+$bp-tablet: '(min-width: 600px)';
 
-$b_tablet:  '(min-width: 600px)';
+$bp-laptop: '(min-width: 800px)';
 
-$b_laptop:  '(min-width: 800px)';
-
-$b_desktop: '(min-width: 1024px)';
+$bp-desktop: '(min-width: 1024px)';

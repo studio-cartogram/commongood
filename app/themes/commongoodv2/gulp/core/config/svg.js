@@ -1,9 +1,9 @@
 // utils
-var deepMerge = require('../utils/deepMerge');
+const deepMerge = require('../utils/deepMerge')
 
 // config
-var overrides = require('../../config/svg');
-var assets = require('./common').paths.assets;
+const overrides = require('../../config/svg')
+const assets = require('./common').paths.assets
 
 /**
  * Svg Building
@@ -13,24 +13,24 @@ var assets = require('./common').paths.assets;
  * @type {{}}
  */
 module.exports = deepMerge({
-	paths: {
-		watch: [
-			assets.src + '/svg/**/*.svg',
-			'!' + assets.src + '/svg/sprite/**/*.svg'
-		],
-		src: [
-			assets.src + '/svg/**/*.svg',
-			'!' + assets.src + '/svg/sprite/**/*.svg'
-		],
-		dest: assets.dest + '/svg',
-		clean: [
-			assets.dest + '/svg/**/*.svg',
-			'!' + assets.dest + '/svg/sprite-*.svg'
-		]
-	},
+  paths: {
+    watch: [
+      `${assets.src}/svg/**/*.svg`,
+      `!${assets.src}/svg/sprite/**/*.svg`,
+    ],
+    src: [
+      `${assets.src}/svg/**/*.svg`,
+      `!${assets.src}/svg/sprite/**/*.svg`,
+    ],
+    dest: `${assets.dest}/svg`,
+    clean: [
+      `${assets.dest}/svg/**/*.svg`,
+      `!${assets.dest}/svg/sprite-*.svg`,
+    ],
+  },
 
-	options: {
-		svgmin: {multipass: true}
-	}
+  options: {
+    svgmin: { multipass: true },
+  },
 
-}, overrides);
+}, overrides)

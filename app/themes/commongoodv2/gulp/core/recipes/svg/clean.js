@@ -1,7 +1,7 @@
-var del = require('del');
+const del = require('del')
 
 // config
-var config = require('../../config/svg');
+const config = require('../../config/svg')
 
 
 /**
@@ -11,6 +11,6 @@ var config = require('../../config/svg');
  *
  */
 module.exports = function (done) {
-	del(config.paths.clean, { force: true })
-		.then(function () { done(); });
-};
+  del(config.paths.clean, { force: true })
+  .then(() => { done() })
+}

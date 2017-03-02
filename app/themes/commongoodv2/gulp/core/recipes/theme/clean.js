@@ -1,7 +1,7 @@
-var del = require('del');
+const del = require('del')
 
 // config
-var config = require('../../config/theme');
+const config = require('../../config/theme')
 
 
 /**
@@ -11,6 +11,6 @@ var config = require('../../config/theme');
  *
  */
 module.exports = function (done) {
-	del(config.paths.clean, { force: true })
-		.then(function () { done(); });
-};
+  del(config.paths.clean, { force: true })
+  .then(() => { done() })
+}

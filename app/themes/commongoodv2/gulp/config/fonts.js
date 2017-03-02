@@ -4,4 +4,4 @@
  * Config
  *
  */
-module.exports = {};
+module.exports = {}

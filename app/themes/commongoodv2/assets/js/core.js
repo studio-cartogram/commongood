@@ -7,11 +7,11 @@
  */
 
 /** ES2015+ Polyfills */
-import 'babel-polyfill';
+import 'babel-polyfill'
 
 /** Responsive Images Polyfill */
-import 'picturefill';
+import 'picturefill'
 
 /** Lazyload Images */
-import 'lazysizes/plugins/bgset/ls.bgset.js';
-import 'lazysizes';
+import 'lazysizes/plugins/bgset/ls.bgset'
+import 'lazysizes'

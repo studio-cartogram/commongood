@@ -5,9 +5,9 @@
  */
 
 const obj = {
-	foo: 'Hello',
-	bar: 'Cruel',
-	baz: 'World'
-};
+  foo: 'Hello',
+  bar: 'Cruel',
+  baz: 'World',
+}
 
-export default obj;
+export default obj

@@ -1,6 +1,6 @@
 /* =========================================
-		Placeholder
-   ========================================= */
+Placeholder
+========================================= */
 
 /**
  * Convenience mixin to
@@ -10,18 +10,18 @@
  *
  */
 @mixin placeholder {
-	&::-webkit-input-placeholder {
-		@content;
-	}
-	&:-moz-placeholder { /* Firefox 18- */
-		@content;
-		opacity: 1;
-	}
-	&::-moz-placeholder {  /* Firefox 19+ */
-		@content;
-		opacity: 1;
-	}
-	&:-ms-input-placeholder {
-		@content;
-	}
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+    opacity: 1;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }

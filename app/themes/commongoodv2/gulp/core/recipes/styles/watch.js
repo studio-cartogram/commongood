@@ -1,8 +1,8 @@
-var gulp   = require('gulp');
-var watch  = require('gulp-watch');
+const gulp = require('gulp')
+const watch = require('gulp-watch')
 
 // config
-var config = require('../../config/styles');
+const config = require('../../config/styles')
 
 
 /**
@@ -12,9 +12,9 @@ var config = require('../../config/styles');
  * @param done
  */
 module.exports = function (done) {
-	watch(config.paths.watch, function () {
-		gulp.start('styles:dev');
-	});
+  watch(config.paths.watch, () => {
+    gulp.start('styles:dev')
+  })
 
-	done();
-};
+  done()
+}

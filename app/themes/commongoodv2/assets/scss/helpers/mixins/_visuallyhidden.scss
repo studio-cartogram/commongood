@@ -1,6 +1,6 @@
 /* =========================================
-		Visuallyhidden
-   ========================================= */
+Visuallyhidden
+========================================= */
 
 /**
  * Clear the visuallyhidden styles from
@@ -9,14 +9,14 @@
  *
  */
 @mixin clearVisuallyhidden {
-	clip: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	position: static;
-	width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 
-	@content;
+  @content;
 }
 
 /**
@@ -25,36 +25,36 @@
  *
  */
 @mixin visuallyhidden($args: '') {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 
-	@if index($args, no-js) {
-		.no-js & {
-			@include clearVisuallyhidden {
-				@content;
-			}
-		}
-	}
+  @if index($args, no-js) {
+    .no-js & {
+      @include clearVisuallyhidden {
+        @content;
+      }
+    }
+  }
 
-	@if index($args, js) {
-		.js & {
-			@include clearVisuallyhidden {
-				@content
-			}
-		}
-	}
+  @if index($args, js) {
+    .js & {
+      @include clearVisuallyhidden {
+        @content
+      }
+    }
+  }
 
-	@if index($args, focusable) {
-		&:active, &:focus {
-			@include clearVisuallyhidden {
-				@content;
-			}
-		}
-	}
+  @if index($args, focusable) {
+    &:active, &:focus {
+      @include clearVisuallyhidden {
+        @content;
+      }
+    }
+  }
 }

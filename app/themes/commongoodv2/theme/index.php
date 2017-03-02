@@ -12,7 +12,7 @@
 
 			<header>
 				<h1 class="hero__title">
-					The Mozaik WordPress Theme Starter
+work you shit peice
 				</h1>
 			</header>
 

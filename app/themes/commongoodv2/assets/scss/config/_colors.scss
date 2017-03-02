@@ -1,8 +1,8 @@
 /* =========================================
-		Color Index
-   ========================================= */
+Color Index
+========================================= */
 /**
- * Prefix colors with $c_ this
+ * Prefix colors with $c- this
  * makes them easily findable
  * with auto complete
  *
@@ -12,22 +12,20 @@
  * index
  */
 
-// examples:
+$c-black: #000;
 
-$c_black: #000;
+$c-white: #fff;
 
-$c_white: #fff;
+$c-red: #f00;
 
-$c_red: #f00;
-
-$c_green: #0f0;
+$c-green: #0f0;
 
 
 /* =========================================
-		Colors Applied
-   ========================================= */
+Colors Applied
+========================================= */
 /**
- * Prefix applied colors with $ca_
+ * Prefix applied colors with $ca-
  * this makes them easily findable
  * with auto complete
  *
@@ -37,23 +35,10 @@ $c_green: #0f0;
  * of the sass code
  */
 
-// examples:
-
 // state
-$ca_highlight: blueviolet;
+$ca-highlight: blueviolet;
 
-$ca_error: $c_red;
+$ca-error: $c-red;
 
-$ca_success: $c_green;
+$ca-success: $c-green;
 
-
-// elements
-$ca_bg_body: transparent;
-
-
-// typography
-$ca_txt_display: $c_white;
-
-$ca_txt_body: $c_white;
-
-$ca_txt_highlight: $c_white;

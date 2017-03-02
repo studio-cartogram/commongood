@@ -1,26 +1,26 @@
-var gulp         = require('gulp');
-var plumber      = require('gulp-plumber');
-var transform    = require('vinyl-transform');
-var path         = require('path');
-var map          = require('map-stream');
-var add          = require('gulp-add');
-var filter       = require('gulp-filter');
-var insert       = require('gulp-insert');
-var notify       = require('gulp-notify');
-var browserSync  = require('browser-sync');
+const gulp = require('gulp')
+const plumber = require('gulp-plumber')
+const transform = require('vinyl-transform')
+const path = require('path')
+const map = require('map-stream')
+const add = require('gulp-add')
+const filter = require('gulp-filter')
+const insert = require('gulp-insert')
+const notify = require('gulp-notify')
+const browserSync = require('browser-sync')
 
 
 // utils
-var pumped       = require('../../utils/pumped');
+const pumped = require('../../utils/pumped')
 
 // config
-var project      = require('../../../../project.config');
-var config       = require('../../config/theme');
+const project = require('../../../../project.config')
+const config = require('../../config/theme')
 
 // templates
-var includeDev   = require('../../templates/devmode-php-include');
-var style        = require('../../templates/wordpress-style-css');
-var bSSnippet    = require('../../templates/browser-sync-snippet');
+const includeDev = require('../../templates/devmode-php-include')
+const style = require('../../templates/wordpress-style-css')
+const bSSnippet = require('../../templates/browser-sync-snippet')
 
 /**
  * Move the Theme to
@@ -32,48 +32,45 @@ var bSSnippet    = require('../../templates/browser-sync-snippet');
  * @returns {*}
  */
 module.exports = function () {
-	var filterPHP  = filter('**/*.php', { restore: true });
-	var filterFunc = filter('functions.php', { restore: true });
+  const filterPHP = filter('**/*.php', { restore: true })
+  const filterFunc = filter('functions.php', { restore: true })
 
-	return gulp.src(config.paths.src)
-		.pipe(plumber())
+  return gulp.src(config.paths.src)
+  .pipe(plumber())
 
-		.pipe(filterPHP) // Filter php files and transform
-		                 // them to simply include the file
-		                 // from the dev theme. This is to
-		                 // make it possible to debug php from
-		                 // within the dev theme
-		.pipe(transform(function (filename) {
-			return map(function (chunk, next) {
+  .pipe(filterPHP) // Filter php files and transform
+  // them to simply include the file
+  // from the dev theme. This is to
+  // make it possible to debug php from
+  // within the dev theme
+  .pipe(transform(filename => map((chunk, next) => {
+    let definitions = []
+    if (config.options.transform.preserve) {
+      definitions = chunk.toString().match(config.options.transform.preserve)
+    }
 
-				var definitions = [];
-				if (config.options.transform.preserve) {
-					definitions = chunk.toString().match(config.options.transform.preserve);
-				}
+    const relativeFilename = path.relative(config.paths.dest, filename)
+    return next(null, includeDev(relativeFilename, definitions))
+  })))
+  .pipe(filterPHP.restore)
 
-				var relativeFilename = path.relative(config.paths.dest, filename);
-				return next(null, includeDev(relativeFilename, definitions));
-			});
-		}))
-		.pipe(filterPHP.restore)
+  .pipe(add({
+    '.gitignore': '*',
+    'style.css': style,
+  }))
 
-		.pipe(add({
-			'.gitignore': '*',
-			'style.css': style
-		}))
+  .pipe(filterFunc) // We only want to append the
+  // Browser-sync snippet to the
+  // functions.php so we need to
+  // filter the gulp stream
+  .pipe(insert.append(bSSnippet))
+  .pipe(filterFunc.restore)
 
-		.pipe(filterFunc) // We only want to append the
-		                  // Browser-sync snippet to the
-		                  // functions.php so we need to
-		                  // filter the gulp stream
-		.pipe(insert.append(bSSnippet))
-		.pipe(filterFunc.restore)
+  .pipe(gulp.dest(config.paths.dest))
+  .pipe(notify({
+    message: pumped('Theme Moved!'),
+    onLast: true,
+  }))
 
-		.pipe(gulp.dest(config.paths.dest))
-		.pipe(notify({
-			message: pumped('Theme Moved!'),
-			onLast: true
-		}))
-
-		.on('end', browserSync.reload);
-};
+  .on('end', browserSync.reload)
+}

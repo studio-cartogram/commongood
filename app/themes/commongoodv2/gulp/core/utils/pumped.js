@@ -6,19 +6,19 @@
  *
  * @param achievement
  */
-module.exports = function (achievement) {
-	var exclamations = [
-		'Sweet',
-		'Awesome',
-		'Epic',
-		'Wow',
-		'High Five',
-		'Yay',
-		'YEAH!',
-		'Booyah'
-	];
+module.exports = function pumped(achievement) {
+  const exclamations = [
+    'Sweet',
+    'Awesome',
+    'Epic',
+    'Wow',
+    'High Five',
+    'Yay',
+    'YEAH!',
+    'Booyah',
+  ]
 
-	var randomIndex = Math.floor(Math.random() * exclamations.length);
+  const randomIndex = Math.floor(Math.random() * exclamations.length)
 
-	return [exclamations[randomIndex], '! ', achievement].join('');
-};
+  return [exclamations[randomIndex], '! ', achievement].join('')
+}
