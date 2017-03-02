@@ -14,7 +14,7 @@ echo '<div id="barba-wrapper">';
 
   echo '<svg class=""><use xlink:href="#icon-logo-icon"></use></svg>';
 
-  // get_template_part('partials/loop');
+  get_template_part('partials/loop');
 
   echo '</main>';
 
