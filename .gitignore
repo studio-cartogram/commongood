@@ -6,10 +6,6 @@
 /app/*
 !/app/themes
 !/app/plugins
-/app/plugins/acf-options-page
-/app/plugins/acf-repeater
-/app/plugins/advanced-custom-fields
-/app/plugins/acf-flexible-content
 
 /app/themes/*
 !/app/themes/commongood
