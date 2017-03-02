@@ -1,0 +1,14 @@
+/* =========================================
+Links/Anchor Component
+========================================= */
+
+a,
+.link {
+  outline: none;
+  color: inherit;
+  text-decoration: inherit;
+  &:hover {
+  }
+  &.is-active {
+  }
+}

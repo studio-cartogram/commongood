@@ -1,1 +1,75 @@
-@import 'components/anchor';
+/**
+ * Global Project Specific Variables
+ */
+
+@import 'config/paths';
+@import 'config/colors';
+@import 'config/typography';
+@import 'config/dimensions';
+@import 'config/breakpoints';
+@import 'config/animations';
+@import 'config/layers';
+@import 'config/keyframes';
+
+
+/**
+ * Utilities
+ */
+@import 'helpers/mixins/bp';
+@import 'helpers/mixins/fit';
+@import 'helpers/mixins/reset';
+@import 'helpers/mixins/clearfix';
+@import 'helpers/mixins/visuallyhidden';
+@import 'helpers/mixins/grid-item';
+@import 'helpers/utility-classes';
+@import 'helpers/mixins/placeholder';
+
+/**
+ * Vendor Styles
+ */
+@import 'vendor/sanitize';
+@import 'vendor/barba';
+
+/**
+ * Common Styles
+ */
+@import 'common/global';
+@import 'common/grid';
+
+/**
+ * Typography Styles
+ */
+@import 'typography/global';
+@import 'typography/headings';
+@import 'typography/paragraphs';
+
+/**
+ * Atoms Styles
+ */
+@import 'atoms/anchor';
+@import 'atoms/logo';
+@import 'atoms/icons';
+@import 'atoms/hamburger';
+@import 'atoms/spinner';
+
+/**
+ * Molecules Styles
+ */
+
+/**
+ * Organisms Styles
+ */
+@import 'organisms/header';
+@import 'organisms/footer';
+@import 'organisms/nav';
+
+/**
+ * Template Styles
+ */
+
+
+/**
+ * Shame Styles
+ * Obviously keep this to a minimum
+ */
+@import 'shame';

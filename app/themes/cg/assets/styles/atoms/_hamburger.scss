@@ -1,0 +1,46 @@
+// Sets the Y value for the lines to cross
+// In order to make an X
+$lineTranslation: $d-base/4*3;
+
+.hamburger {
+  transition: opacity $a-timing;
+  padding: $d-quad;
+  height: $d-nano;
+
+  .line {
+    width: $d-duo;
+    height: $d-half/2;
+    background-color: red;
+    display: block;
+    margin: $d-half auto 0;
+    transition: all 0.3s ease-in-out;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.75;
+  }
+
+  .is-active > &,
+  &.is-active {
+
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .line:nth-child(1){
+      transform: translateY($lineTranslation) rotate(45deg);
+    }
+
+    .line:nth-child(3){
+      transform: translateY(-$lineTranslation) rotate(-45deg);
+    }
+  }
+}
+
+
+

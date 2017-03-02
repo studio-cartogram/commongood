@@ -21,6 +21,7 @@ const routes = new Router({
   aboutUs,
 })
 
+document.body.classList.add('js-is-initialized')
 jQuery(document).ready(() => routes.loadEvents())
 Barba.Pjax.init()
 
