@@ -1,55 +1,25 @@
 <?php
-/**
- * Read up on the WP Template Hierarchy for
- * when this file is used
- *
- */
-?>
-<?php get_header(); ?>
 
-	<article class="hero">
-		<div class="hero__content">
+get_template_part('partials/head');
 
-			<header>
-				<h1 class="hero__title">
-work you shit peice
-				</h1>
-			</header>
+// get_template_part('partials/analytics');
 
-			<p>
-				Build tools included! :)
-			</p>
+get_header();
 
-			<p>
-				<strong>Happy Hacking!</strong>
-			</p>
+echo '<div id="barba-wrapper">';
 
-			<footer>
+  echo '<div class="barba-container">';
 
-				<a class="hero__cta"
-				   target="_blank"
-				   href="https://github.com/MozaikAgency/wp-theme-starter">
-					check out the README
-				</a>
+  echo '<main id="main" role="main" class="main">';
 
-				<?php get_template_part( 'elements/github' ); ?>
+    get_template_part('partials/loop');
 
-				<div class="hero__icon">
-					<?php MOZ_SVG::svg( 'medal' ); ?>
-				</div>
+  echo '</main>';
 
-				<div class="hero__credits">
-					<p>
-						Background image of Everest courtesy of <a target="_blank" href="https://unsplash.it/">Unsplash It.</a>
-					</p>
-					<p>
-						SVG medal created by Creative Stall, from the <a target="_blank" href="https://thenounproject.com/creativestall/">Noun Project.</a>
-					</p>
-				</div>
+  echo '</div>';
 
-			</footer>
+echo '</div>';
 
-		</div>
-	</article>
+get_footer();
 
-<?php get_footer(); ?>
+get_template_part('partials/foot');

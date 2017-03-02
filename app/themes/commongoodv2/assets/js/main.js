@@ -5,6 +5,7 @@
  *
  */
 import './vendor/webpack.publicPath'
+import Barba from 'barba.js'
 
 /**
  * Your theme's js starts
@@ -16,3 +17,6 @@ import obj from './scripts/example'
 
 /* eslint no-console: 0 */
 console.log(obj)
+
+Barba.Pjax.init()
+

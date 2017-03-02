@@ -1,17 +1,17 @@
-const gulp = require('gulp')
-const plumber = require('gulp-plumber')
-const add = require('gulp-add')
-const notify = require('gulp-notify')
+var gulp         = require('gulp');
+var plumber      = require('gulp-plumber');
+var add          = require('gulp-add');
+var notify       = require('gulp-notify');
 
 // utils
-const pumped = require('../../utils/pumped')
+var pumped       = require('../../utils/pumped');
 
 // config
-const project = require('../../../../project.config')
-const config = require('../../config/theme')
+var project      = require('../../../../project.config');
+var config       = require('../../config/theme');
 
 // templates
-const style = require('../../templates/wordpress-style-css.js')
+var style        = require('../../templates/wordpress-style-css.js');
 
 
 /**
@@ -22,17 +22,17 @@ const style = require('../../templates/wordpress-style-css.js')
  * @returns {*}
  */
 module.exports = function () {
-  return gulp.src(config.paths.src)
-  .pipe(plumber())
+	return gulp.src(config.paths.src)
+		.pipe(plumber())
 
-  .pipe(add({
-    '.gitignore': '*',
-    'style.css': style,
-  }))
+		.pipe(add({
+			'.gitignore': '*',
+			'style.css': style
+		}))
 
-  .pipe(gulp.dest(config.paths.dest))
-  .pipe(notify({
-    message: pumped('Theme Moved!'),
-    onLast: true,
-  }))
-}
+		.pipe(gulp.dest(config.paths.dest))
+		.pipe(notify({
+			message: pumped('Theme Moved!'),
+			onLast: true
+		}));
+};

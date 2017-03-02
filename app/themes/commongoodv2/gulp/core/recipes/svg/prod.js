@@ -1,13 +1,13 @@
-const gulp = require('gulp')
-const plumber = require('gulp-plumber')
-const svgmin = require('gulp-svgmin')
-const notify = require('gulp-notify')
+var gulp         = require('gulp');
+var plumber      = require('gulp-plumber');
+var svgmin       = require('gulp-svgmin');
+var notify       = require('gulp-notify');
 
 // utils
-const pumped = require('../../utils/pumped')
+var pumped       = require('../../utils/pumped');
 
 // config
-const config = require('../../config/svg')
+var config       = require('../../config/svg');
 
 
 /**
@@ -17,14 +17,14 @@ const config = require('../../config/svg')
  *
  */
 module.exports = function () {
-  return gulp.src(config.paths.src)
-  .pipe(plumber())
+	return gulp.src(config.paths.src)
+		.pipe(plumber())
 
-  .pipe(svgmin(config.options.svgmin))
+		.pipe(svgmin(config.options.svgmin))
 
-  .pipe(gulp.dest(config.paths.dest))
-  .pipe(notify({
-    message: pumped('Svgs Compressed'),
-    onLast: true,
-  }))
-}
+		.pipe(gulp.dest(config.paths.dest))
+		.pipe(notify({
+			message: pumped('Svgs Compressed'),
+			onLast: true
+		}));
+};

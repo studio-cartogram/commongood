@@ -1,4 +1,4 @@
-const devTask = require('./dev')
+var devTask = require('./dev');
 
 /**
  * We are just going to use the
@@ -7,4 +7,4 @@ const devTask = require('./dev')
  *
  * @type {Function}
  */
-module.exports = devTask
+module.exports = devTask;

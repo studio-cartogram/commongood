@@ -19,10 +19,9 @@
  *  array  tags         Keywords that could be associated with the theme
  * }
  */
-const name = 'commongood'
 
 module.exports = {
-	name: 'you_should_probably_change_this',
+	name: 'commongood',
 	prettyName: 'You should probably change this...',
 
 	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',
@@ -30,5 +29,5 @@ module.exports = {
 	author: 'John & Jane Doe <jd@example.com>',
 	authorURI: 'http://example.com',
 	license: 'GPLv2 or later',
-  devURI: `http://${name}.dev`,
+  parentTheme: 'landmark'
 }

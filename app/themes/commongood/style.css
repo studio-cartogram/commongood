@@ -1,9 +1,21 @@
-/*
-Theme Name: Common Good 2014
-Theme URI: http://www.studiocartogram.com/
-Description: A simple theme for Common Good
-Version: 1.0
-Author: Cartogram Inc
-Author URI: http://www.studiocartogram.com/
-
-*/
+/**
+ * Text Domain: commongood
+ * Theme Name: You should probably change this...
+ * Description: The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}
+ * Template: landmark
+ * Version: 0.1.0
+ * Author: John & Jane Doe <jd@example.com>
+ * Author URI: http://example.com
+ * License: GPLv2 or later
+ *
+ * Theme Styles are in the assets/css folder,
+ * this file is only used for theme initialization
+ *
+ * This file is generated automagically by the
+ * build system. To edit theme styles use the files
+ * in the "dev theme", in the assets/scss folder
+ *
+ * See more at:
+ * https://github.com/MozaikAgency/wp-theme-starter
+ *
+ */

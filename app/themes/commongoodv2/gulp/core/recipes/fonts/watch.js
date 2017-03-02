@@ -1,8 +1,8 @@
-const gulp = require('gulp')
-const watch = require('gulp-watch')
+var gulp   = require('gulp');
+var watch  = require('gulp-watch');
 
 // config
-const config = require('../../config/fonts')
+var config = require('../../config/fonts');
 
 
 /**
@@ -12,9 +12,9 @@ const config = require('../../config/fonts')
  * @param done
  */
 module.exports = function (done) {
-  watch(config.paths.watch, () => {
-    gulp.start('fonts:dev')
-  })
+	watch(config.paths.watch, function () {
+		gulp.start('fonts:dev');
+	});
 
-  done()
-}
+	done();
+};

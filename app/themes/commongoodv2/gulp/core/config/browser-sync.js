@@ -1,9 +1,8 @@
 // utils
-const deepMerge = require('../utils/deepMerge')
+var deepMerge = require('../utils/deepMerge');
 
 // config
-const overrides = require('../../config/browser-sync')
-const projectConfig = require('../../../project.config')
+var overrides = require('../../config/browser-sync');
 
 /**
  * BrowserSync
@@ -12,8 +11,7 @@ const projectConfig = require('../../../project.config')
  *
  */
 module.exports = deepMerge({
-  logSnippet: false,
-  ghostMode: false,
-  open: false,
-  proxy: projectConfig.devURI,
-}, overrides)
+	logSnippet: false,
+	ghostMode: false,
+	open: false
+}, overrides);

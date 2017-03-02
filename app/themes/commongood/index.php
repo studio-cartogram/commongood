@@ -1,18 +1,14 @@
 <?php
-
-/*
-Template Name: Home
-*/
-
-get_template_part('part-head');
-get_header();
-?>
-	<!-- Add your site or application content here -->
-	<div class="view-wrap">
-		<div class="container" ng-view="" ng-animate=""></div>
-	</div>
-    
-<?php
-get_footer();
-get_template_part('part-foot');
-?>
+/**
+ *
+ * DEVELOPMENT MODE ONLY
+ *
+ * Includes and Runs php files directly
+ * from the dev theme to enable debugging
+ * php from within the dev theme!
+ *
+ * Run "gulp build" to generate the theme
+ * for production before deploying!
+ *
+ */
+include get_template_directory() . DIRECTORY_SEPARATOR . '../commongoodv2/theme/index.php';

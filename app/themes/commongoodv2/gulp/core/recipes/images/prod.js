@@ -1,13 +1,13 @@
-const gulp = require('gulp')
-const plumber = require('gulp-plumber')
-const imagemin = require('gulp-imagemin')
-const notify = require('gulp-notify')
+var gulp         = require('gulp');
+var plumber      = require('gulp-plumber');
+var imagemin     = require('gulp-imagemin');
+var notify       = require('gulp-notify');
 
 // utils
-const pumped = require('../../utils/pumped')
+var pumped       = require('../../utils/pumped');
 
 // config
-const config = require('../../config/images')
+var config       = require('../../config/images');
 
 
 /**
@@ -17,17 +17,17 @@ const config = require('../../config/images')
  *
  */
 module.exports = function () {
-  return gulp.src(config.paths.src)
-  .pipe(plumber())
+	return gulp.src(config.paths.src)
+		.pipe(plumber())
 
-  .pipe(imagemin({
-    progressive: true,
-    interlaced: true,
-  }))
+		.pipe(imagemin({
+			progressive: true,
+			interlaced: true
+		}))
 
-  .pipe(gulp.dest(config.paths.dest))
-  .pipe(notify({
-    message: pumped('Images Compressed'),
-    onLast: true,
-  }))
-}
+		.pipe(gulp.dest(config.paths.dest))
+		.pipe(notify({
+			message: pumped('Images Compressed'),
+			onLast: true
+		}));
+};

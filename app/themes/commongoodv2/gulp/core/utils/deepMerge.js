@@ -1,4 +1,18 @@
-const lodash = require('lodash')
+var lodash = require('lodash');
+
+
+/**
+ * Simple lodash wrapper to
+ * deep merge two objects
+ *
+ * @param a
+ * @param b
+ * @returns {*}
+ */
+module.exports = function (a, b) {
+	return lodash.mergeWith(a, b, deep);
+};
+
 
 /**
  * Utility for lodash.merge
@@ -11,21 +25,7 @@ const lodash = require('lodash')
  * @returns {Array.<T>|string}
  */
 function deep(a, b) {
-  if (lodash.isArray(a) && lodash.isArray(b)) {
-    return a.concat(b)
-  }
-  return null
+	if (lodash.isArray(a) && lodash.isArray(b)) {
+		return a.concat(b);
+	}
 }
-
-/**
- * Simple lodash wrapper to
- * deep merge two objects
- *
- * @param a
- * @param b
- * @returns {*}
- */
-module.exports = function (a, b) {
-  return lodash.mergeWith(a, b, deep)
-}
-
