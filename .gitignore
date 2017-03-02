@@ -21,3 +21,7 @@
 !/app/themes/commongoodv2
 app/themes/commongoodv2/node_modules
 
+!/app/themes/cg
+app/themes/cg/node_modules
+app/themes/cg/dist
+app/themes/cg/vendor
