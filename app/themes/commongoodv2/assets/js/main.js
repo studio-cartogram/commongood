@@ -14,9 +14,13 @@ import Barba from 'barba.js'
 
 // silly example:
 import obj from './scripts/example'
+import loadSprite from './vendor/loadSprite'
 
 /* eslint no-console: 0 */
 console.log(obj)
 
+loadSprite()
 Barba.Pjax.init()
 
+document.body.classList.remove('js-is-loading')
+document.body.classList.add('js-is-initialized')

@@ -7,34 +7,41 @@ $nav_primary = array(
     'items_wrap'      => '%3$s',
 );
 
+echo '<header role="banner" class="header">';
 
-echo '<header role="banner" class="container header">';
+  echo '<div class="header__group header__group--reverse">';
 
-    echo '<div class="row">';
+    echo '<div class="spinner">';
 
-        echo '<div class="columns small-2 medium-1 large-3 medium-order-1">';
+      echo '<span class="loading open-circle"></span>';
 
-            echo '<a href="' . get_bloginfo('url') . '" class="logo">';
+    echo '</div>';
 
-                echo '<span class="show-for-sr">' . get_bloginfo('name') . '</span>';
+    echo '<div id="js-toggle--nav" class="hamburger nav-toggle">';
 
-                echo '<svg class="logo__icon icon icon--medium icon--white show-for-large"><use xlink:href="#fsl-logo-' . $language . '"></use></svg>';
+      echo '<span class="line"></span>';
+      echo '<span class="line"></span>';
+      echo '<span class="line"></span>';
 
-                echo '<svg class="icon logo__icon icon--white hide-for-large"><use xlink:href="#fsl-icon"></use></svg>';
+    echo '</div>';
 
-            echo '</a>';
+  echo '</div>';
 
-        echo '</div>';
+  echo '<div class="header__group">';
 
-        echo '<nav role="navigation" class="nav--global medium-order-3 nav--with-seperation nav--inverted text-right columns">';
+    echo '<a href="' . get_bloginfo('url') . '" class="logo">';
 
-        echo '<ul class="menu">';
+    echo '<span class="show-for-sr">' . get_bloginfo('name') . '</span>';
 
-                wp_nav_menu( $nav_primary );
+   echo '<svg class="logo__icon icon"><use xlink:href="#logo"></use></svg>';
 
-            echo '</ul>';
+   // echo '<svg class="icon logo__icon hide-for-large"><use xlink:href="#logo-icon"></use></svg>';
 
-        echo '</nav>';
+    echo '</a>';
+
+    echo '<span class="header__item spinner">Loading</span>';
+
+  echo '</div>';
 
 echo '</header>';
 
