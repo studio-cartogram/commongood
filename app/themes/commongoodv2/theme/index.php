@@ -12,9 +12,9 @@ echo '<div id="barba-wrapper">';
 
   echo '<main id="main" role="main" class="main">';
 
-  echo '<svg class="logo__icon icon"><use xlink:href="#logo"></use></svg>';
+  echo '<svg class=""><use xlink:href="#icon-logo-icon"></use></svg>';
 
-  get_template_part('partials/loop');
+  // get_template_part('partials/loop');
 
   echo '</main>';
 
