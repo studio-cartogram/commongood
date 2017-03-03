@@ -10,9 +10,10 @@ $lineTranslation: $d-base/4*3;
   .line {
     width: $d-duo;
     height: $d-half/2;
-    background-color: red;
+    background-color: $ca-hamburger-line-background;
     display: block;
     margin: $d-half auto 0;
+    border-radius: 1px;
     transition: all 0.3s ease-in-out;
 
     &:first-child {

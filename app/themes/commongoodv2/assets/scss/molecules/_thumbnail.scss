@@ -1,0 +1,44 @@
+/* =========================================
+Thumbnail Component
+========================================= */
+
+.thumbnails
+.thumbnail {
+}
+
+.thumbnail {
+  flex-basis: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  height: 30vh;
+
+  @include bp($bp-tablet) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  @include bp($bp-laptop) {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+
+  @include bp($bp-desktop) {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
+
+.thumbnail__img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  transition: all $a-timing * 4;
+}
+
+.thumbnail:hover,
+.thumbnail:focus {
+  .thumbnail__img {
+    transform: scale(1.2);
+  }
+}

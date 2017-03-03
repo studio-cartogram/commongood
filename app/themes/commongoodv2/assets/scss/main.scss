@@ -29,12 +29,14 @@
  */
 @import 'vendor/sanitize';
 @import 'vendor/barba';
+@import 'vendor/revealer';
 
 /**
  * Common Styles
  */
 @import 'common/global';
 @import 'common/grid';
+@import 'common/visibility';
 
 /**
  * Typography Styles
@@ -48,13 +50,15 @@
  */
 @import 'atoms/anchor';
 @import 'atoms/logo';
-@import 'atoms/icons';
+@import 'atoms/icon';
 @import 'atoms/hamburger';
 @import 'atoms/spinner';
+@import 'atoms/list';
 
 /**
  * Molecules Styles
  */
+@import 'molecules/thumbnail';
 
 /**
  * Organisms Styles

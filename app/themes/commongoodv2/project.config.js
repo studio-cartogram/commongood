@@ -22,12 +22,12 @@
 
 module.exports = {
 	name: 'commongood',
-	prettyName: 'You should probably change this...',
+	prettyName: 'Common Good 2017',
 
-	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',
+	description: 'A theme for Common Good',
 	version: '0.1.0',
-	author: 'John & Jane Doe <jd@example.com>',
-	authorURI: 'http://example.com',
-	license: 'GPLv2 or later',
+	author: 'Cartogram',
+	authorURI: 'http://cartogram.ca',
+	license: 'GPLv2',
   parentTheme: 'landmark'
 }

@@ -7,7 +7,9 @@ a,
   outline: none;
   color: inherit;
   text-decoration: inherit;
+  color: $ca-anchor-color;
   &:hover {
+    color: $ca-anchor-hover-color;
   }
   &.is-active {
   }

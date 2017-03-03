@@ -1,6 +1,10 @@
 <?php
 
-global $language;
+$nav_social = array(
+    'theme_location'  => 'nav_social',
+    'container'       => false,
+    'items_wrap'      => '%3$s',
+);
 
 $nav_footer = array(
     'theme_location'  => 'nav_footer',
@@ -8,25 +12,36 @@ $nav_footer = array(
     'items_wrap'      => '%3$s',
 );
 
-echo '<footer class="footer" role="contentinfo">';
+set_query_var( 'icon', 'logo-icon' );
 
-    echo '<div class="row">';
+echo '<footer class="footer row" role="contentinfo">';
 
-        echo '<div class="columns large-order-2 medium-6 large-5 small-12">';
+  echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--left">';
 
-            echo '<nav role="navigation" class="nav--center nav--footer nav--with-seperation nav--small nav--inverted ">';
+    echo '<ul class="list">';
 
-                echo '<ul class="expanded menu">';
+      wp_nav_menu( $nav_footer );
 
-                    wp_nav_menu( $nav_footer );
+    echo '</ul>';
 
-                echo '</ul>';
+  echo '</nav>';
 
-            echo '</nav>';
+  echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--right">';
 
-        echo '</div>';
+    echo '<ul class="list list--right">';
 
-    echo '</div>';
+      wp_nav_menu( $nav_social );
+
+    echo '</ul>';
+
+  echo '</nav>';
+
+  echo '<div class="visuallyhidden clearvisuallyhidden--tablet footer__icon ">';
+
+    get_template_part('partials/icon');
+
+  echo '</div>';
+
 
 echo '</footer>';
 ?>

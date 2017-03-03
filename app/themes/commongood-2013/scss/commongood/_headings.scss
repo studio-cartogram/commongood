@@ -1,0 +1,61 @@
+/*------------------------------------*\
+$HEADINGS
+\*------------------------------------*/
+
+
+h1,.alpha{
+	font-family: $font-family-bold;
+	text-transform:uppercase;
+	font-weight: normal;
+}
+
+h2,.beta{
+	font-family:  $font-family-medium;
+	text-transform:uppercase;
+	font-weight:normal;
+}
+
+h3,.gamma{
+	text-transform:uppercase;
+	font-weight:normal;
+	font-family: $font-family-bold;
+	font-weight:normal;
+}
+
+h4,.delta{
+	display:block;
+	font-weight:normal;
+	font-family:$font-family-light;
+	a {
+		color:$white;
+
+	}
+}
+
+h5,.epsilon{
+	font-size: 12px; /* Equivalent to 12pt */
+	line-height:15px;
+}
+
+h6,.zeta{
+}
+
+.hN{
+
+}
+
+
+.title-overlay {
+	background:url(images/0F0F37-75.png);
+	color:#FFFFFF;
+	font-size: 11px;
+	bottom: 12px;
+	left: 8px;
+		padding:2px 7px;
+	position:absolute;
+	width:170px;
+	display:none;
+	font-weight:normal;
+	font-family: 'ConduitITCStdMedium', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+

@@ -12,26 +12,17 @@ $args = array_merge(
 );
 
 $the_query = new WP_Query($args);
+$context = get_query_var( 'context' );
 
 if ( $the_query->have_posts() ) :
 
-echo '<section class="container">';
+  while ( $the_query->have_posts() ) : $the_query->the_post();
 
-  echo '<div class="row">';
+    set_query_var( 'item', $post );
 
-    while ( $the_query->have_posts() ) : $the_query->the_post();
+    get_template_part('partials/item', $context);
 
-      echo '<div class="column item">';
-
-        get_template_part('partials/item');
-
-      echo '</div>';
-
-    endwhile;
-
-  echo '</div>';
-
-echo '</div>';
+  endwhile;
 
 else :
 

@@ -9,12 +9,6 @@ Utility Classes
   @include clearfix;
 }
 
-.visuallyhidden {
-  @include visuallyhidden;
-  &.visuallyhidden--no-js { @include visuallyhidden(no-js); }
-  &.visuallyhidden--focusable { @include visuallyhidden(focusable); }
-}
-
 .make-block {
   display: block !important;
 }

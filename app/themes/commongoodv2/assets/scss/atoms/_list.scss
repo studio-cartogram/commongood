@@ -1,0 +1,18 @@
+/* =========================================
+Footer Component
+========================================= */
+
+.list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  @include bp($bp-tablet) {
+    flex-direction: row;
+  }
+}
+
+.list--right {
+  justify-content: flex-end;
+}

@@ -1,0 +1,18 @@
+/* =========================================
+Icon Component
+========================================= */
+
+.icon {
+  display:inline-block;
+}
+
+
+
+.icon--logo {
+  display:inline-block;
+  max-width: $d-sep * 2;
+}
+
+.icon--logo-icon {
+  max-width: $d-duo;
+}

@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+
+/*
+*	Adds a small dot before bulleted list items
+*/
+
+.list--bulleted {
+	
+	li {
+		
+		&:before {
+			
+		}
+	}
+}
+

@@ -17,7 +17,7 @@ echo '<header role="banner" class="header">';
 
     echo '</div>';
 
-    echo '<div id="js-toggle--nav" class="hamburger nav-toggle">';
+    echo '<div class="js-nav-toggle hamburger nav-toggle">';
 
       echo '<span class="line"></span>';
       echo '<span class="line"></span>';
@@ -27,15 +27,15 @@ echo '<header role="banner" class="header">';
 
   echo '</div>';
 
-  echo '<div class="header__group">';
+  echo '<div class="header__group header__group--right">';
 
     echo '<a href="' . get_bloginfo('url') . '" class="logo">';
 
-    echo '<span class="show-for-sr">' . get_bloginfo('name') . '</span>';
+    echo '<span class="visuallyhidden">' . get_bloginfo('name') . '</span>';
 
-   echo '<svg class="logo__icon icon"><use xlink:href="#logo"></use></svg>';
+      set_query_var( 'icon', 'logo' );
 
-   // echo '<svg class="icon logo__icon hide-for-large"><use xlink:href="#logo-icon"></use></svg>';
+      get_template_part('partials/icon');
 
     echo '</a>';
 
@@ -45,4 +45,12 @@ echo '<header role="banner" class="header">';
 
 echo '</header>';
 
+echo '<nav class="nav js-nav">';
 
+  echo '<ul class="nav__list list">';
+
+    wp_nav_menu( $nav_primary );
+
+  echo '</ul>';
+
+echo '</nav>';

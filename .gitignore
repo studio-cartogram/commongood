@@ -17,7 +17,12 @@
 !/app/themes/commongoodv2
 app/themes/commongoodv2/node_modules
 
-!/app/themes/cg
-app/themes/cg/node_modules
-app/themes/cg/dist
-app/themes/cg/vendor
+!/app/themes/landmark
+app/themes/landmark/node_modules
+app/themes/landmark/dist
+app/themes/landmark/vendor
+
+!/app/themes/commongood-2013
+app/themes/commongood-2013/node_modules
+app/themes/commongood-2013/dist
+app/themes/commongood-2013/vendor

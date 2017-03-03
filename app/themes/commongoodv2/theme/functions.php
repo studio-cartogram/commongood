@@ -7,7 +7,6 @@
 	======================================================================================================================== */
 
   add_action('wp_head','cartogram_fonts');
-  add_action( 'after_setup_cartogram', 'cartogram_setup' );
   add_action( 'wp_enqueue_scripts', 'cartogram_styles' );
   add_action( 'wp_enqueue_scripts', 'cartogram_scripts' );
 
@@ -17,23 +16,60 @@
 
 	======================================================================================================================== */
 
-  function create_post_types() {
+  if ( ! function_exists( 'create_post_types' ) ) {
 
-    $args = array(
-      'public'              => true,
-      'label'               => 'Works',
-      'has_archive'         => false,
-      'exclude_from-search' => true,
-      'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail')
-    );
+    function create_post_types() {
 
-    register_post_type( 'works', $args );
+      $args = array(
+        'public'              => true,
+        'label'               => 'Works',
+        'has_archive'         => false,
+        'exclude_from-search' => true,
+        'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail')
+      );
 
-    flush_rewrite_rules( false );
+      register_post_type( 'works', $args );
+
+      flush_rewrite_rules( false );
+
+    }
+
   }
 
 
-  function create_taxonomies() {
+  if ( ! function_exists( 'create_taxonimies' ) ) {
+
+    function create_taxonomies() {
+
+      $labels = array(
+        'name'                       => _x( 'Role', 'taxonomy general name' ),
+        'singular_name'              => _x( 'Role', 'taxonomy singular name' ),
+        'search_items'               => __( 'Search Roles' ),
+        'popular_items'              => __( 'Popular Roles' ),
+        'all_items'                  => __( 'All Roles' ),
+        'parent_item'                => null,
+        'parent_item_colon'          => null,
+        'edit_item'                  => __( 'Edit Role' ),
+        'update_item'                => __( 'Update Role' ),
+        'add_new_item'               => __( 'Add New Role' ),
+        'new_item_name'              => __( 'New Role Name' ),
+        'separate_items_with_commas' => __( 'Separate Role with commas' ),
+        'add_or_remove_items'        => __( 'Add or remove Role' ),
+        'choose_from_most_used'      => __( 'Choose from the most used Role' ),
+        'not_found'                  => __( 'No Roles found.' ),
+        'menu_name'                  => __( 'Roles' ),
+      );
+
+      $args = array(
+        'hierarchical'      => false,
+        'labels'            => $labels,
+      );
+
+      register_taxonomy( 'roles', array('resources'), $args );
+
+      flush_rewrite_rules( false );
+
+    }
 
   }
 
@@ -45,8 +81,7 @@
 
   if( function_exists('acf_add_options_page') ) {
 
-    acf_add_options_page('Homepage');
-    acf_add_options_page('Footer');
+        acf_add_options_page('Homepage');
 
   }
 
@@ -89,9 +124,6 @@
 
 	======================================================================================================================== */
 
-  if ( ! function_exists( 'cartogram_setup' ) ) {
-
-    function cartogram_setup() {
 
       /* ========================================================================================================================
 
@@ -116,7 +148,7 @@
       ======================================================================================================================== */
 
       add_theme_support('post-thumbnails');
-      add_image_size('img_small',350, 350, false);
+      add_image_size('img_thumbnail',500, 500, true);
       add_image_size('img_medium',800, 800, false);
       add_image_size('img_large',1200, 800, true);
 
@@ -128,11 +160,10 @@
 
       register_nav_menus( array(
         'nav_primary'	=>  'Primary Nav',
-        'nav_footer'	=>  'Footer Nav'
+        'nav_footer'	=>  'Footer Nav',
+        'nav_social'	=>  'Social Nav'
       ) );
 
-    }
-  }
 
   /* ========================================================================================================================
 
@@ -142,7 +173,8 @@
 
 	function cartogram_fonts() {
 
-    $output = "<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,700italic' rel='stylesheet' type='text/css'>";
+    $output = '<script src="https://use.typekit.net/ieh7owy.js"></script>
+               <script>try{Typekit.load({ async: true });}catch(e){}</script>';
 
 		echo $output;
 

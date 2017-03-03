@@ -12,14 +12,10 @@ Color Index
  * index
  */
 
-$c-black: #000;
-
-$c-white: #fff;
-
-$c-red: #f00;
-
-$c-green: #0f0;
-
+$c-black: #171617;
+$c-dark: #252328;
+$c-light: #93939E;
+$c-white: #F3F3F3;
 
 /* =========================================
 Colors Applied
@@ -35,10 +31,12 @@ Colors Applied
  * of the sass code
  */
 
-// state
-$ca-highlight: blueviolet;
+$ca-hamburger-line-background: $c-white;
+$ca-carousel-background: $c-black;
+$ca-site-background: $c-dark;
+$ca-nav-background: $c-dark;
+$ca-anchor-color: $c-light;
+$ca-anchor-hover-color: $c-white;
+$ca-paragraph-color: $c-white;
 
-$ca-error: $c-red;
-
-$ca-success: $c-green;
 

@@ -3,4 +3,16 @@ Footer Component
 ========================================= */
 
 .footer {
+  position: relative;
 }
+
+.footer__icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.footer__nav {
+}
+

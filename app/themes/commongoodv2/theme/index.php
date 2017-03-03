@@ -6,21 +6,27 @@ get_template_part('partials/head');
 
 get_header();
 
+echo '<main id="main" role="main" class="main">';
+
 echo '<div id="barba-wrapper">';
 
   echo '<div class="barba-container">';
 
-  echo '<main id="main" role="main" class="main">';
+    get_template_part('partials/featured');
 
-  echo '<svg class=""><use xlink:href="#icon-logo-icon"></use></svg>';
+    echo '<div id="js-videos" class="row row--full thumbnails js-videos">';
 
-  get_template_part('partials/loop');
+      set_query_var( 'context', 'thumbnail' );
 
-  echo '</main>';
+      get_template_part('partials/loop');
+
+    echo '</div>';
 
   echo '</div>';
 
 echo '</div>';
+
+echo '</main>';
 
 get_footer();
 

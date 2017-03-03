@@ -17,11 +17,7 @@
   ],
   "scripts": {
     "start": "gulp",
-    "prod": "gulp build",
-    "lint": "npm run lint:js",
-    "lint:eslint": "eslint --fix",
-    "lint:js": "npm run lint:eslint -- gulpfile.js ./gulp ",
-    "lint:watch": "onchange 'gulp/**/*.js' -- npm run lint:js"
+    "prod": "gulp build"
   },
   "engines": {
     "node": ">=5.0.0"
@@ -41,6 +37,7 @@
     "eslint-loader": "1.6.3",
     "eslint-plugin-babel": "4.0.1",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "6.10.0",
     "gulp": "3.9.1",
     "gulp-add": "0.0.2",
@@ -68,8 +65,11 @@
     "webpack-stream": "3.2.0"
   },
   "dependencies": {
+    "animejs": "^2.0.1",
     "babel-polyfill": "6.23.0",
+    "jquery": "^3.1.1",
     "lazysizes": "3.0.0-rc4",
+    "lg-video.js": "^1.0.0",
     "picturefill": "3.0.2"
   }
 }
