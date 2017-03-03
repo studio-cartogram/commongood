@@ -1,0 +1,22 @@
+const ACTIVE_CLASS = 'is-active'
+const COLOR_BLACK = '#171617'
+const COLOR_DARK = '#252328'
+const COLOR_LIGHT= '#93939E'
+const TRANSITION_DURATION = 400
+const TRANSITION_EASING = 'easeInOutCubic'
+const REVEALER_OPTIONS = {
+  bgcolor: COLOR_BLACK,
+  duration: TRANSITION_DURATION,
+  easing: TRANSITION_EASING,
+  direction: 'tb',
+}
+
+export {
+  ACTIVE_CLASS,
+  COLOR_BLACK,
+  COLOR_DARK,
+  COLOR_LIGHT,
+  TRANSITION_DURATION,
+  TRANSITION_EASING,
+  REVEALER_OPTIONS,
+}

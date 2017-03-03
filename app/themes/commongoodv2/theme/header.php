@@ -1,11 +1,6 @@
 <?php
 global $language;
 
-$nav_primary = array(
-    'theme_location'  => 'nav_primary',
-    'container'       => false,
-    'items_wrap'      => '%3$s',
-);
 
 echo '<header role="banner" class="header">';
 
@@ -39,18 +34,9 @@ echo '<header role="banner" class="header">';
 
     echo '</a>';
 
-    echo '<span class="header__item spinner">Loading</span>';
+    echo '<span class="header__item spinner spinner--right">Loading</span>';
 
   echo '</div>';
 
 echo '</header>';
 
-echo '<nav class="nav js-nav">';
-
-  echo '<ul class="nav__list list">';
-
-    wp_nav_menu( $nav_primary );
-
-  echo '</ul>';
-
-echo '</nav>';

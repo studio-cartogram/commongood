@@ -8,6 +8,10 @@ Footer Component
   display: flex;
   flex-direction: column;
 
+  li {
+    padding: $d-base;
+  }
+
   @include bp($bp-tablet) {
     flex-direction: row;
   }
@@ -15,4 +19,11 @@ Footer Component
 
 .list--right {
   justify-content: flex-end;
+}
+
+.list--large {
+  li {
+    font-size: 2em;
+    font-weight: $t-font-weight-bold;
+  }
 }

@@ -5,7 +5,14 @@ Spinner Component
 
 .spinner {
   display: block;
+  font-weight: $t-font-weight-bold;
+  color: $ca-spinner-color;
+
+  &.spinner--right {
+    justify-content: flex-end;
+  }
 }
+
 
 .loading {
   display: inline-block;
