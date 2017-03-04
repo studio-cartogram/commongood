@@ -11,6 +11,8 @@ $bp-mobile: '(min-width: 400px)';
 
 $bp-tablet: '(min-width: 600px)';
 
-$bp-laptop: '(min-width: 1024px)';
+$bp-laptop: '(min-width: $d-container-max)';
+
+$bp-laptop-extra: '(min-width: #{$d-container-max + $d-doz + $d-quin;})';
 
 $bp-desktop: '(min-width: 1280px)';

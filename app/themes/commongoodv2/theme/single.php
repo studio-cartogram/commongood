@@ -21,6 +21,7 @@ echo '<div id="barba-wrapper">';
       get_template_part('partials/work-header');
       get_template_part('partials/work-video');
       get_template_part('partials/work-footer');
+      get_template_part('partials/work-prev-next');
 
     echo '</div>';
 

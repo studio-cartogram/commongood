@@ -1,0 +1,37 @@
+.prev-next {
+  position: relative;
+  @include bp($bp-tablet) {
+    position: absolute;
+    left:0;
+    right:0;
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.prev-next__link {
+  @include bp($bp-tablet) {
+    padding: $d-base;
+  }
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: all $a-timing * 3 $a-timing $a-easing;
+  transform: translate3d(0, 0, 0);
+  .js-is-loading & {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.prev-next__link--right {
+  left: auto;
+  right: 0;
+  .js-is-loading & {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}

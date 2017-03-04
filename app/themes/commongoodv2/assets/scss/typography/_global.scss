@@ -7,12 +7,22 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $t-font-family;
+  font-size:14px;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @include bp($bp-tablet) {
+  }
 }
 
 b,
 strong,
 .strong {
   font-weight: $t-font-weight-bold;
+}
+
+.font-weight-regular {
+  font-weight: $t-font-weight-regular !important;
 }
 
 .text-align-right {

@@ -11,20 +11,30 @@ class Curtain {
     this.curtain = new RevealFx(curtainEl)
   }
 
-  show = () => {
+  show = (cb) => {
     this.curtain.reveal({
       ...REVEALER_OPTIONS,
       onCover: function(contentEl, revealerEl) {
         contentEl.style.opacity = 1
       },
+      onComplete: function() {
+        if(typeof cb === 'function') {
+          cb()
+        }
+      },
     })
   }
 
-  hide = () => {
+  hide = (cb) => {
     this.curtain.reveal({
       ...REVEALER_OPTIONS,
       onCover: function(contentEl, revealerEl) {
         contentEl.style.opacity = 0
+      },
+      onComplete: function() {
+        if(typeof cb === 'function') {
+          cb()
+        }
       },
     })
   }

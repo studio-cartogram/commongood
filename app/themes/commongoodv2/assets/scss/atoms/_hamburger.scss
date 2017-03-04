@@ -4,8 +4,12 @@ $lineTranslation: $d-base/4*3;
 
 .hamburger {
   transition: opacity $a-timing;
-  padding: $d-quad;
+  padding: $d-quad $d-quad $d-quad $d-trio;
   height: $d-nano;
+
+  @include bp($bp-tablet) {
+    padding: $d-quad;
+  }
 
   .line {
     width: $d-duo;

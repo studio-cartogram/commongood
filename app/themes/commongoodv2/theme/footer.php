@@ -14,11 +14,11 @@ $nav_footer = array(
 
 set_query_var( 'icon', 'logo-icon' );
 
-echo '<footer class="footer row" role="contentinfo">';
+echo '<footer class="footer row row--full">';
 
   echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--left">';
 
-    echo '<ul class="list">';
+    echo '<ul class="list list--spaced">';
 
       wp_nav_menu( $nav_footer );
 
@@ -28,7 +28,7 @@ echo '<footer class="footer row" role="contentinfo">';
 
   echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--right">';
 
-    echo '<ul class="list list--right">';
+    echo '<ul class="list--spaced list list--right">';
 
       wp_nav_menu( $nav_social );
 

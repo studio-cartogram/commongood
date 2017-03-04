@@ -5,4 +5,10 @@ Paragraph Typography
 p,
 .p {
   color: $ca-paragraph-color;
+  margin-bottom: $d-duo;
+}
+
+.paragraph--lead > p,
+p.paragraph--lead {
+  font-size: $t-font-size-lead;
 }

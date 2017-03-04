@@ -14,6 +14,9 @@ h6 {
   &.secondary {
     color: $ca-heading-secondary-color;
   }
+  &.inline-block {
+    display: inline-block;
+  }
 }
 
 .mega {
@@ -32,6 +35,7 @@ h2 {
 
 h3 {
   font-size: $t-font-size-gamma;
+  line-height: 2;
 
   &.secondary {
     color: $ca-heading-secondary-color;

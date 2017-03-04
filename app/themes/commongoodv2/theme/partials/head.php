@@ -29,7 +29,6 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <script async defer src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/core.js"></script>
-    <script async defer src="https://cdn.jsdelivr.net/lightgallery.js/1.0.1/js/lightgallery.min.js"></script>
     <?php wp_head(); ?>
   </head>
 <body <?php body_class('site js-is-loading'); ?> >

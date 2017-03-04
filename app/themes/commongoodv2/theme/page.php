@@ -16,7 +16,7 @@ echo '<div id="barba-wrapper">';
 
   while ( have_posts() ) : the_post();
 
-    echo '<div class="page page--' . $post->post_name . '">';
+    echo '<div class="static static--' . $post->post_name . '">';
 
       get_template_part('partials/page-header');
 
@@ -24,46 +24,78 @@ echo '<div id="barba-wrapper">';
 
         echo '<div class="column column-6 ">';
 
-        the_content();
+          echo '<div class="paragraph--lead">';
+
+            the_content();
+
+          echo '</div>';
 
         echo '</div>';
 
-        echo '<div class="column column-3">';
+        echo '<div class="column column-5 offset-1">';
 
-        echo '<h3 class="secondary">People</h3>';
+        echo '<div class="row">';
 
-        if( have_rows('people') ):
+          echo '<div class="column column-6">';
 
-          while( have_rows('people') ): the_row(); 
+            echo '<h3 class="secondary">People</h3>';
 
-            $name = get_sub_field('name');
-            $role = get_sub_field('role');
-            $phone = get_sub_field('phone');
-            $email = get_sub_field('email');
+            if( have_rows('people') ):
 
-            echo '<ul class="soft-duo--bottom list list--vertical">';
+              while( have_rows('people') ): the_row(); 
 
-              echo '<li><a class="link" href="mailto:' . $email . '">' . $name . '</a></li>';
-              echo '<li><a class="link is-active" href="mailto:' . $email . '">' . $name . '</a></li>';
-              echo '<li><a class="link link--secondary" href="mailto:' . $email . '">' . $name . '</a></li>';
-              echo '<li><a class="link link--secondary is-active" href="mailto:' . $email . '">' . $name . '</a></li>';
+                $name = get_sub_field('name');
+                $role = get_sub_field('role');
+                $phone = get_sub_field('phone');
+                $email = get_sub_field('email');
 
-              echo '<li>' . $role . '</li>';
+                echo '<ul class="soft-duo--bottom list list--vertical">';
 
-              echo '<li>' . $phone . '</li>';
+                  echo '<li><a class="link" href="mailto:' . $email . '">' . $name . '</a></li>';
 
-            echo '</ul>';
+                  echo '<li>' . $role . '</li>';
 
-          endwhile;
+                  echo '<li>' . $phone . '</li>';
 
-        endif;
+                echo '</ul>';
 
-        echo '</div>';
+              endwhile;
 
-        echo '<div class="column column-3">';
+            endif;
 
-        echo '<h4>Address</h4>';
-        echo '<h4>Representation</h4>';
+          echo '</div>';
+
+          echo '<div class="column column-6">';
+
+            echo '<h3 class="secondary">Address</h3>';
+
+            echo '<p class="soft-duo--bottom">' . get_field('address') . '</p>';
+
+            if( have_rows('representation') ):
+
+              echo '<h3 class="secondary">Representation</h3>';
+
+                while( have_rows('representation') ): the_row(); 
+
+                  $name = get_sub_field('name');
+                  $location = get_sub_field('location');
+                  $website = get_sub_field('website');
+
+                  echo '<ul class="soft-duo--bottom list list--vertical">';
+
+                    echo '<li><a class="link" href="mailto:' . $website . '">' . $name . '</a></li>';
+
+                    echo '<li>' . $location . '</li>';
+
+                  echo '</ul>';
+
+                endwhile;
+
+              endif;
+
+            echo '</div>';
+
+          echo '</div>';
 
         echo '</div>';
 

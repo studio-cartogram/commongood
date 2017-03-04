@@ -22,6 +22,13 @@ List Component
   }
 }
 
+.list--spaced {
+  padding: 0 $d-duo;
+  li {
+    padding: 0 $d-duo;
+  }
+}
+
 .list--vertical {
   @include bp($bp-tablet) {
     flex-direction: column;

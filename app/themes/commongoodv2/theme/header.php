@@ -24,7 +24,7 @@ echo '<header role="banner" class="header">';
 
   echo '<div class="header__group header__group--right">';
 
-    echo '<a href="' . '/' . '" class="logo">';
+    echo '<a href="' . get_bloginfo('url') . '" class="logo">';
 
     echo '<span class="visuallyhidden">' . get_bloginfo('name') . '</span>';
 

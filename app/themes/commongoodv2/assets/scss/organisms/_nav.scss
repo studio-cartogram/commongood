@@ -10,6 +10,7 @@ Nav Component
 	width: 100%;
   z-index: index($l-site, nav);
 	pointer-events: none;
+  overflow: scroll;
 
   &.is-active {
     pointer-events: visible;

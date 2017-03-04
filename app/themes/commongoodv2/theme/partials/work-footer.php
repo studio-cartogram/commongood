@@ -7,13 +7,13 @@ echo '<section class="row work__footer">';
 
   echo '<div class="column column-6">';
 
-    if ($agency) : echo '<h2><strong>Agency</strong> ' . $agency . '</h2>'; endif;
+    if ($agency) : echo '<span class="epsilon inline-block">Agency</span> <span class="delta inline-block">' . $agency . '</span>'; endif;
 
   echo '</div>';
 
   echo '<div class="column column-6 text-align-right">';
 
-    if ($director) : echo '<h2><strong>Director</strong> ' . $director . '</h2>'; endif;
+    if ($director) : echo '<span class="epsilon inline-block">Director</span> <span class="delta inline-block">' . $director . '</span>'; endif;
 
   echo '</div>';
 

@@ -1,7 +1,7 @@
 .header {
   z-index: index($l-site, header);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   transition: $a-timing $a-easing;
@@ -9,6 +9,11 @@
   align-items: center;
   justify-content: flex-end;
   height: $d-oct;
+  padding: 0 $d-trio 0 0;
+
+  @include bp($bp-tablet) {
+    padding: 0 $d-sep 0 $d-trio;
+  }
 
   &.is-active {
     transform: translateX(-100%);
@@ -48,7 +53,6 @@
   &.header__group--right {
     flex-grow: 1;
     text-align: right;
-    padding-right: $d-quad;
   }
 
   &.header__group--reverse {
