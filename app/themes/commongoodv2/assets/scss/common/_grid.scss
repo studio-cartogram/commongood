@@ -32,4 +32,15 @@ Grid Component
   .offset-#{$i} {
     @include grid-item-offset($i, $d-grid-columns);
   }
+
+  .column-#{$i}-tablet {
+    @include bp($bp-tablet) {
+      @include grid-item($i, $d-grid-columns);
+    }
+  }
+  .offset-#{$i}-tablet {
+    @include bp($bp-tablet) {
+      @include grid-item-offset($i, $d-grid-columns);
+    }
+  }
 }

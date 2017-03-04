@@ -48,6 +48,8 @@ class App {
       this.nav.hide()
     })
     Barba.Dispatcher.on('transitionCompleted', () => {
+      this.initSwiper()
+      this.initScrollLinks()
       setTimeout(() => {
         document.body.classList.remove('js-is-loading')
       }, 200)

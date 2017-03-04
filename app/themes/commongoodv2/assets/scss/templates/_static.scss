@@ -1,5 +1,25 @@
 .static {
-  padding: 0 $d-quad;
+  padding: 0 $d-trio;
+  @include bp($bp-tablet) {
+    padding: 0 $d-sep;
+  }
 }
+
+
+.static__title {
+  flex: auto;
+  width: auto;
+  transition: margin $a-timing $a-easing;
+  margin-top: $d-quin;
+  @include bp($bp-tablet) {
+    margin-top: -3px;
+    margin-left: $d-quin;
+  }
+
+  @include bp($bp-laptop-extra) {
+    margin-left: 0;
+  }
+}
+
 
 

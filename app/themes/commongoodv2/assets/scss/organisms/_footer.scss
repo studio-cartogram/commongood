@@ -5,6 +5,12 @@ Footer Component
 .footer {
   position: relative;
   padding: $d-quad 0;
+  min-height: $d-dec;
+
+  @include bp($bp-tablet) {
+    padding: $d-quad $d-trio;
+    min-height: $d-dec;
+  }
 }
 
 .footer__icon {

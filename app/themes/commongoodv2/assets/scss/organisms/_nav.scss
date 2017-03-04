@@ -10,7 +10,7 @@ Nav Component
 	width: 100%;
   z-index: index($l-site, nav);
 	pointer-events: none;
-  overflow: scroll;
+  overflow: hidden;
 
   &.is-active {
     pointer-events: visible;
@@ -18,6 +18,7 @@ Nav Component
 }
 
 .nav__inner {
+  overflow: scroll;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -26,7 +27,6 @@ Nav Component
 	list-style-type: none;
 	margin: 0;
 	background: $ca-nav-background;
-	overflow: hidden;
   display: flex;
   @include bp($bp-tablet) {
     justify-content: center;
@@ -34,12 +34,30 @@ Nav Component
 }
 
 .nav__section {
-  padding: $d-quad;
+  padding: $d-oct $d-trio;
+
+  @include bp($bp-tablet) {
+    padding: $d-oct $d-sep;
+  }
+
+  @include bp($bp-laptop) {
+    padding-top: $d-duo;
+  }
 }
 
 .nav__list {
-  padding-top: $d-quad;
   flex-direction: column;
+}
+
+.nav__sep,
+.nav__list--social li,
+.nav__list--pages li {
+	transition: all $a-timing;
+  opacity: 0;
+
+  .is-active & {
+    opacity: 1;
+  }
 }
 
 .nav__list--works li {

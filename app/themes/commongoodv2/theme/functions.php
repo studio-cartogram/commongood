@@ -20,15 +20,24 @@
 
     function create_post_types() {
 
-      $args = array(
+      $works_args = array(
         'public'              => true,
         'label'               => 'Works',
+        'has_archive'         => false,
+        'exclude_from-search' => true,
+        'supports'            => array( 'title', 'thumbnail')
+      );
+
+      $commongood_args = array(
+        'public'              => true,
+        'label'               => '@Commongood',
         'has_archive'         => false,
         'exclude_from-search' => true,
         'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail')
       );
 
-      register_post_type( 'works', $args );
+      register_post_type( 'works', $works_args );
+      register_post_type( 'commongood', $commongood_args );
 
       flush_rewrite_rules( false );
 

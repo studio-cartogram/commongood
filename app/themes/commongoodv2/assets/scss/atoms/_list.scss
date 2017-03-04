@@ -22,10 +22,26 @@ List Component
   }
 }
 
-.list--spaced {
-  padding: 0 $d-duo;
+.list--small {
+  font-size: $t-font-size-epsilon;
+  a {
+    @extend .link.is-active;
+  }
+}
+
+.list--spaced-horizontal {
+  padding: 0 $d-base;
+  @include bp($bp-tablet) {
+    padding: 0 $d-duo;
+  }
   li {
     padding: 0 $d-duo;
+  }
+}
+
+.list--spaced-vertical {
+  li {
+    padding: $d-base 0;
   }
 }
 
@@ -41,7 +57,15 @@ List Component
 
 .list--large {
   li {
-    font-size: 2em;
+    font-size: $t-font-size-alpha;
+    padding-bottom: $d-duo;
     font-weight: $t-font-weight-bold;
   }
+}
+
+.nav__sep {
+  height: 1px;
+  width: $d-duo;
+  background: $ca-list-sep-background;
+  display: inline-block;
 }

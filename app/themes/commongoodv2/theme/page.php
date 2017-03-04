@@ -18,11 +18,11 @@ echo '<div id="barba-wrapper">';
 
     echo '<div class="static static--' . $post->post_name . '">';
 
-      get_template_part('partials/page-header');
+      get_template_part('partials/static-header');
 
       echo '<div class="page__content row">';
 
-        echo '<div class="column column-6 ">';
+        echo '<div class="column column-6-tablet ">';
 
           echo '<div class="paragraph--lead">';
 
@@ -32,11 +32,11 @@ echo '<div id="barba-wrapper">';
 
         echo '</div>';
 
-        echo '<div class="column column-5 offset-1">';
+        echo '<div class="column column-5-tablet offset-1-tablet">';
 
         echo '<div class="row">';
 
-          echo '<div class="column column-6">';
+          echo '<div class="column column-6-tablet">';
 
             echo '<h3 class="secondary">People</h3>';
 
@@ -65,7 +65,7 @@ echo '<div id="barba-wrapper">';
 
           echo '</div>';
 
-          echo '<div class="column column-6">';
+          echo '<div class="column column-6-tablet">';
 
             echo '<h3 class="secondary">Address</h3>';
 

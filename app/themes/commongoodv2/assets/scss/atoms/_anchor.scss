@@ -4,6 +4,7 @@ Links/Anchor Component
 
 a,
 .link {
+  display: inline-block;
   outline: none;
   color: inherit;
   text-decoration: inherit;
@@ -13,10 +14,12 @@ a,
   position: relative;
 
   &:hover,
+  .current-menu-item &,
   &.is-active {
     color: $ca-anchor-hover-color;
   }
 
+  .current-menu-item &,
   &.is-active {
     &:hover {
       color: $ca-anchor-color;
@@ -43,6 +46,7 @@ a,
   }
 
   &:hover,
+  .current-menu-item &,
   &.is-active {
     color: $ca-anchor-color;
 
@@ -53,6 +57,7 @@ a,
     }
   }
 
+  .current-menu-item &,
   &.is-active {
     &:hover {
       color: $ca-anchor-hover-color;
@@ -63,3 +68,7 @@ a,
   }
 }
 
+
+.links--secondary a {
+  @extend .link--secondary;
+}

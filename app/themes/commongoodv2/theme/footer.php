@@ -18,7 +18,7 @@ echo '<footer class="footer row row--full">';
 
   echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--left">';
 
-    echo '<ul class="list list--spaced">';
+    echo '<ul class="list list--spaced-horizontal list--small">';
 
       wp_nav_menu( $nav_footer );
 
@@ -28,7 +28,7 @@ echo '<footer class="footer row row--full">';
 
   echo '<nav role="navigation" class="column column-6 footer__nav footer__nav--right">';
 
-    echo '<ul class="list--spaced list list--right">';
+    echo '<ul class="list--spaced-horizontal list list--right list--small">';
 
       wp_nav_menu( $nav_social );
 

@@ -1,7 +1,7 @@
 <?php
-echo '<section class="row page__header">';
+echo '<section class="row static__header">';
 
-  echo '<div class="column page__title">';
+  echo '<div class="column static__title">';
 
     echo '<h1>' . get_the_title() . '</h1>';
 
