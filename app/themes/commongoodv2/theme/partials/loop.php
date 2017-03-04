@@ -1,13 +1,12 @@
 <?php
 
-global $wp_query;
-
+// global $wp_query;
+//
 $modifications = array();
-
 $modifications['post_type'] = array('works');
 
 $args = array_merge(
-  $wp_query->query_vars,
+  // $wp_query->query_vars,
   $modifications 
 );
 

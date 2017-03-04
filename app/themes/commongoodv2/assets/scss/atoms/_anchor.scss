@@ -8,9 +8,59 @@ a,
   color: inherit;
   text-decoration: inherit;
   color: $ca-anchor-color;
-  &:hover {
+  font-weight: $t-font-weight-bold;
+  transition: all $a-timing $a-easing;
+  position: relative;
+  padding-bottom: 2px;
+
+  &:hover,
+  &.is-active {
     color: $ca-anchor-hover-color;
   }
+
   &.is-active {
+    &:hover {
+      color: $ca-anchor-color;
+    }
   }
 }
+
+.link--secondary {
+  font-weight: $t-font-weight-regular;
+  color: $ca-anchor-hover-color;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 1px;
+    background-color: $ca-anchor-color;
+    transform: scale(0);
+    opacity: 0;
+    transition: all $a-timing $a-easing;
+  }
+
+  &:hover,
+  &.is-active {
+    color: $ca-anchor-hover-color;
+
+    &:before {
+      background-color: $ca-anchor-hover-color;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &.is-active {
+    &:hover {
+      color: $ca-anchor-color;
+      &:before {
+        background-color: $ca-anchor-color;
+      }
+    }
+  }
+}
+

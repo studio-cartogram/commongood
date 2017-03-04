@@ -9,4 +9,60 @@ h4,
 h5,
 h6 {
   text-rendering: optimizeLegibility;
+  color: $ca-heading-color;
+  font-weight: $t-font-weight-bold;
+  &.secondary {
+    color: $ca-heading-secondary-color;
+  }
+}
+
+.mega {
+  font-size: $t-font-size-mega;
+}
+
+h1 {
+  font-size: $t-font-size-alpha;
+}
+
+h2 {
+  font-size: $t-font-size-beta;
+  font-weight: $t-font-weight-regular;
+}
+
+
+h3 {
+  font-size: $t-font-size-gamma;
+
+  &.secondary {
+    color: $ca-heading-secondary-color;
+  }
+}
+
+h4 {
+  font-size: $t-font-size-delta;
+}
+
+h5 {
+  font-size: $t-font-size-epsilon;
+  font-weight: $t-font-weight-regular;
+}
+
+.alpha {
+  @extend h1;
+}
+
+.beta {
+  @extend h2;
+}
+
+.gamma {
+  @extend h3;
+}
+
+.delta {
+  @extend h4;
+}
+
+.epsilon {
+  @extend h5;
 }

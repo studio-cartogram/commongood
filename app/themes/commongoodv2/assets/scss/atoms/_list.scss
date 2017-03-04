@@ -1,19 +1,30 @@
 /* =========================================
-Footer Component
+List Component
 ========================================= */
 
 .list {
-  margin: 0;
-  padding: 0;
-  display: flex;
+  &,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style:none;
+  }
+
   flex-direction: column;
+  display: flex;
 
   li {
-    padding: $d-base;
+    color: $ca-list-color;
   }
 
   @include bp($bp-tablet) {
     flex-direction: row;
+  }
+}
+
+.list--vertical {
+  @include bp($bp-tablet) {
+    flex-direction: column;
   }
 }
 

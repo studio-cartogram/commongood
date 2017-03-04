@@ -1,0 +1,27 @@
+.work {
+  padding: $d-quad
+}
+
+.work__back {
+  padding-right: 0;
+}
+
+.work__header {
+  align-items: center;
+}
+
+.work__title {
+  flex: auto;
+  width: auto;
+}
+
+.work__video {
+  width: 100%;
+  margin: auto;
+  max-width: $d-container-max;
+}
+
+
+.work__footer {
+  padding: $d-duo 0;
+}

@@ -1,7 +1,7 @@
 .header {
   z-index: index($l-site, header);
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   transition: $a-timing $a-easing;

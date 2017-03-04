@@ -21,7 +21,6 @@
 @import 'helpers/mixins/clearfix';
 @import 'helpers/mixins/visuallyhidden';
 @import 'helpers/mixins/grid-item';
-@import 'helpers/utility-classes';
 @import 'helpers/mixins/placeholder';
 
 /**
@@ -37,6 +36,7 @@
 @import 'common/global';
 @import 'common/grid';
 @import 'common/visibility';
+@import 'common/utils';
 
 /**
  * Typography Styles
@@ -51,6 +51,7 @@
 @import 'atoms/anchor';
 @import 'atoms/logo';
 @import 'atoms/icon';
+@import 'atoms/media';
 @import 'atoms/hamburger';
 @import 'atoms/spinner';
 @import 'atoms/list';
@@ -71,6 +72,8 @@
 /**
  * Template Styles
  */
+@import 'templates/work';
+
 
 
 /**

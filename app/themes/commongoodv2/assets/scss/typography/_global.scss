@@ -8,3 +8,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-family: $t-font-family;
 }
+
+b,
+strong,
+.strong {
+  font-weight: $t-font-weight-bold;
+}
+
+.text-align-right {
+  text-align: right;
+}

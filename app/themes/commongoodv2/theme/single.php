@@ -14,17 +14,17 @@ echo '<div id="barba-wrapper">';
 
   echo '<div class="barba-container">';
 
-    echo '<div id="js-videos" class="row row--full js-videos">';
+  while ( have_posts() ) : the_post();
 
-      set_query_var( 'context', 'thumbnail' );
+    echo '<div class="work">';
 
-      while ( have_posts() ) : the_post();
-
-        get_template_part('partials/video');
-
-      endwhile;
+      get_template_part('partials/work-header');
+      get_template_part('partials/work-video');
+      get_template_part('partials/work-footer');
 
     echo '</div>';
+
+  endwhile;
 
   echo '</div>';
 

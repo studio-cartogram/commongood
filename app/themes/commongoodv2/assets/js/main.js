@@ -33,12 +33,20 @@ const HideShowTransition = Barba.BaseTransition.extend({
   }
 })
 
-loadSprite()
-Barba.Pjax.init()
-Barba.Pjax.getTransition = function() {
-  return HideShowTransition;
+class App {
+  constructor() {
+    this.init()
+  }
+  init = () => {
+    loadSprite()
+    document.body.classList.remove('js-is-loading')
+    document.body.classList.add('js-is-initialized')
+    Barba.Pjax.init()
+    Barba.Pjax.getTransition = function() {
+      return HideShowTransition;
+    }
+  }
 }
 
-document.body.classList.remove('js-is-loading')
-document.body.classList.add('js-is-initialized')
+const app = new App()
 
