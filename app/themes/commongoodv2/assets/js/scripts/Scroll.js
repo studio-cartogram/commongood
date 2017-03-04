@@ -27,7 +27,20 @@ class Scroll {
     }
   }
 
-  scrollTop = (cb) => {
+  scrollTo = (target) => {
+    const container = document.body
+    const config = this.createScrollConfig({
+      container,
+      start: container.scrollTop,
+      end: target.offsetTop,
+    })
+
+    return anime({
+      ...config,
+    })
+  }
+
+  scrollTop = () => {
     const container = document.body
     const config = this.createScrollConfig({
       container,

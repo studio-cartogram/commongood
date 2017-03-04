@@ -36,9 +36,28 @@ Thumbnail Component
   transition: all $a-timing * 4;
 }
 
+.thumbnail__copy {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding: $d-duo;
+  text-align: left;
+  transition: all $a-timing $a-easing;
+
+  @include bp($bp-tablet) {
+    opacity:0;
+  }
+}
+
 .thumbnail:hover,
 .thumbnail:focus {
   .thumbnail__img {
     transform: scale(1.2);
   }
+  .thumbnail__copy {
+    opacity: 1;
+  }
 }
+
+

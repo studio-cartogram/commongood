@@ -1,0 +1,44 @@
+.featured {
+  position: relative;
+}
+
+
+.feature {
+  position: relative;
+  display: block;
+  height: 100vh;
+}
+
+.feature__img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.featured__copy,
+.feature__copy {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding: $d-trio $d-trio $d-sex;
+  text-align: center;
+
+  @include bp($bp-tablet) {
+    width: 65%;
+    padding: $d-trio $d-sep;
+    text-align: left;
+  }
+}
+
+
+.featured__copy {
+  padding-bottom: $d-duo;
+  right: 0;
+  @include bp($bp-tablet) {
+    width: 35%;
+    text-align: right;
+    padding-bottom: $d-trio;
+  }
+}

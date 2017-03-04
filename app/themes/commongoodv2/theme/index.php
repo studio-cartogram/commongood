@@ -14,9 +14,9 @@ echo '<div id="barba-wrapper">';
 
   echo '<div class="barba-container">';
 
-    get_template_part('partials/featured');
+    get_template_part('partials/loop-featured');
 
-    echo '<div id="js-videos" class="row row--full thumbnails js-videos">';
+    echo '<div id="all-work" class="row row--full thumbnails js-videos">';
 
       set_query_var( 'context', 'thumbnail' );
 

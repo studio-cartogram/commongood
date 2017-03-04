@@ -5,6 +5,7 @@
  *
  */
 import Barba from 'barba.js'
+import swiper from 'swiper'
 import RevealFx from './vendor/RevealFx'
 import log from './utils/log'
 import {
@@ -32,6 +33,7 @@ class App {
     Barba.Pjax.getTransition = () => {
       return this.Transition;
     }
+
   }
   init = () => {
     log('init app')
@@ -39,6 +41,8 @@ class App {
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
+    this.initSwiper()
+    this.initScrollLinks()
     Barba.Dispatcher.on('initStateChange', currentStatus => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
@@ -47,6 +51,48 @@ class App {
       setTimeout(() => {
         document.body.classList.remove('js-is-loading')
       }, 200)
+    })
+    if (window.location.hash) {
+      log('have hash')
+      setTimeout(() => {
+        this.scrollTo(window.location.hash)
+      }, 0)
+    }
+  }
+
+  scrollTo = (str) => {
+    const targetEl = document.getElementById(str.substr(1))
+    if(targetEl) {
+      log(targetEl)
+      this.scroll.scrollTo(targetEl)
+    }
+  }
+
+  initScrollLinks = () => {
+    const scrollLinks = document.querySelectorAll('.js-scroll-link');
+
+    scrollLinks.forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault()
+        const target = el.getAttribute('href')
+        this.scrollTo(target)
+      })
+    })
+  }
+
+  initSwiper = () => {
+    var mySwiper = new Swiper ('#js-swiper-featured', {
+      autoplay: 5000,
+      loop: true,
+      effect: 'fade',
+
+      // If we need pagination
+      pagination: '.swiper-pagination',
+
+      // Navigation arrows
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+
     })
   }
 

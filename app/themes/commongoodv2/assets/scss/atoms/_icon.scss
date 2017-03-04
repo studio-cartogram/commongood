@@ -15,7 +15,17 @@ Icon Component
   max-width: $d-quad;
 }
 
+.icon--arrow-down,
 .icon--arrow-right,
 .icon--arrow-left {
+  max-height: $d-quad;
   max-width: $d-quad;
+}
+
+.icon--arrow-down {
+  max-height: $d-trio;
+  max-width: $d-trio;
+  position: relative;
+  bottom: 1px;
+  right: -6px;
 }
