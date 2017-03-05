@@ -87,6 +87,7 @@ class App {
       autoplay: 5000,
       loop: true,
       effect: 'fade',
+      keyboardControl: true,
 
       // If we need pagination
       pagination: '.swiper-pagination',

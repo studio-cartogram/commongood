@@ -36,11 +36,11 @@ echo '<footer class="footer row row--full">';
 
   echo '</nav>';
 
-  echo '<div class="visuallyhidden clearvisuallyhidden--tablet footer__icon ">';
+  echo '<a class="visuallyhidden clearvisuallyhidden--tablet footer__icon " href="' . get_bloginfo('url') . '">';
 
     get_template_part('partials/icon');
 
-  echo '</div>';
+  echo '</a>';
 
 
 echo '</footer>';

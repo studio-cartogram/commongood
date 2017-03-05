@@ -23,5 +23,11 @@ body {
 
 .main {
   flex: 1;
+  opacity: 0;
+  transition: all $a-timing $a-timing $a-easing;
+
+  .js-is-initialized & {
+    opacity: 1;
+  }
 }
 

@@ -6,6 +6,7 @@ $lineTranslation: $d-base/4*3;
   transition: opacity $a-timing;
   padding: $d-quad $d-quad $d-quad $d-trio;
   height: $d-nano;
+  pointer-events: auto;
 
   @include bp($bp-tablet) {
     padding: $d-quad;

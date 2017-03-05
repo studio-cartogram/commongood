@@ -18,9 +18,15 @@ echo '<a
   />';
 
   echo '<div class="feature__copy">';
+
     if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
+
     echo '<span class="gamma inline-block font-weight-regular">' . $title . '</span>';
+
   echo '</div>';
+
+  echo '<div class="overlay featured__overlay"></div>';
+
 echo '</a>';
 
 

@@ -10,6 +10,7 @@
   justify-content: flex-end;
   height: $d-oct;
   padding: 0 $d-trio 0 0;
+  pointer-events: none;
 
   @include bp($bp-tablet) {
     padding: 0 $d-sep 0 $d-trio;

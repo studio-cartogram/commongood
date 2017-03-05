@@ -69,7 +69,17 @@ echo '<div id="barba-wrapper">';
 
             echo '<h3 class="secondary">Address</h3>';
 
-            echo '<p class="soft-duo--bottom">' . get_field('address') . '</p>';
+            echo '<p class="soft-duo--bottom">';
+
+            $address_link = get_field('address_link');
+
+            if($address_link) : echo '<a class="" target="_blank" href="' . $address_link . '">'; endif;
+
+              echo get_field('address');
+
+            if($address_link) : echo '</a>'; endif;
+
+            echo '</p>';
 
             if( have_rows('representation') ):
 

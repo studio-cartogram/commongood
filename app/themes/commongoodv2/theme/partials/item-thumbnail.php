@@ -10,11 +10,20 @@ echo '<a
         href="' . get_permalink($item->ID) . '"
         class="thumbnail column"
       >';
-  echo '<img
-    class="thumbnail__img"
-    alt="' . esc_attr(get_the_title($item->ID)) . '"
-    src="' . $thumbnail . '"
-  />';
+
+  echo '<div
+    style="padding-bottom: 56%;"
+    class="ratio-container"
+  >';
+
+    echo '<img
+      class="thumbnail__img"
+      alt="' . esc_attr(get_the_title($item->ID)) . '"
+      src="' . $thumbnail . '"
+    />';
+
+  echo '</div>';
+
   echo '<div class="thumbnail__copy">';
 
     if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
@@ -22,6 +31,9 @@ echo '<a
     echo '<span class="gamma inline-block font-weight-regular">' . $title . '</span>';
 
   echo '</div>';
+
+  echo '<div class="overlay thumbnail__overlay"></div>';
+
 echo '</a>';
 
 

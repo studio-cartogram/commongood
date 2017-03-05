@@ -10,7 +10,7 @@ Thumbnail Component
   flex-basis: 100%;
   max-width: 100%;
   overflow: hidden;
-  height: 30vh;
+  cursor: pointer;
 
   @include bp($bp-tablet) {
     flex-basis: 50%;
@@ -58,6 +58,10 @@ Thumbnail Component
   .thumbnail__copy {
     opacity: 1;
   }
+  .thumbnail__overlay {
+    opacity:0.5;
+  }
+
 }
 
 
