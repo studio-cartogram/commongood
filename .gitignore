@@ -3,7 +3,4 @@
 **/*.DS_Store
 **/*.scssc
 
-/app/*
-!/app/themes
-!/app/plugins
 
