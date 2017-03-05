@@ -25,7 +25,8 @@ Spinner Component
 }
 
 .loading::after {
-  display: inline-table;
+  display: none;
+  // display: inline-table;
   white-space: pre;
   text-align: left;
 }

@@ -4,7 +4,7 @@
   position: fixed;
   width: 100%;
   top: 0;
-  transition: $a-timing $a-easing;
+  transition: all $a-timing $a-easing;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -40,15 +40,17 @@
   align-self: flex-end;
   justify-content: center;
   text-align: center;
-  transition: $a-timing $a-easing;
+  transition: opacity $a-timing $a-easing, transform $a-timing * 2 $a-easing;
 
   .js-is-initialized & {
     transform: translate(0, 50%);
+    opacity: 1;
   }
 
   &,
   .js-is-loading & {
     transform: translate(0, 0%);
+    opacity: 0;
   }
 
   &.header__group--right {

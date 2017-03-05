@@ -34,7 +34,9 @@ echo '<header role="banner" class="header">';
 
     echo '</a>';
 
-    echo '<span class="header__item spinner spinner--right">Loading</span>';
+      echo '<span class="header__item spinner spinner--right">';
+      // Loading
+      echo '</span>';
 
   echo '</div>';
 
