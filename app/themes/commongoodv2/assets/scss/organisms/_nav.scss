@@ -70,7 +70,7 @@ Nav Component
     transform: translate3d(0, 0, 0);
     transition: all $a-timing $a-easing;
 
-    @for $i from 0 to 30 {
+    @for $i from 0 to 50 {
       &:nth-child(#{$i}) {
         transition-delay: $i * 30ms;
       }
