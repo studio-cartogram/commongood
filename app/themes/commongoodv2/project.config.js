@@ -21,7 +21,7 @@
  */
 
 module.exports = {
-	name: 'commongood',
+	name: 'commongood-2017',
 	prettyName: 'Common Good 2017',
 
 	description: 'A theme for Common Good',

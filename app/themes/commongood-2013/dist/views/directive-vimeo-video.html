@@ -1,0 +1,41 @@
+<div class="video one-whole grid__item">
+	<div class="flex-video widescreen vimeo video__player">
+		<iframe src="{{player}}" width="100%" height="360px" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+	</div>
+	<div class="grid grid--full row--dashed row--dashed--meta">
+		<div class="soft--top soft--bottom grid video__meta">
+			<div class="grid__item one-quarter palm-one-half">
+				<h3 class="flush--bottom" ng-bind-html="playing.title"></h3>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span class="gamma soft-half--right" ng-show="playing.post_meta.agency">Agency</span> 
+				<span ng-bind-html="playing.post_meta.agency"></span>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span class="gamma soft-half--right" ng-show="playing.post_meta.director">Director</span> 
+				<span ng-bind-html="playing.post_meta.director"></span>
+			</div><!--
+			--><div class="grid__item one-quarter palm-one-half">
+				<span class="gamma soft-half--right" ng-show="playing.post_meta.client">Client</span> 
+				<span ng-bind-html="playing.post_meta.client"></span>
+			</div>
+			<!--
+			--><div class="grid__item one-whole palm-one-half">
+			<!-- Facebook -->
+			<a href="https://www.facebook.com/dialog/feed?
+  app_id=729898417042523&display=popup&caption=Common%20Good&name={{playing.title}}&description=Client:%20{{playing.post_meta.client[0]}},%20Director:%20{{playing.post_meta.director[0]}},%20Agency:%20{{playing.post_meta.agency[0]}}&link=https%3A%2F%2Fcommongood.tv%2F?v={{playing.slug}}&redirect_uri=https%3A%2F%2Fcommongood.tv%2F?v={{playing.slug}}&picture={{playing.post_meta.thumbnail[0]}}">Share on Facebook</a>
+
+
+
+<!--   BAD
+
+  https://www.facebook.com/dialog/feed?%20%20app_id=729898417042523&display=popup&caption=Common%20Good&name=Bell%20&#8220;Larger Faster Better&#8221;&description=Client:%20Bell,%20Director:%20Common Good,%20Agency:%20Zulu Alpha Kilo&link=https%3A%2F%2Fcommongood.tv%2F?v=bell-larger-faster-better&redirect_uri=https%3A%2F%2Fcommongood.tv%2F?v=bell-larger-faster-better&picture=http://b.vimeocdn.com/ts/464/939/464939661_1280.jpg
+
+
+Good
+   https://www.facebook.com/dialog/feed?%20%20app_id=729898417042523&display=popup&caption=Common%20Good&name=Bell%20%E2%80%9CLarger Faster Better%E2%80%9D&description=Client:%20Bell,%20Director:%20Common Good,%20Agency:%20Zulu Alpha Kilo&link=https%3A%2F%2Fcommongood.tv%2F?v=bell-larger-faster-better&redirect_uri=https%3A%2F%2Fcommongood.tv%2F?v=bell-larger-faster-better&picture=http://b.vimeocdn.com/ts/464/939/464939661_1280.jpg -->
+
+			</div>
+		</div>	
+	</div>	
+</div>

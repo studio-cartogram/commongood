@@ -7,22 +7,3 @@
 !/app/themes
 !/app/plugins
 
-/app/themes/*
-!/app/themes/commongood
-/app/themes/commongood/.sass-cache
-/app/themes/commongood/bower_components
-/node_modules
-
-
-!/app/themes/commongoodv2
-app/themes/commongoodv2/node_modules
-
-!/app/themes/landmark
-app/themes/landmark/node_modules
-app/themes/landmark/dist
-app/themes/landmark/vendor
-
-!/app/themes/commongood-2013
-app/themes/commongood-2013/node_modules
-app/themes/commongood-2013/dist
-app/themes/commongood-2013/vendor

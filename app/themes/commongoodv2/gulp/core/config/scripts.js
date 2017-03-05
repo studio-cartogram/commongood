@@ -67,8 +67,8 @@ module.exports = deepMerge({
 					})
 				],
 				eslint: {
-					failOnError: true,
-					failOnWarning: true
+					// failOnError: true,
+					// failOnWarning: true
 				}
 			},
 

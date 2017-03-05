@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="grid grid--full">
+		<div class="spinner" ng-hide="ready"></div>
+		<vimeo-video playing="playing"></vimeo-video>
+	</div>
+</div>
+<div class="row row--dashed">
+	<div class="grid">
+		<div ng-repeat="video in videos " class="palm-one-half lap-one-third desk-one-quarter soft--bottom grid__item">
+			<a class="work-block" style="background-image:url('{{video.post_meta.thumbnail[0]}}')" scroll-on-click="" ng-href="/?v={{video.slug}}" ng-click="playVideo(video)">
+				<h4 class="work-block__text" ng-bind-html="video.title"></h4>
+			</a>
+		</div>
+	</div>	
+</div>
