@@ -1,14 +1,37 @@
 <?php
-/**
- *
- * DEVELOPMENT MODE ONLY
- *
- * Includes and Runs php files directly
- * from the dev theme to enable debugging
- * php from within the dev theme!
- *
- * Run "gulp build" to generate the theme
- * for production before deploying!
- *
- */
-include get_template_directory() . DIRECTORY_SEPARATOR . '../commongoodv2/theme/index.php';
+
+get_template_part('partials/head');
+
+// get_template_part('partials/analytics');
+
+get_header();
+
+get_template_part('partials/nav');
+
+echo '<main id="main" role="main" class="main">';
+
+echo '<div id="barba-wrapper">';
+
+  echo '<div class="barba-container">';
+
+    get_template_part('partials/loop-featured');
+
+    echo '<div id="all-work" class="row row--full thumbnails js-videos">';
+
+      set_query_var( 'context', 'thumbnail' );
+
+      get_template_part('partials/loop');
+
+    echo '</div>';
+
+  echo '</div>';
+
+echo '</div>';
+
+echo '</main>';
+
+get_footer();
+
+get_template_part('partials/curtain');
+
+get_template_part('partials/foot');
