@@ -8,17 +8,17 @@ if( have_rows('featured_works', 'options') ):
 
     echo '<div class="swiper-wrapper">';
 
-    while( have_rows('featured_works', 'options') ): the_row(); 
+    $count = 0;
+    while( have_rows('featured_works', 'options') ): the_row(); $count++;
 
       $work = get_sub_field('work');
 
       set_query_var( 'item', $work );
 
-      echo '<div class="swiper-slide">';
 
+      set_query_var( 'count', $count );
       get_template_part('partials/item', 'featured');
 
-      echo '</div>';
 
     endwhile;
 

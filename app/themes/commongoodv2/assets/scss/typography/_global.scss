@@ -11,6 +11,10 @@ html {
   font-size: 16px;
   line-height: 1.5;
 
+  &.nav-is-shown {
+    overflow: hidden;
+  }
+
   @include bp($bp-tablet) {
   }
 }

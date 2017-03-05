@@ -6,7 +6,9 @@
  */
 import Barba from 'barba.js'
 import swiper from 'swiper'
+// import Player from '@vimeo/player';
 import RevealFx from './vendor/RevealFx'
+import createDOMEl from './utils/createDOMEl'
 import log from './utils/log'
 import {
   ACTIVE_CLASS,
@@ -18,10 +20,6 @@ import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
 import Nav from './scripts/Nav'
 import loadSprite from './vendor/loadSprite'
-
-const pageTransition = Barba.BaseTransition.extend({
-});
-
 
 class App {
   constructor() {
@@ -37,7 +35,7 @@ class App {
   }
   init = () => {
     log('init app')
-    this.curtain = new Curtain()
+    this.curtain = new Curtain('js-curtain')
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
@@ -83,18 +81,35 @@ class App {
   }
 
   initSwiper = () => {
+
     var mySwiper = new Swiper ('#js-swiper-featured', {
       autoplay: 5000,
+      speed: 500,
       loop: true,
       effect: 'fade',
       keyboardControl: true,
-
-      // If we need pagination
-      pagination: '.swiper-pagination',
-
-      // Navigation arrows
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
+      // onSlideChangeStart: (swiper) => {
+      //   log('change start')
+      //   const previousSlide = swiper.slides[swiper.previousIndex]
+      //   previousSlide.querySelector('.featured__video').innerHTML = ''
+      //
+      //   log('change end')
+      //   const currentSlide = swiper.slides[swiper.realIndex]
+      //   if(currentSlide.querySelector('iframe')) return null
+      //   currentSlide.classList.add('is-loading')
+      //   const vimeo_url = currentSlide.dataset.cgVimeoUrl;
+      //   const videoOptions = {
+      //     id: 'js-video-iframe',
+      //     src: vimeo_url,
+      //     frameborder: "0",
+      //   }
+      //   const video = createDOMEl('iframe', 'featured__video__video', null, videoOptions)
+      //   currentSlide.querySelector('.featured__video').appendChild(video)
+      // },
+      // onSlideChangeEnd: (swiper) => {
+      //   const currentSlide = swiper.slides[swiper.realIndex]
+      //   currentSlide.classList.remove('is-loading')
+      // },
 
     })
   }

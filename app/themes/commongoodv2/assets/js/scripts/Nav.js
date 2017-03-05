@@ -25,6 +25,7 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.show)
         this.navToggleEl.addEventListener('click', this.hide)
+        document.body.classList.add('nav-is-shown');
       }
     })
   }
@@ -44,6 +45,7 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.hide)
         this.navToggleEl.addEventListener('click', this.show)
+        document.body.classList.remove('nav-is-shown');
       }
     })
   }

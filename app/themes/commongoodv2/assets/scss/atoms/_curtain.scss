@@ -1,7 +1,3 @@
-/* =========================================
-Nav Component
-========================================= */
-
 .curtain {
 	position: fixed;
 	top: 0;
@@ -10,6 +6,10 @@ Nav Component
 	width: 100%;
   z-index: index($l-site, curtain);
 	pointer-events: none;
+}
+
+.curtain--abs {
+	position: absolute;
 }
 
 .curtain__inner {

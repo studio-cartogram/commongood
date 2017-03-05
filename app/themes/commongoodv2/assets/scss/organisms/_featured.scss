@@ -1,14 +1,31 @@
 .featured {
   position: relative;
-}
+  transition: all $a-timing;
 
+}
 
 .feature {
   position: relative;
   display: block;
   height: 100vh;
+  // background: $ca-feature-background;
 }
 
+// .featured__video {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   height: 100vh;
+//   width: 100%;
+//   transform: translate(-50%, -50%);
+// }
+//
+// .featured__video__video {
+//   height: 100%;
+//   width: 100%;
+//   border: 0;
+// }
+//
 .feature__img {
   width: 100%;
   height: 100%;

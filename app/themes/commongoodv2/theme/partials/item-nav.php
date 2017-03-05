@@ -8,7 +8,7 @@ echo '<li>';
 
 echo '<a
         href="' . get_permalink($item->ID) . '"
-        class=""
+        class="link--secondary"
       >';
       if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
 

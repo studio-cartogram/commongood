@@ -6,8 +6,9 @@ import {
 } from '../config'
 
 class Curtain {
-  constructor() {
-    const curtainEl = document.getElementById('js-curtain')
+  constructor(el) {
+    const curtainEl = document.getElementById(el)
+    if(!curtainEl) return null
     this.curtain = new RevealFx(curtainEl)
   }
 

@@ -33,7 +33,7 @@
         'label'               => '@Commongood',
         'has_archive'         => false,
         'exclude_from-search' => true,
-        'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail')
+        'supports'            => array( 'title', 'editor', 'thumbnail')
       );
 
       register_post_type( 'works', $works_args );
