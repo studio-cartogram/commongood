@@ -40,14 +40,16 @@ class App {
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
-    this.initSwiper()
+    this.initFeaturedSwiper()
+    this.initCommongoodsSwiper()
     this.initScrollLinks()
     Barba.Dispatcher.on('initStateChange', currentStatus => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
     })
     Barba.Dispatcher.on('transitionCompleted', () => {
-      this.initSwiper()
+      this.initFeaturedSwiper()
+      this.initCommongoodsSwiper()
       this.initScrollLinks()
       setTimeout(() => {
         document.body.classList.remove('js-is-loading')
@@ -81,9 +83,20 @@ class App {
     })
   }
 
-  initSwiper = () => {
+  initCommongoodsSwiper = () => {
+    const commonggoodsSwiper = new Swiper ('#js-swiper-commongoods', {
+      keyboardControl: true,
+      pagination: '.js-commongoods__pagination',
+      nextButton: '.js-commongoods__next',
+      prevButton: '.js-commongoods__prev',
+      paginationType: 'fraction',
+      autoHeight: true,
+    })
+  }
 
-    var mySwiper = new Swiper ('#js-swiper-featured', {
+  initFeaturedSwiper = () => {
+
+    const featuredSwiper = new Swiper ('#js-swiper-featured', {
       autoplay: 5000,
       speed: 500,
       loop: true,

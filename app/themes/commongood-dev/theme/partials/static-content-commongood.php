@@ -15,5 +15,5 @@ echo '<div class="static__content row">';
 echo '</div>';
 
 set_query_var('context', 'commongood');
-get_template_part('partials/loop');
+get_template_part('partials/loop', 'commongood');
 ?>
