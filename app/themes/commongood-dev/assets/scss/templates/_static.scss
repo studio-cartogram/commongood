@@ -11,8 +11,9 @@
   width: auto;
   transition: margin $a-timing $a-easing;
   margin-top: $d-quin;
+  margin-bottom: $d-duo;
   @include bp($bp-tablet) {
-    margin-top: -3px;
+    margin-top: $d-duo - 3px;
     margin-left: $d-quin;
   }
 

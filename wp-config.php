@@ -87,7 +87,7 @@ define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/app');
  *
  * This is so that users dont see update requests since things are managed through git
  */
-define('WP_HTTP_BLOCK_EXTERNAL', true);
+define('WP_HTTP_BLOCK_EXTERNAL', false);
 
 /**
  * For developers: WordPress debugging mode.

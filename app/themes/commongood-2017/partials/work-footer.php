@@ -1,22 +1,14 @@
 <?php
-
-$agency = get_field('agency');
-$director = get_field('director');
-
-echo '<section class="row work__footer">';
-
-  echo '<div class="column column-6">';
-
-    if ($agency) : echo '<span class="epsilon inline-block">Agency</span> <span class="delta inline-block">' . $agency . '</span>'; endif;
-
-  echo '</div>';
-
-  echo '<div class="column column-6 text-align-right">';
-
-    if ($director) : echo '<span class="epsilon inline-block">Director</span> <span class="delta inline-block">' . $director . '</span>'; endif;
-
-  echo '</div>';
-
-echo '</section>';
-
-?>
+/**
+ *
+ * DEVELOPMENT MODE ONLY
+ *
+ * Includes and Runs php files directly
+ * from the dev theme to enable debugging
+ * php from within the dev theme!
+ *
+ * Run "gulp build" to generate the theme
+ * for production before deploying!
+ *
+ */
+include get_template_directory() . DIRECTORY_SEPARATOR . '../commongood-dev/theme/partials/work-footer.php';

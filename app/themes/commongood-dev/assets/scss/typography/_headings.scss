@@ -11,6 +11,7 @@ h6 {
   text-rendering: optimizeLegibility;
   color: $ca-heading-color;
   font-weight: $t-font-weight-bold;
+  margin: 0;
   &.secondary {
     color: $ca-heading-secondary-color;
   }
@@ -21,6 +22,8 @@ h6 {
 
 .mega {
   font-size: $t-font-size-mega;
+  font-weight: $t-font-weight-bold;
+  line-height: 0.8;
 }
 
 h1 {

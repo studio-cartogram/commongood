@@ -1,9 +1,9 @@
 <?php
 
-// global $wp_query;
-//
+$context = get_query_var( 'context' );
 $modifications = array();
-$modifications['post_type'] = array('works');
+$post_type = ($context == 'commongood' ? 'commongood' : 'works');
+$modifications['post_type'] = array($post_type);
 
 $args = array_merge(
   // $wp_query->query_vars,
@@ -11,7 +11,6 @@ $args = array_merge(
 );
 
 $the_query = new WP_Query($args);
-$context = get_query_var( 'context' );
 
 if ( $the_query->have_posts() ) :
 
