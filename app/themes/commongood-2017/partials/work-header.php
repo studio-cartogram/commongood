@@ -1,14 +1,27 @@
 <?php
-/**
- *
- * DEVELOPMENT MODE ONLY
- *
- * Includes and Runs php files directly
- * from the dev theme to enable debugging
- * php from within the dev theme!
- *
- * Run "gulp build" to generate the theme
- * for production before deploying!
- *
- */
-include get_template_directory() . DIRECTORY_SEPARATOR . '../commongood-dev/theme/partials/work-header.php';
+
+$title = get_the_title();
+$client = get_field('client');
+
+echo '<section class="row work__header">';
+
+  echo '<div class="column work__title">';
+
+    if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
+
+    echo '<span class="gamma inline-block font-weight-regular">' . $title . '</span>';
+
+
+  echo '</div>';
+
+  echo '<div class="work__back hamburger is-active">';
+
+    echo '<span class="line"></span>';
+    echo '<span class="line"></span>';
+    echo '<span class="line"></span>';
+
+  echo '</div>';
+
+echo '</section>';
+
+?>
