@@ -73,7 +73,7 @@ echo '<div class="static__content row">';
 
             echo '<ul class="soft-duo--bottom list list--vertical">';
 
-              echo '<li><a class="link" href="mailto:' . $website . '">' . $name . '</a></li>';
+              echo '<li><a class="link" target="_blank" href="' . $website . '">' . $name . '</a></li>';
 
               echo '<li>' . $location . '</li>';
 

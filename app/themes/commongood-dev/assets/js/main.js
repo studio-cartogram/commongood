@@ -28,11 +28,12 @@ class App {
     document.body.classList.remove('js-is-loading')
     document.body.classList.add('js-is-initialized')
     Barba.Pjax.init()
+    Barba.Prefetch.init()
     Barba.Pjax.getTransition = () => {
       return this.Transition;
     }
-
   }
+
   init = () => {
     log('init app')
     this.curtain = new Curtain('js-curtain')
