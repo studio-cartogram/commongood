@@ -1,5 +1,4 @@
 import anime from 'animejs'
-import log from '../utils/log'
 
 import {
   TRANSITION_DURATION,
@@ -27,7 +26,7 @@ class Scroll {
     }
   }
 
-  scrollTo = (target) => {
+  scrollTo = target => {
     const container = document.body
     const config = this.createScrollConfig({
       container,

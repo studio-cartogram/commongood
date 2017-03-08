@@ -5,15 +5,9 @@
  *
  */
 import Barba from 'barba.js'
-import swiper from 'swiper'
+import Swiper from 'swiper'
 // import Player from '@vimeo/player';
-import RevealFx from './vendor/RevealFx'
-import createDOMEl from './utils/createDOMEl'
 import log from './utils/log'
-import {
-  ACTIVE_CLASS,
-  REVEALER_OPTIONS,
-} from './config'
 
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
@@ -29,9 +23,7 @@ class App {
     document.body.classList.add('js-is-initialized')
     Barba.Pjax.init()
     Barba.Prefetch.init()
-    Barba.Pjax.getTransition = () => {
-      return this.Transition;
-    }
+    Barba.Pjax.getTransition = () => this.Transition
   }
 
   init = () => {
@@ -43,7 +35,7 @@ class App {
     this.initFeaturedSwiper()
     this.initCommongoodsSwiper()
     this.initScrollLinks()
-    Barba.Dispatcher.on('initStateChange', currentStatus => {
+    Barba.Dispatcher.on('initStateChange', () => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
     })
@@ -63,19 +55,19 @@ class App {
     }
   }
 
-  scrollTo = (str) => {
+  scrollTo = str => {
     const targetEl = document.getElementById(str.substr(1))
-    if(targetEl) {
+    if (targetEl) {
       log(targetEl)
       this.scroll.scrollTo(targetEl)
     }
   }
 
   initScrollLinks = () => {
-    const scrollLinks = document.querySelectorAll('.js-scroll-link');
+    const scrollLinks = document.querySelectorAll('.js-scroll-link')
 
     scrollLinks.forEach(el => {
-      el.addEventListener('click', (e) => {
+      el.addEventListener('click', e => {
         e.preventDefault()
         const target = el.getAttribute('href')
         this.scrollTo(target)
@@ -84,7 +76,7 @@ class App {
   }
 
   initCommongoodsSwiper = () => {
-    const commonggoodsSwiper = new Swiper ('#js-swiper-commongoods', {
+    const commonggoodsSwiper = new Swiper('#js-swiper-commongoods', {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
       nextButton: '.js-commongoods__next',
@@ -95,8 +87,7 @@ class App {
   }
 
   initFeaturedSwiper = () => {
-
-    const featuredSwiper = new Swiper ('#js-swiper-featured', {
+    const featuredSwiper = new Swiper('#js-swiper-featured', {
       autoplay: 5000,
       speed: 500,
       loop: true,
@@ -134,31 +125,31 @@ class App {
     const _scrollTop = this.scroll.scrollTop.bind(this)
 
     this.Transition = Barba.BaseTransition.extend({
-      start: function() {
+      start() {
         Promise
         .all([
           this.newContainerLoading,
           _scrollTop().finished,
           this.showCurtain(),
         ])
-        .then(this.showNewPage.bind(this));
+        .then(this.showNewPage.bind(this))
       },
 
-      showCurtain: function() {
-        const deferred = Barba.Utils.deferred();
+      showCurtain() {
+        const deferred = Barba.Utils.deferred()
 
         _showCurtain(() => {
-          deferred.resolve();
+          deferred.resolve()
         })
 
-        return deferred.promise;
+        return deferred.promise
       },
 
-      showNewPage: function() {
+      showNewPage() {
         this.done()
         _hideCurtain(() => {
         })
-      }
+      },
     })
   }
 }
