@@ -8,6 +8,7 @@ import Barba from 'barba.js'
 import Swiper from 'swiper'
 // import Player from '@vimeo/player';
 import log from './utils/log'
+import creatDOMEl from './utils/createDOMEl'
 
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
@@ -26,7 +27,6 @@ class App {
     Barba.Pjax.init()
     Barba.Prefetch.init()
     Barba.Pjax.getTransition = () => this.Transition
-    this.nav.updateActiveItem()
   }
 
   init = () => {
@@ -38,6 +38,7 @@ class App {
     this.initFeaturedSwiper()
     this.initCommongoodsSwiper()
     this.initScrollLinks()
+    this.nav.updateActiveItem()
     Barba.Dispatcher.on('initStateChange', () => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
@@ -160,4 +161,6 @@ class App {
 }
 
 const app = new App()
+
+window.app = app
 

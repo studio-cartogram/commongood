@@ -31,7 +31,10 @@ class LoadVimeoImages {
   }
 
   fetchVimeoData = el =>
-    fetch(`http://vimeo.com/api/v2/video/${el.dataset.vimeoId}.json`)
+    fetch(`http://vimeo.com/api/v2/video/${el.dataset.vimeoId}.json`, {
+      method: 'GET',
+      mode: 'cors',
+    })
     .then(data => checkStatus(data))
     .then(data => parseJSON(data))
     .then(data => ({

@@ -6,7 +6,7 @@ echo '<div
   style="padding-bottom: 56%;"
   class="ratio-container"
   >';
-echo '<iframe src="https://player.vimeo.com/video/' . $vimeo_id . '?autoplay=0&title=0&byline=0"" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+echo '<iframe src="https://player.vimeo.com/video/' . $vimeo_id . '?autoplay=1&title=0&byline=0"" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 echo '</div>';
 echo '</div>';
 
