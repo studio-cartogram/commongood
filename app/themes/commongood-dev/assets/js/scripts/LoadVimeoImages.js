@@ -12,20 +12,21 @@ class LoadVimeoImages {
     if (this.els.length === 0) {
       return null
     }
-    this.els.forEach(this.loadImage)
+
+    Array.prototype.forEach.call(this.els, this.loadImage)
   }
 
   loadImage = el => {
-    el.parentNode.parentNode.classList.add('is-loading')
     const localSrc = localStorage.getItem(`image-${el.dataset.vimeoId}`)
+    el.parentNode.parentNode.classList.add('is-loading')
 
     if (localSrc) {
-      return this.setImageSrc(el, localSrc)
+      return this.setElSrc(el, localSrc)
     }
 
     return this.fetchVimeoData(el).then(srcs => {
       localStorage.setItem(`image-${el.dataset.vimeoId}`, srcs.large)
-      return this.setImageSrc(el, srcs.large)
+      return this.setElSrc(el, srcs.large)
     })
   }
 
@@ -37,8 +38,15 @@ class LoadVimeoImages {
       large: data[0].thumbnail_large,
     }))
 
-  setImageSrc= (el, src) => {
-    el.src = src
+  setElSrc= (el, src) => {
+    switch (el.nodeName) {
+      case 'VIDEO':
+        el.poster = src
+      break
+      default:
+        el.src = src
+      break
+    }
     el.addEventListener('load', () => {
       el.parentNode.parentNode.classList.remove('is-loading')
     })
