@@ -34,6 +34,8 @@ Thumbnail Component
   max-width: 100%;
   object-fit: cover;
   transition: all $a-timing * 4;
+
+
 }
 
 .thumbnail__copy {
@@ -50,18 +52,33 @@ Thumbnail Component
   }
 }
 
-.thumbnail:hover,
-.thumbnail:focus {
+
+.thumbnail.is-loading {
   .thumbnail__img {
-    transform: scale(1.2);
+    opacity: 0;
   }
-  .thumbnail__copy {
-    opacity: 1;
-  }
+
   .thumbnail__overlay {
     opacity:0.5;
   }
-
 }
+
+.thumbnail:active,
+.thumbnail:focus,
+.thumbnail:hover {
+  .thumbnail__img {
+    transform: scale(1.2);
+  }
+
+  .thumbnail__copy {
+    opacity: 1;
+  }
+
+  .thumbnail__overlay {
+    opacity:0.5;
+  }
+}
+
+
 
 

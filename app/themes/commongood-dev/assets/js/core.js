@@ -12,6 +12,5 @@ import 'babel-polyfill'
 /** Responsive Images Polyfill */
 import 'picturefill'
 
-/** Lazyload Images */
-import 'lazysizes/plugins/bgset/ls.bgset'
-import 'lazysizes'
+/** Fetch Polyfill */
+import 'whatwg-fetch'

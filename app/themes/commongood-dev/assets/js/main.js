@@ -13,6 +13,7 @@ import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
 import Nav from './scripts/Nav'
+import LoadVimeoImages from './scripts/LoadVimeoImages'
 import loadSprite from './vendor/loadSprite'
 
 class App {
@@ -24,10 +25,12 @@ class App {
     Barba.Pjax.init()
     Barba.Prefetch.init()
     Barba.Pjax.getTransition = () => this.Transition
+    this.nav.updateActiveItem()
   }
 
   init = () => {
     log('init app')
+    this.loadVimeoImages = new LoadVimeoImages('.js-load-vimeo-image')
     this.curtain = new Curtain('js-curtain')
     this.nav = new Nav()
     this.scroll = new Scroll()
@@ -39,10 +42,12 @@ class App {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
     })
-    Barba.Dispatcher.on('transitionCompleted', () => {
+    Barba.Dispatcher.on('transitionCompleted', (currentStatus, prevStatus) => {
       this.initFeaturedSwiper()
       this.initCommongoodsSwiper()
       this.initScrollLinks()
+      this.loadVimeoImages.init()
+      this.nav.updateActiveItem(currentStatus, prevStatus)
       setTimeout(() => {
         document.body.classList.remove('js-is-loading')
       }, 200)

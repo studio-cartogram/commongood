@@ -1,14 +1,20 @@
 <?php
-/**
- *
- * DEVELOPMENT MODE ONLY
- *
- * Includes and Runs php files directly
- * from the dev theme to enable debugging
- * php from within the dev theme!
- *
- * Run "gulp build" to generate the theme
- * for production before deploying!
- *
- */
-include get_template_directory() . DIRECTORY_SEPARATOR . '../commongood-dev/theme/partials/item-nav.php';
+
+$item = get_query_var('item');
+$title = get_the_title($item->ID);
+$client = get_field('client', $item->ID);
+
+echo '<li>';
+
+echo '<a
+        href="' . get_permalink($item->ID) . '"
+        class="link--secondary"
+      >';
+      if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
+
+      echo '<span class="gamma inline-block font-weight-regular">' . $title . '</span>';
+echo '</a>';
+
+echo '</li>';
+
+?>
