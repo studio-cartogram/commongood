@@ -30,7 +30,6 @@ class App {
   }
 
   init = () => {
-    log('init app')
     this.loadVimeoImages = new LoadVimeoImages('.js-load-vimeo-image')
     this.curtain = new Curtain('js-curtain')
     this.nav = new Nav()
@@ -121,8 +120,8 @@ class App {
       keyboardControl: true,
       // onInit: changeVideo,
     })
-    featuredSwiper.on('onInit', changeVideo)
-    featuredSwiper.on('onSlideChangeStart', changeVideo)
+    // featuredSwiper.on('onInit', changeVideo)
+    // featuredSwiper.on('onSlideChangeStart', changeVideo)
   }
 
   initTransitions = () => {
