@@ -1,3 +1,4 @@
+import log from '../utils/log'
 import RevealFx from '../vendor/RevealFx'
 
 import {
@@ -60,10 +61,11 @@ class Nav {
   }
 
   updateActiveItem = (currentStatus, prevStatus) => {
-    const currentUrl = currentStatus ? currentStatus.url.split(window.location.origin)[1] : window.location.pathname
-    const prevUrl = prevStatus && prevStatus.url.split(window.location.origin)[1]
+    const currentUrl = currentStatus ? currentStatus.url.split(window.location.protocol)[1] : window.location.pathname
+    const prevUrl = prevStatus && prevStatus.url.split(window.location.protocol)[1]
     const currentActiveLinkEl = this.navEl.querySelector(`[href="${currentUrl}"]`)
     const prevActiveLinkEl = this.navEl.querySelector(`[href="${prevUrl}"]`)
+    log(currentUrl, prevUrl)
 
     if (prevUrl && prevActiveLinkEl) {
       prevActiveLinkEl.classList.remove('is-active')
