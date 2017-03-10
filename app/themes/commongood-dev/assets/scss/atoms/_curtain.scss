@@ -6,10 +6,7 @@
 	width: 100%;
   z-index: index($l-site, curtain);
 	pointer-events: none;
-}
-
-.curtain--abs {
-	position: absolute;
+  will-change: opacity;
 }
 
 .curtain__inner {
