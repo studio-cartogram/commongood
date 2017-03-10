@@ -1,6 +1,6 @@
 .prev-next {
   position: relative;
-  @include bp($bp-tablet) {
+  @include bp($bp-laptop) {
     position: absolute;
     left:0;
     right:0;
@@ -11,7 +11,7 @@
 }
 
 .prev-next__link {
-  @include bp($bp-tablet) {
+  @include bp($bp-laptop) {
     padding: $d-base;
   }
   position: absolute;

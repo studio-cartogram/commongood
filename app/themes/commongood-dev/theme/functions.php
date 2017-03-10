@@ -116,6 +116,7 @@
       $theme_dir = get_stylesheet_directory_uri();
 
       wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array(), null, true );
+      wp_enqueue_script( 'objectFit', "$theme_dir/assets/js/objectFitPolyfill.basic.min.js", array(), null, true );
 
     }
 

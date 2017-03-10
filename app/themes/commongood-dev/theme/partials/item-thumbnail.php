@@ -4,6 +4,7 @@ $item = get_query_var('item');
 $title = get_the_title($item->ID);
 $client = get_field('client', $item->ID);
 $vimeo_id = get_field('vimeo_id', $item->ID);
+$thumbnail = get_field('thumbnail', $item->ID);
 
 echo '<a
         href="' . get_permalink($item->ID) . '"
@@ -17,8 +18,16 @@ echo '<a
 
     echo '<img
       data-vimeo-id="' . $vimeo_id . '"
-      class="js-load-vimeo-image thumbnail__img"
+      data-object-fit="cover"
+      class="js-load-vimeo-image thumbnail__img "
       alt="' . esc_attr(get_the_title($item->ID)) . '"
+    />';
+
+    echo '<img
+      data-object-fit="cover"
+      class="thumbnail__img thumbnail__img--fallback"
+      alt="' . esc_attr(get_the_title($item->ID)) . '"
+      src="' . $thumbnail . '"
     />';
 
   echo '</div>';

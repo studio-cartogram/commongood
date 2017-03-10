@@ -11,26 +11,31 @@
   background: $ca-feature-background;
 }
 
-// .featured__video {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   height: 100vh;
-//   width: 100%;
-//   transform: translate(-50%, -50%);
-// }
-//
-// .featured__video__video {
-//   height: 100%;
-//   width: 100%;
-//   border: 0;
-// }
-//
+.feature__video {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
 .feature__img {
   width: 100%;
   height: 100%;
   max-width: 100%;
   object-fit: cover;
+}
+
+
+.feature .feature__img--fallback {
+  display: none;
+}
+
+.is-broken {
+  > .feature__img {
+    display: none;
+  }
+  > .feature__img--fallback {
+    display: block;
+  }
 }
 
 .featured__copy,

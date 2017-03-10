@@ -9,7 +9,7 @@ import Swiper from 'swiper'
 // import Player from '@vimeo/player';
 import log from './utils/log'
 import creatDOMEl from './utils/createDOMEl'
-
+import objectFitImages from 'object-fit-images';
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
@@ -35,8 +35,8 @@ class App {
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
-    this.initFeaturedSwiper()
-    this.initCommongoodsSwiper()
+    // this.initFeaturedSwiper()
+    // this.initCommongoodsSwiper()
     this.initScrollLinks()
     this.nav.updateActiveItem()
     Barba.Dispatcher.on('initStateChange', () => {
@@ -59,6 +59,7 @@ class App {
         this.scrollTo(window.location.hash)
       }, 0)
     }
+    // objectFitImages('.fix-fit-cover', {watchMQ: true});
   }
 
   scrollTo = str => {
@@ -92,37 +93,32 @@ class App {
   }
 
   initFeaturedSwiper = () => {
-    let currVideo
+    let currVideo = null
     let prevVideo
     const changeVideo = swiper => {
-      log(swiper.activeIndex, swiper.realIndex, swiper.previousIndex)
-      const index = swiper.realIndex
-      const prevIndex = swiper.realIndex === 0 ? 0 : swiper.realIndex - 1
-      const prevSlide = index !== prevIndex ? swiper.slides[prevIndex] : null
+      const prevSlide = swiper.realIndex === swiper.previousIndex ? null : swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
+      currVideo = new Video(currSlide.querySelector('.js-video'))
       if (!currVideo) {
-        currVideo = new Video(currSlide.querySelector('#js-video'))
+        return null
       }
 
       currVideo.play()
 
-      // if (prevSlide) {
-      //   log('has previous')
-      //   prevVideo = new Video(prevSlide.querySelector('#js-video'))
-      //   prevVideo.pause()
-      // }
+      if (prevSlide) {
+        prevVideo = new Video(prevSlide.querySelector('.js-video'))
+        prevVideo.pause()
+      }
     }
 
     const featuredSwiper = new Swiper('#js-swiper-featured', {
       autoplay: 10000,
       speed: 500,
-      loop: true,
       effect: 'fade',
       keyboardControl: true,
-      // onInit: changeVideo,
+      onInit: changeVideo,
+      onSlideChangeStart: changeVideo,
     })
-    // featuredSwiper.on('onInit', changeVideo)
-    // featuredSwiper.on('onSlideChangeStart', changeVideo)
   }
 
   initTransitions = () => {
