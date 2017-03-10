@@ -41,4 +41,3 @@ echo '<header role="banner" class="header">';
   echo '</div>';
 
 echo '</header>';
-
