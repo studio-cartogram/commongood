@@ -6,9 +6,18 @@
 
 	======================================================================================================================== */
 
+	/**
+	 * Front End Assets
+	 **/
   add_action('wp_head','cartogram_fonts');
   add_action( 'wp_enqueue_scripts', 'cartogram_styles' );
   add_action( 'wp_enqueue_scripts', 'cartogram_scripts' );
+
+	/**
+	 * Post types and taxonomies
+	 **/
+	add_action('init', 'create_post_types' );
+	add_action('init', 'create_taxonomies' );
 
 	/* ========================================================================================================================
 

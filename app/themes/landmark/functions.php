@@ -33,13 +33,6 @@
 
 
 	/**
-	 * Post types and taxonomies
-	 *
-	 **/
-	add_action('init', 'create_post_types' );
-	add_action('init', 'create_taxonomies' );
-
-	/**
 	 * Content
 	 *
 	 **/
