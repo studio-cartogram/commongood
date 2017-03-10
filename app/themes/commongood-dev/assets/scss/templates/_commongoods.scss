@@ -2,18 +2,33 @@
   width: 100%;
   height: 100%;
   margin-bottom: $d-oct;
+
+  .swiper-wrapper {
+    transition-duration: $a-timing !important;
+  }
 }
 
 .commongood {
   align-items: flex-end;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -$d-oct;
+    left:0;
+    right: -$d-oct;
+    z-index: 0;
+    background: $ca-commongood-background;
+  }
 }
 
 .commongood__content {
   padding-right: $d-quad;
-  padding-bottom: $d-trio;
-  @include bp($bp-tablet) {
-    // padding-bottom: 0;
-  }
+  padding-bottom: $d-sex;
+  position: relative;
+  z-index:1;
 }
 
 .commongood__title {
@@ -21,36 +36,24 @@
   margin-bottom: $d-trio;
   position: relative;
   z-index:1;
-  font-size: 10px;
-  @include bp($bp-tablet) {
-    font-size: 16px;
-    width: 50vw;
+}
+
+.commongood__link {
+  position: absolute;
+  bottom: -$d-sex;
+  transition: all $a-timing * 3 $a-easing;
+  transform: translate3d(0, 300%, 0);
+
+  .swiper-slide-active & {
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .commongood__img {
   position: relative;
   min-height: 100px;
-
-  @include bp($bp-tablet) {
-    // order: 1;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    height: auto;
-    width: auto;
-    top:0;
-    bottom:0;
-    left: 0;
-    right: 0;
-    background: $ca-commongood-img-background;
-    transform: translate3d($d-oct, $d-quad, 0);
-    @include bp($bp-tablet) {
-      transform: translate3d($d-quad, $d-quad, 0);
-    }
-  }
+  margin-bottom: $d-oct;
+  order:1;
 }
 
 .commongood__img__img {
@@ -58,7 +61,6 @@
   height: 100%;
   max-width: 100%;
   object-fit: cover;
-  transition: all $a-timing * 4;
 }
 
 .commongoods__controls {
@@ -74,7 +76,7 @@
   bottom: 0;
   transform: translateX(-50%);
   @include bp($bp-tablet) {
-    transform: translateX(calc(-50% + #{$d-quad}));
+    transform: translateX(calc(-50% + #{$d-oct}));
   }
 }
 
@@ -86,7 +88,7 @@
   padding-right: $d-trio;
   width: calc(100% - #{$d-oct});
   @include bp($bp-tablet) {
-    padding-right: $d-sep;
+    padding-right: $d-oct;
     width: calc(#{8 / $d-grid-columns * 100}% - #{$d-oct});
   }
 }

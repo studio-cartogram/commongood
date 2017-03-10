@@ -14,6 +14,7 @@ $the_query = new WP_Query($args);
 
 if ( $the_query->have_posts() ) :
 
+
   echo '<div id="js-swiper-commongoods" class="commongoods swiper-container">';
 
     echo '<div class="swiper-wrapper">';
@@ -46,6 +47,7 @@ if ( $the_query->have_posts() ) :
     echo '</div>';
 
   echo '</div>';
+
 
 else :
 

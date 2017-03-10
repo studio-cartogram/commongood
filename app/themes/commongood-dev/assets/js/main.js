@@ -6,7 +6,6 @@
  */
 import Barba from 'barba.js'
 import Swiper from 'swiper'
-// import Player from '@vimeo/player';
 import log from './utils/log'
 import creatDOMEl from './utils/createDOMEl'
 import objectFitImages from 'object-fit-images';
@@ -14,9 +13,11 @@ import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
 import Nav from './scripts/Nav'
+import SwiperCurtain from './scripts/SwiperCurtain'
 import Video from './scripts/Video'
 import LoadVimeoImages from './scripts/LoadVimeoImages'
 import loadSprite from './vendor/loadSprite'
+import RevealFx from './vendor/RevealFx'
 
 class App {
   constructor() {
@@ -35,8 +36,6 @@ class App {
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
-    // this.initFeaturedSwiper()
-    // this.initCommongoodsSwiper()
     this.initScrollLinks()
     this.nav.updateActiveItem()
     Barba.Dispatcher.on('initStateChange', () => {
@@ -81,20 +80,32 @@ class App {
     })
   }
 
+
   initCommongoodsSwiper = () => {
+
+    const changeSlide = swiper => {
+      const prevSlide = swiper.slides[swiper.previousIndex]
+      const currSlide = swiper.slides[swiper.realIndex]
+      const swiperCurtain = new SwiperCurtain(currSlide)
+      swiperCurtain.show2();
+    }
+
     const commonggoodsSwiper = new Swiper('#js-swiper-commongoods', {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
       nextButton: '.js-commongoods__next',
       prevButton: '.js-commongoods__prev',
       paginationType: 'fraction',
+      speed: 500,
       autoHeight: true,
+      effect: 'fade',
+      onInit: changeSlide,
+      onSlideChangeStart: changeSlide,
+
     })
   }
 
   initFeaturedSwiper = () => {
-    let currVideo = null
-    let prevVideo
     const changeVideo = swiper => {
       const prevSlide = swiper.realIndex === swiper.previousIndex ? null : swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]

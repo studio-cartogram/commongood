@@ -22,6 +22,7 @@ h6 {
 
 .mega {
   font-size: $t-font-size-mega;
+  font-size: calc(100% + 5vw);
   font-weight: $t-font-weight-bold;
   line-height: 1;
 }
