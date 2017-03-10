@@ -71,6 +71,7 @@
     "lazysizes": "3.0.0-rc4",
     "lg-video.js": "^1.0.0",
     "picturefill": "3.0.2",
-    "swiper": "^3.4.1"
+    "swiper": "^3.4.1",
+    "whatwg-fetch": "^2.0.3"
   }
 }

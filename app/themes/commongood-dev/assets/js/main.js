@@ -5,20 +5,17 @@
  *
  */
 import Barba from 'barba.js'
-import swiper from 'swiper'
+import Swiper from 'swiper'
 // import Player from '@vimeo/player';
-import RevealFx from './vendor/RevealFx'
-import createDOMEl from './utils/createDOMEl'
 import log from './utils/log'
-import {
-  ACTIVE_CLASS,
-  REVEALER_OPTIONS,
-} from './config'
+import creatDOMEl from './utils/createDOMEl'
 
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
 import Nav from './scripts/Nav'
+import Video from './scripts/Video'
+import LoadVimeoImages from './scripts/LoadVimeoImages'
 import loadSprite from './vendor/loadSprite'
 
 class App {
@@ -29,13 +26,11 @@ class App {
     document.body.classList.add('js-is-initialized')
     Barba.Pjax.init()
     Barba.Prefetch.init()
-    Barba.Pjax.getTransition = () => {
-      return this.Transition;
-    }
+    Barba.Pjax.getTransition = () => this.Transition
   }
 
   init = () => {
-    log('init app')
+    this.loadVimeoImages = new LoadVimeoImages('.js-load-vimeo-image')
     this.curtain = new Curtain('js-curtain')
     this.nav = new Nav()
     this.scroll = new Scroll()
@@ -43,14 +38,17 @@ class App {
     this.initFeaturedSwiper()
     this.initCommongoodsSwiper()
     this.initScrollLinks()
-    Barba.Dispatcher.on('initStateChange', currentStatus => {
+    this.nav.updateActiveItem()
+    Barba.Dispatcher.on('initStateChange', () => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
     })
-    Barba.Dispatcher.on('transitionCompleted', () => {
+    Barba.Dispatcher.on('transitionCompleted', (currentStatus, prevStatus) => {
       this.initFeaturedSwiper()
       this.initCommongoodsSwiper()
       this.initScrollLinks()
+      this.loadVimeoImages.init()
+      this.nav.updateActiveItem(currentStatus, prevStatus)
       setTimeout(() => {
         document.body.classList.remove('js-is-loading')
       }, 200)
@@ -63,19 +61,18 @@ class App {
     }
   }
 
-  scrollTo = (str) => {
+  scrollTo = str => {
     const targetEl = document.getElementById(str.substr(1))
-    if(targetEl) {
+    if (targetEl) {
       log(targetEl)
       this.scroll.scrollTo(targetEl)
     }
   }
 
   initScrollLinks = () => {
-    const scrollLinks = document.querySelectorAll('.js-scroll-link');
-
-    scrollLinks.forEach(el => {
-      el.addEventListener('click', (e) => {
+    const scrollLinks = document.querySelectorAll('.js-scroll-link')
+    Array.prototype.forEach.call(scrollLinks, el => {
+      el.addEventListener('click', e => {
         e.preventDefault()
         const target = el.getAttribute('href')
         this.scrollTo(target)
@@ -84,7 +81,7 @@ class App {
   }
 
   initCommongoodsSwiper = () => {
-    const commonggoodsSwiper = new Swiper ('#js-swiper-commongoods', {
+    const commonggoodsSwiper = new Swiper('#js-swiper-commongoods', {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
       nextButton: '.js-commongoods__next',
@@ -95,37 +92,37 @@ class App {
   }
 
   initFeaturedSwiper = () => {
+    let currVideo
+    let prevVideo
+    const changeVideo = swiper => {
+      log(swiper.activeIndex, swiper.realIndex, swiper.previousIndex)
+      const index = swiper.realIndex
+      const prevIndex = swiper.realIndex === 0 ? 0 : swiper.realIndex - 1
+      const prevSlide = index !== prevIndex ? swiper.slides[prevIndex] : null
+      const currSlide = swiper.slides[swiper.realIndex]
+      if (!currVideo) {
+        currVideo = new Video(currSlide.querySelector('#js-video'))
+      }
 
-    const featuredSwiper = new Swiper ('#js-swiper-featured', {
-      autoplay: 5000,
+      currVideo.play()
+
+      // if (prevSlide) {
+      //   log('has previous')
+      //   prevVideo = new Video(prevSlide.querySelector('#js-video'))
+      //   prevVideo.pause()
+      // }
+    }
+
+    const featuredSwiper = new Swiper('#js-swiper-featured', {
+      autoplay: 10000,
       speed: 500,
       loop: true,
       effect: 'fade',
       keyboardControl: true,
-      // onSlideChangeStart: (swiper) => {
-      //   log('change start')
-      //   const previousSlide = swiper.slides[swiper.previousIndex]
-      //   previousSlide.querySelector('.featured__video').innerHTML = ''
-      //
-      //   log('change end')
-      //   const currentSlide = swiper.slides[swiper.realIndex]
-      //   if(currentSlide.querySelector('iframe')) return null
-      //   currentSlide.classList.add('is-loading')
-      //   const vimeo_url = currentSlide.dataset.cgVimeoUrl;
-      //   const videoOptions = {
-      //     id: 'js-video-iframe',
-      //     src: vimeo_url,
-      //     frameborder: "0",
-      //   }
-      //   const video = createDOMEl('iframe', 'featured__video__video', null, videoOptions)
-      //   currentSlide.querySelector('.featured__video').appendChild(video)
-      // },
-      // onSlideChangeEnd: (swiper) => {
-      //   const currentSlide = swiper.slides[swiper.realIndex]
-      //   currentSlide.classList.remove('is-loading')
-      // },
-
+      // onInit: changeVideo,
     })
+    // featuredSwiper.on('onInit', changeVideo)
+    // featuredSwiper.on('onSlideChangeStart', changeVideo)
   }
 
   initTransitions = () => {
@@ -134,34 +131,36 @@ class App {
     const _scrollTop = this.scroll.scrollTop.bind(this)
 
     this.Transition = Barba.BaseTransition.extend({
-      start: function() {
+      start() {
         Promise
         .all([
           this.newContainerLoading,
           _scrollTop().finished,
           this.showCurtain(),
         ])
-        .then(this.showNewPage.bind(this));
+        .then(this.showNewPage.bind(this))
       },
 
-      showCurtain: function() {
-        const deferred = Barba.Utils.deferred();
+      showCurtain() {
+        const deferred = Barba.Utils.deferred()
 
         _showCurtain(() => {
-          deferred.resolve();
+          deferred.resolve()
         })
 
-        return deferred.promise;
+        return deferred.promise
       },
 
-      showNewPage: function() {
+      showNewPage() {
         this.done()
         _hideCurtain(() => {
         })
-      }
+      },
     })
   }
 }
 
 const app = new App()
+
+window.app = app
 

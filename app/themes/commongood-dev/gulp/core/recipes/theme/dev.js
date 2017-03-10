@@ -58,7 +58,6 @@ module.exports = function () {
 		.pipe(filterPHP.restore)
 
 		.pipe(add({
-			'.gitignore': '*',
 			'style.css': style
 		}))
 

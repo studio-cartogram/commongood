@@ -23,7 +23,7 @@
 module.exports = {
 	name: 'commongood-2017',
 	prettyName: 'Common Good 2017',
-
+  devUrl: 'commongood.dev',
 	description: 'A theme for Common Good',
 	version: '0.1.0',
 	author: 'Cartogram',

@@ -8,32 +8,32 @@ import {
 class Curtain {
   constructor(el) {
     const curtainEl = document.getElementById(el)
-    if(!curtainEl) return null
+    if (!curtainEl) return null
     this.curtain = new RevealFx(curtainEl)
   }
 
-  show = (cb) => {
+  show = cb => {
     this.curtain.reveal({
       ...REVEALER_OPTIONS,
-      onCover: function(contentEl, revealerEl) {
+      onCover(contentEl) {
         contentEl.style.opacity = 1
       },
-      onComplete: function() {
-        if(typeof cb === 'function') {
+      onComplete() {
+        if (cb && typeof cb === 'function') {
           cb()
         }
       },
     })
   }
 
-  hide = (cb) => {
+  hide = cb => {
     this.curtain.reveal({
       ...REVEALER_OPTIONS,
-      onCover: function(contentEl, revealerEl) {
+      onCover(contentEl) {
         contentEl.style.opacity = 0
       },
-      onComplete: function() {
-        if(typeof cb === 'function') {
+      onComplete() {
+        if (cb && typeof cb === 'function') {
           cb()
         }
       },

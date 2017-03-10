@@ -53,11 +53,19 @@ echo '<div class="static__content row">';
 
       $address_link = get_field('address_link');
 
-      if($address_link) : echo '<a class="" target="_blank" href="' . $address_link . '">'; endif;
+      if($address_link) : echo '<a target="_blank" href="' . $address_link . '">'; endif;
 
         echo get_field('address');
 
       if($address_link) : echo '</a>'; endif;
+
+      $phone = get_field('phone');
+
+      if($phone) :
+
+        echo '<a href="tel:' . $phone . '">'. $phone . '</a>';
+
+      endif;
 
       echo '</p>';
 

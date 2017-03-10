@@ -1,7 +1,6 @@
 <?php
 
 $vimeo_id = get_field('vimeo_id');
-
 echo '<div class="work__video">';
 echo '<div
   style="padding-bottom: 56%;"

@@ -31,4 +31,4 @@
     <script async defer src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/core.js"></script>
     <?php wp_head(); ?>
   </head>
-<body <?php body_class('site js-is-loading'); ?> >
+  <body <?php body_class('site js-is-loading'); ?> >

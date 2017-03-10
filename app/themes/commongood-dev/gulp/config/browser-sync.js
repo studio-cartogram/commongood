@@ -7,5 +7,5 @@
 var project = require('../../project.config');
 
 module.exports = {
-  proxy: 'http://' + project.name + '.dev'
+  proxy: 'http://' + project.devUrl
 };
