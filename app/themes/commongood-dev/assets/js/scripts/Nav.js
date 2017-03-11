@@ -65,6 +65,7 @@ class Nav {
     const prevUrl = prevStatus && prevStatus.url.split(window.location.protocol)[1]
     const currentActiveLinkEl = this.navEl.querySelector(`[href="${currentUrl}"]`)
     const prevActiveLinkEl = this.navEl.querySelector(`[href="${prevUrl}"]`)
+    log(currentUrl)
 
     if (prevUrl && prevActiveLinkEl) {
       prevActiveLinkEl.classList.remove('is-active')

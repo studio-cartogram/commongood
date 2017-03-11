@@ -121,7 +121,7 @@ class App {
       currVideo.play()
 
       if (prevSlide) {
-        prevVideo = new Video(prevSlide.querySelector('.js-video'))
+        const prevVideo = new Video(prevSlide.querySelector('.js-video'))
         prevVideo.pause()
       }
     }
