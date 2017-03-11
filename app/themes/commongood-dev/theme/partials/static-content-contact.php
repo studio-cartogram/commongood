@@ -16,7 +16,7 @@ echo '<div class="static__content row">';
 
   echo '<div class="row">';
 
-    echo '<div class="column column-6-tablet">';
+    echo '<div class="column column-6-mobile">';
 
       echo '<h3 class="secondary">People</h3>';
 
@@ -45,7 +45,7 @@ echo '<div class="static__content row">';
 
     echo '</div>';
 
-    echo '<div class="column column-6-tablet">';
+    echo '<div class="column column-6-mobile">';
 
       echo '<h3 class="secondary">Address</h3>';
 
@@ -63,7 +63,7 @@ echo '<div class="static__content row">';
 
       if($phone) :
 
-        echo '<a href="tel:' . $phone . '">'. $phone . '</a>';
+        echo '<br/><a href="tel:' . $phone . '">'. $phone . '</a>';
 
       endif;
 

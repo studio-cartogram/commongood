@@ -26,12 +26,12 @@ class Scroll {
     }
   }
 
-  scrollTo = target => {
+  scrollTo = (target, offset = 0) => {
     const container = document.body
     const config = this.createScrollConfig({
       container,
       start: container.scrollTop,
-      end: target.offsetTop,
+      end: target.offsetTop - offset,
     })
 
     return anime({

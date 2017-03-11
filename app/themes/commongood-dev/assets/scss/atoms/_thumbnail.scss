@@ -2,7 +2,9 @@
 Thumbnail Component
 ========================================= */
 
-.thumbnails
+.thumbnails {
+  padding: $d-thumbnail-padding;
+}
 .thumbnail {
   padding: $d-thumbnail-padding;
 }

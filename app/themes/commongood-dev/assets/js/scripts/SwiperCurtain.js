@@ -2,7 +2,6 @@ import log from '../utils/log'
 import RevealFx from '../vendor/RevealFx'
 
 import {
-  ACTIVE_CLASS,
   REVEALER_OPTIONS,
   COLOR_DARK,
 } from '../config'
@@ -18,10 +17,10 @@ class SwiperCurtain {
     this.curtain1.reveal({
       ...REVEALER_OPTIONS,
       direction: 'lr',
-      onStart: (contentEl, revealerEl) => {
+      onStart: contentEl => {
         contentEl.style.opacity = 0
       },
-      onCover: (contentEl, revealerEl) => {
+      onCover: contentEl => {
         contentEl.style.opacity = 1
       },
     })
@@ -31,27 +30,28 @@ class SwiperCurtain {
       ...REVEALER_OPTIONS,
       bgcolor: COLOR_DARK,
       direction: 'bt',
-      onStart: (contentEl, revealerEl) => {
+      onStart: contentEl => {
         contentEl.style.opacity = 0
       },
-      onCover: (contentEl, revealerEl) => {
+      onCover: contentEl => {
         contentEl.style.opacity = 1
       },
-      onComplete: (contentEl, revealerEl) => {
+      onComplete: () => {
         this.show1()
         this.show3()
       }
     })
   }
+
   show3 = () => {
     this.curtain3.reveal({
       ...REVEALER_OPTIONS,
       bgcolor: COLOR_DARK,
       direction: 'lr',
-      onStart: (contentEl, revealerEl) => {
+      onStart: contentEl => {
         contentEl.style.opacity = 0
       },
-      onCover: (contentEl, revealerEl) => {
+      onCover: contentEl => {
         contentEl.style.opacity = 1
       },
     })

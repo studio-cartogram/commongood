@@ -2,7 +2,7 @@ import log from '../utils/log'
 
 class Video {
   constructor(el) {
-    if(!el) return null
+    if (!el) return null
     this.video = el
   }
 

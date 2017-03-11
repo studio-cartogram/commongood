@@ -1,7 +1,7 @@
 .commongoods {
   width: 100%;
   height: 100%;
-  margin-bottom: $d-oct;
+  margin-bottom: $d-sex;
 
   .swiper-wrapper {
     transition-duration: $a-timing !important;
@@ -25,10 +25,11 @@
 }
 
 .commongood__content {
-  padding-right: $d-quad;
-  padding-bottom: $d-sex;
-  position: relative;
-  z-index:1;
+  padding-bottom: $d-oct;
+  @include bp($bp-tablet) {
+    padding-right: $d-quad;
+    padding-bottom: $d-sex;
+  }
 }
 
 .commongood__title {
@@ -53,7 +54,6 @@
   position: relative;
   min-height: 100px;
   margin-bottom: $d-oct;
-  order:1;
 }
 
 .commongood__img__img {
@@ -85,7 +85,6 @@
   bottom: auto;
   left: auto;
   color: $ca-pagination-color;
-  padding-right: $d-trio;
   width: calc(100% - #{$d-oct});
   @include bp($bp-tablet) {
     padding-right: $d-oct;

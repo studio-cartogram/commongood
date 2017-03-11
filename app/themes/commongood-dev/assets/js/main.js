@@ -83,14 +83,18 @@ class App {
 
   initCommongoodsSwiper = () => {
 
+    const swiperSelector = '#js-swiper-commongoods'
+
     const changeSlide = swiper => {
+      const targetEl = document.getElementById(swiperSelector.substr(1))
       const prevSlide = swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
       const swiperCurtain = new SwiperCurtain(currSlide)
+      this.scroll.scrollTo(targetEl, 64)
       swiperCurtain.show2();
     }
 
-    const commonggoodsSwiper = new Swiper('#js-swiper-commongoods', {
+    const commonggoodsSwiper = new Swiper(swiperSelector, {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
       nextButton: '.js-commongoods__next',
@@ -109,7 +113,7 @@ class App {
     const changeVideo = swiper => {
       const prevSlide = swiper.realIndex === swiper.previousIndex ? null : swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
-      currVideo = new Video(currSlide.querySelector('.js-video'))
+      const currVideo = new Video(currSlide.querySelector('.js-video'))
       if (!currVideo) {
         return null
       }

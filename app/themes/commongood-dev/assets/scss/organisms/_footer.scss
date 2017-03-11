@@ -10,6 +10,11 @@ Footer Component
     padding: $d-quad $d-trio;
     min-height: $d-dec;
   }
+
+  .js-is-loading & {
+    opacity: 0;
+  }
+
 }
 
 .footer__icon {
