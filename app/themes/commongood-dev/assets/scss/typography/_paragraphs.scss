@@ -10,5 +10,7 @@ p,
 
 .paragraph--lead > p,
 p.paragraph--lead {
-  font-size: $t-font-size-lead;
+  @include bp($bp-tablet) {
+    font-size: $t-font-size-lead;
+  }
 }
