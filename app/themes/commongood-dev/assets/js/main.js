@@ -8,7 +8,6 @@ import Barba from 'barba.js'
 import Swiper from 'swiper'
 import log from './utils/log'
 import creatDOMEl from './utils/createDOMEl'
-import objectFitImages from 'object-fit-images';
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
@@ -38,6 +37,7 @@ class App {
     this.initTransitions()
     this.initScrollLinks()
     this.nav.updateActiveItem()
+
     Barba.Dispatcher.on('initStateChange', () => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
@@ -53,12 +53,10 @@ class App {
       }, 200)
     })
     if (window.location.hash) {
-      log('have hash')
       setTimeout(() => {
         this.scrollTo(window.location.hash)
       }, 0)
     }
-    // objectFitImages('.fix-fit-cover', {watchMQ: true});
   }
 
   scrollTo = str => {

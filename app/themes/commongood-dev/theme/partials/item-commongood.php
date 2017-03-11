@@ -38,7 +38,6 @@ echo '<div class="swiper-slide">';
       echo '<div class="js-curtain-1">';
 
         echo '<img
-          data-object-fit="cover"
           class="commongood__img__img"
           alt="' . esc_attr(get_the_title($item->ID)) . '"
           src="' . $thumbnail . '"
