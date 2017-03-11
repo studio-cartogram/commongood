@@ -84,13 +84,16 @@ class App {
   initCommongoodsSwiper = () => {
 
     const swiperSelector = '#js-swiper-commongoods'
-
     const changeSlide = swiper => {
       const targetEl = document.getElementById(swiperSelector.substr(1))
       const prevSlide = swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
       const swiperCurtain = new SwiperCurtain(currSlide)
-      this.scroll.scrollTo(targetEl, 64)
+      if (swiper.realIndex === 0) {
+        this.scroll.scrollTop()
+      } else {
+        this.scroll.scrollTo(targetEl, 64)
+      }
       swiperCurtain.show2();
     }
 
@@ -105,7 +108,6 @@ class App {
       effect: 'fade',
       onInit: changeSlide,
       onSlideChangeStart: changeSlide,
-
     })
   }
 

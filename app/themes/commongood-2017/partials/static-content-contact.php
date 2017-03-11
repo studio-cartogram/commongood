@@ -31,7 +31,7 @@ echo '<div class="static__content row">';
 
           echo '<ul class="soft-duo--bottom list list--vertical">';
 
-            echo '<li><a class="link" href="mailto:' . $email . '">' . $name . '</a></li>';
+            echo '<li><a class="link link--with-email" data-email="' . $email . '" href="mailto:' . $email . '">' . $name . '</a></li>';
 
             echo '<li>' . $role . '</li>';
 

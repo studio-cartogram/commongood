@@ -37,7 +37,7 @@ echo '<nav id="js-nav" class="nav js-nav">';
 
     echo '<div class="visuallyhidden clearvisuallyhidden--tablet nav__section">';
 
-      echo '<ul class="soft--top soft-trio--bottom list--spaced-vertical nav__list nav__list--works list">';
+      echo '<ul class="soft--top soft-trio--bottom list--with-active list--spaced-vertical nav__list nav__list--works list">';
 
       set_query_var( 'context', 'nav' );
 

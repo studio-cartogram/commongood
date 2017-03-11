@@ -61,11 +61,10 @@ class Nav {
   }
 
   updateActiveItem = (currentStatus, prevStatus) => {
-    const currentUrl = currentStatus ? currentStatus.url.split(window.location.protocol)[1] : window.location.pathname
-    const prevUrl = prevStatus && prevStatus.url.split(window.location.protocol)[1]
+    const currentUrl = currentStatus ? currentStatus.url : window.location.href
+    const prevUrl = prevStatus && prevStatus.url
     const currentActiveLinkEl = this.navEl.querySelector(`[href="${currentUrl}"]`)
     const prevActiveLinkEl = this.navEl.querySelector(`[href="${prevUrl}"]`)
-    log(currentUrl)
 
     if (prevUrl && prevActiveLinkEl) {
       prevActiveLinkEl.classList.remove('is-active')

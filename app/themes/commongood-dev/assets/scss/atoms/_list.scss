@@ -69,3 +69,19 @@ List Component
   background: $ca-list-sep-background;
   display: inline-block;
 }
+
+.list--with-active {
+  a span {
+    transition: all $a-timing $a-easing;
+  }
+
+  &:hover {
+    a:not(.is-active) span {
+        color: $ca-anchor-hover-color;
+    }
+
+    a:hover span {
+      color: $ca-anchor-color;
+    }
+  }
+}

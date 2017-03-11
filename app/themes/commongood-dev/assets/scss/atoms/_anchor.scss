@@ -72,3 +72,45 @@ a,
 .links--secondary a {
   @extend .link--secondary;
 }
+
+.link--with-email {
+  position: relative;
+  display: block;
+  &:after {
+    transition: all $a-timing/2 $a-easing;
+    content: attr(data-email);
+    z-index: 1;
+    background: $ca-site-background;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    opacity: 0;
+    animation-duration: $a-timing;
+    animation-timing-function: $a-easing;
+    animation-name: slideOff;
+  }
+
+  &:hover:after {
+    color: $ca-anchor-color !important;
+    opacity: 1;
+    animation-name: slideDown;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate3d(0, -30%, 0);
+  }
+  to {
+    transform: translate3d(0, 0%, 0);
+  }
+}
+
+@keyframes slideOff {
+  from {
+    transform: translate3d(0, -0%, 0);
+  }
+  to {
+    transform: translate3d(0, 30%, 0);
+  }
+}
