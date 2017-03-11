@@ -30,6 +30,7 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.show)
         this.navToggleEl.addEventListener('click', this.hide)
+        window.addEventListener('keyup', this.escToClose)
         document.body.classList.add('nav-is-shown')
         this.isVisible = true
       },
@@ -54,11 +55,14 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.hide)
         this.navToggleEl.addEventListener('click', this.show)
+        window.removeEventListener('keyup', this.escToClose)
         document.body.classList.remove('nav-is-shown')
         this.isVisible = false
       },
     })
   }
+
+  escToClose = e => e.keyCode === 27 ? this.hide() : null
 
   updateActiveItem = (currentStatus, prevStatus) => {
     const currentUrl = currentStatus ? currentStatus.url : window.location.href
