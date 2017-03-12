@@ -45,8 +45,17 @@
         'supports'            => array( 'title', 'editor', 'thumbnail')
       );
 
+      $capitol_violence_args = array(
+        'public'              => true,
+        'label'               => 'Capitol Violence',
+        'has_archive'         => false,
+        'exclude_from-search' => true,
+        'supports'            => array( 'title', 'editor', 'thumbnail')
+      );
+
       register_post_type( 'works', $works_args );
       register_post_type( 'commongood', $commongood_args );
+      register_post_type( 'capitol-violence', $capitol_violence_args );
 
       flush_rewrite_rules( false );
 
