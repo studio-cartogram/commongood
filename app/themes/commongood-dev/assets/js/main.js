@@ -86,13 +86,17 @@ class App {
       const targetEl = document.getElementById(swiperSelector.substr(1))
       const prevSlide = swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
-      const swiperCurtain = new SwiperCurtain(currSlide)
+
+      if (currSlide) {
+        const swiperCurtain = new SwiperCurtain(currSlide)
+        swiperCurtain.show2();
+      }
+
       if (swiper.realIndex === 0) {
         this.scroll.scrollTop()
       } else {
         this.scroll.scrollTo(targetEl, 64)
       }
-      swiperCurtain.show2();
     }
 
     const commonggoodsSwiper = new Swiper(swiperSelector, {
@@ -127,7 +131,7 @@ class App {
     }
 
     const featuredSwiper = new Swiper('#js-swiper-featured', {
-      autoplay: 10000,
+      autoplay: 5000,
       speed: 500,
       effect: 'fade',
       keyboardControl: true,

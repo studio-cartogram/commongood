@@ -12,9 +12,13 @@
 }
 
 .feature__video {
-  height: 100vh;
+  height: 115vh;
   width: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
 }
 
 .feature__img {

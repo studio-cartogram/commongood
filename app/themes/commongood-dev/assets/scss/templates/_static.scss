@@ -13,7 +13,7 @@
   margin-top: $d-sep;
   margin-bottom: $d-duo;
   @include bp($bp-tablet) {
-    margin-top: $d-duo - 3px;
+    margin-top: $d-duo - 1px;
     margin-left: $d-quin;
   }
 

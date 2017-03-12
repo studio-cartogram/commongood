@@ -1,4 +1,4 @@
-.commongoods {
+.capitol-violences {
   width: 100%;
   height: 100%;
   margin-bottom: $d-sex;
@@ -8,7 +8,7 @@
   }
 }
 
-.commongood {
+.capitol-violence {
   position: relative;
 
   &:before {
@@ -19,33 +19,36 @@
     left:0;
     right: -$d-oct;
     z-index: 0;
-    background: $ca-commongood-background;
+    background: $ca-capitol-violence-background;
   }
 }
 
-.commongood__content {
-  padding-bottom: $d-oct;
+.capitol-violence__content {
+  padding-bottom: $d-quad;
   @include bp($bp-tablet) {
     padding-right: $d-quad;
     padding-bottom: $d-sex;
   }
 }
 
-.commongood__title {
+.capitol-violence__title {
   width: 100vw;
   margin-bottom: $d-base;
   position: relative;
   z-index:1;
+  @include bp($bp-tablet) {
+    margin-top: $d-oct;
+  }
 }
 
-.commongood__img {
+.capitol-violence__img {
   position: relative;
   min-height: 100px;
-  margin-top: $d-sex;
+  // margin-top: $d-sex;
   margin-bottom: $d-oct;
 }
 
-.commongood__img__img {
+.capitol-violence__img__img {
   
   width: 100%;
   height: 100%;
@@ -53,7 +56,7 @@
   object-fit: cover;
 }
 
-.commongoods__controls {
+.capitol-violences__controls {
   position: absolute;
   bottom: 0;
   z-index:1;
@@ -70,7 +73,7 @@
   }
 }
 
-.commongoods__pagination {
+.capitol-violences__pagination {
   text-align: right;
   bottom: auto;
   left: auto;
@@ -83,8 +86,8 @@
 }
 
 
-.commongoods__next,
-.commongoods__prev {
+.capitol-violences__next,
+.capitol-violences__prev {
   padding: $d-duo;
   width: $d-oct;
   cursor: pointer;
