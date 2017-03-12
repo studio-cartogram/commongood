@@ -21,8 +21,9 @@ html {
 
 b,
 strong,
+.font-weight-bold,
 .strong {
-  font-weight: $t-font-weight-bold;
+  font-weight: $t-font-weight-bold !important;
 }
 
 .font-weight-regular {

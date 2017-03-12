@@ -18,7 +18,7 @@ echo '<div class="static__content row">';
 
     echo '<div class="column column-6-mobile">';
 
-      echo '<h3 class="secondary">People</h3>';
+      echo '<h3 class="soft-duo--bottom secondary">People</h3>';
 
       if( have_rows('people') ):
 
@@ -47,7 +47,7 @@ echo '<div class="static__content row">';
 
     echo '<div class="column column-6-mobile">';
 
-      echo '<h3 class="secondary">Address</h3>';
+      echo '<h3 class="soft-duo--bottom secondary">Address</h3>';
 
       echo '<p class="soft-duo--bottom">';
 
@@ -71,7 +71,7 @@ echo '<div class="static__content row">';
 
       if( have_rows('representation') ):
 
-        echo '<h3 class="secondary">Representation</h3>';
+        echo '<h3 class="secondary soft-duo--bottom">Representation</h3>';
 
           while( have_rows('representation') ): the_row(); 
 

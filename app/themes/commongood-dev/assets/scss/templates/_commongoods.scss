@@ -9,7 +9,6 @@
 }
 
 .commongood {
-  align-items: flex-end;
   position: relative;
 
   &:before {
@@ -34,29 +33,20 @@
 
 .commongood__title {
   width: 100vw;
-  margin-bottom: $d-trio;
+  margin-bottom: $d-base;
   position: relative;
   z-index:1;
-}
-
-.commongood__link {
-  position: absolute;
-  bottom: -$d-sex;
-  transition: all $a-timing * 3 $a-easing;
-  transform: translate3d(0, 300%, 0);
-
-  .swiper-slide-active & {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 .commongood__img {
   position: relative;
   min-height: 100px;
+  margin-top: $d-sex;
   margin-bottom: $d-oct;
 }
 
 .commongood__img__img {
+  
   width: 100%;
   height: 100%;
   max-width: 100%;

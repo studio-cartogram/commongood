@@ -5,7 +5,8 @@ Paragraph Typography
 p,
 .p {
   color: $ca-paragraph-color;
-  margin: 0 0 $d-duo;
+  margin: 0;
+  padding: 0;
 }
 
 .paragraph--lead > p,

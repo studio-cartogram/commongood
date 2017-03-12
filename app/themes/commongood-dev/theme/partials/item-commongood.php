@@ -25,7 +25,7 @@ echo '<div class="swiper-slide">';
 
       echo '<div class="js-curtain-3">';
 
-      echo '<p>' . $content . '</p>';
+      echo '<p class="soft-duo--bottom">' . $content . '</p>';
 
       if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Work' . '</a> '; endif;
 

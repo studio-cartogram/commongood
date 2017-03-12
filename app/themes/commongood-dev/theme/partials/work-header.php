@@ -7,9 +7,9 @@ echo '<section class="row work__header">';
 
   echo '<div class="column work__title">';
 
-    if ($client) : echo '<span class="gamma inline-block">' . $client . '</span> '; endif;
+    if ($client) : echo '<span class="beta inline-block font-weight-bold">' . $client . '</span> '; endif;
 
-    echo '<span class="gamma inline-block font-weight-regular">' . $title . '</span>';
+    echo '<span class="beta inline-block ">' . $title . '</span>';
 
 
   echo '</div>';
