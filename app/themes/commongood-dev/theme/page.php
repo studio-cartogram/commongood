@@ -12,7 +12,7 @@ echo '<main id="main" role="main" class="main">';
 
 echo '<div id="barba-wrapper">';
 
-  echo '<div class="barba-container">';
+  echo '<div class="barba-container" data-namespace="page">';
 
   while ( have_posts() ) : the_post();
 

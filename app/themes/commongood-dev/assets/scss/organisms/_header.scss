@@ -47,26 +47,10 @@
     opacity: 1;
   }
 
-  &,
-  .js-is-loading & {
-    transform: translate(0, 0%);
-    opacity: 0;
-  }
-
   &.header__group--right {
     flex-grow: 1;
     text-align: right;
   }
 
-  &.header__group--reverse {
-    .js-is-initialized & {
-      transform: translate(0, 0%);
-    }
-
-    &,
-    .js-is-loading & {
-      transform: translate(0, 50%);
-    }
-  }
 }
 

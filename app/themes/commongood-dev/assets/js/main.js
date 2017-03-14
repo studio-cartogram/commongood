@@ -26,7 +26,15 @@ class App {
     document.body.classList.add('js-is-initialized')
     Barba.Pjax.init()
     Barba.Prefetch.init()
-    Barba.Pjax.getTransition = () => this.Transition
+    Barba.Pjax.getTransition = currentStatus => {
+      const prevView = Barba.HistoryManager.prevStatus().namespace
+      switch (prevView) {
+        case 'single':
+          return this.TransitionSingle
+        default:
+          return this.Transition
+      }
+    }
   }
 
   init = () => {
@@ -144,6 +152,21 @@ class App {
     const _hideCurtain = this.curtain.hide.bind(this)
     const _showCurtain = this.curtain.show.bind(this)
     const _scrollTop = this.scroll.scrollTop.bind(this)
+
+    this.TransitionSingle = Barba.BaseTransition.extend({
+      start() {
+        Promise
+        .all([
+          this.newContainerLoading,
+          _scrollTop().finished,
+        ])
+        .then(this.showNewPage.bind(this))
+      },
+
+      showNewPage() {
+        this.done()
+      },
+    })
 
     this.Transition = Barba.BaseTransition.extend({
       start() {
