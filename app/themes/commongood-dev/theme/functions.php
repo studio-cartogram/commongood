@@ -45,8 +45,17 @@
         'supports'            => array( 'title', 'editor', 'thumbnail')
       );
 
+      $commonggoods_args = array(
+        'public'              => true,
+        'label'               => '@Commongood',
+        'has_archive'         => false,
+        'exclude_from-search' => true,
+        'supports'            => array( 'title', 'editor', 'thumbnail')
+      );
+
       register_post_type( 'works', $works_args );
       register_post_type( 'capitol-violence', $capitol_violence_args );
+      register_post_type( 'commongoods', $commongoods_args );
 
       flush_rewrite_rules( false );
 
