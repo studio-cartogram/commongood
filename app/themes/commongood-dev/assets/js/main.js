@@ -52,7 +52,7 @@ class App {
     })
     Barba.Dispatcher.on('transitionCompleted', (currentStatus, prevStatus) => {
       this.initFeaturedSwiper()
-      this.initCapitolViolencesSwiper()
+      this.initCommongoodsSwiper()
       this.initScrollLinks()
       this.loadVimeoImages.init()
       this.nav.updateActiveItem(currentStatus, prevStatus)
@@ -87,9 +87,9 @@ class App {
   }
 
 
-  initCapitolViolencesSwiper = () => {
+  initCommongoodsSwiper = () => {
 
-    const swiperSelector = '#js-swiper-capitol-violences'
+    const swiperSelector = '#js-swiper-commongoods'
     const changeSlide = swiper => {
       const targetEl = document.getElementById(swiperSelector.substr(1))
       const prevSlide = swiper.slides[swiper.previousIndex]
@@ -109,9 +109,9 @@ class App {
 
     const commonggoodsSwiper = new Swiper(swiperSelector, {
       keyboardControl: true,
-      pagination: '.js-capitol-violences__pagination',
-      nextButton: '.js-capitol-violences__next',
-      prevButton: '.js-capitol-violences__prev',
+      pagination: '.js-commongoods__pagination',
+      nextButton: '.js-commongoods__next',
+      prevButton: '.js-commongoods__prev',
       paginationType: 'fraction',
       speed: 500,
       autoHeight: true,

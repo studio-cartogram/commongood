@@ -14,6 +14,6 @@ echo '<div class="static__content row">';
 
 echo '</div>';
 
-set_query_var('context', 'capitol-violence');
-get_template_part('partials/loop', 'capitol-violence');
+set_query_var('context', 'commongoods');
+get_template_part('partials/loop', 'commongoods');
 ?>

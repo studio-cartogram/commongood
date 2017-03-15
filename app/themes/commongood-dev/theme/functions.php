@@ -45,7 +45,7 @@
         'supports'            => array( 'title', 'editor', 'thumbnail')
       );
 
-      $commonggoods_args = array(
+      $commongoods_args = array(
         'public'              => true,
         'label'               => '@Commongood',
         'has_archive'         => false,
