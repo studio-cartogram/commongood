@@ -2,7 +2,7 @@
 
 $context = get_query_var( 'context' );
 $modifications = array();
-$post_type = ($context == 'capitol-violence' ? 'capitol-violence' : 'works');
+$post_type = ($context == 'commongoods' ? 'commongoods' : 'works');
 $modifications['post_type'] = array($post_type);
 
 $args = array_merge(

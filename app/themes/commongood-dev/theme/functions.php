@@ -37,14 +37,6 @@
         'supports'            => array( 'title', 'thumbnail')
       );
 
-      $capitol_violence_args = array(
-        'public'              => true,
-        'label'               => 'Capitol Violence',
-        'has_archive'         => false,
-        'exclude_from-search' => true,
-        'supports'            => array( 'title', 'editor', 'thumbnail')
-      );
-
       $commongoods_args = array(
         'public'              => true,
         'label'               => '@Commongood',
@@ -54,7 +46,6 @@
       );
 
       register_post_type( 'works', $works_args );
-      register_post_type( 'capitol-violence', $capitol_violence_args );
       register_post_type( 'commongoods', $commongoods_args );
 
       flush_rewrite_rules( false );
