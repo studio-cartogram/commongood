@@ -15,7 +15,7 @@ $the_query = new WP_Query($args);
 if ( $the_query->have_posts() ) :
 
 
-  echo '<div id="js-swiper-capitol-violences" class="capitol-violences swiper-container">';
+  echo '<div id="js-swiper-commongoods" class="commongoods swiper-container">';
 
     echo '<div class="swiper-wrapper">';
 
@@ -29,20 +29,20 @@ if ( $the_query->have_posts() ) :
 
     echo '</div>';
 
-    echo '<div class="capitol-violences__controls">';
+    echo '<div class="commongoods__controls">';
 
 
-    echo '<div class="js-capitol-violences__prev capitol-violences__prev">';
+    echo '<div class="js-commongoods__prev commongoods__prev">';
       set_query_var( 'icon', 'arrow-left' );
       get_template_part('partials/icon');
     echo '</div>';
 
-    echo '<div class="js-capitol-violences__next capitol-violences__next">';
+    echo '<div class="js-commongoods__next commongoods__next">';
       set_query_var( 'icon', 'arrow-right' );
       get_template_part('partials/icon');
     echo '</div>';
 
-    echo '<div class="delta js-capitol-violences__pagination capitol-violences__pagination"></div>';
+    echo '<div class="delta js-commongoods__pagination commongoods__pagination"></div>';
 
     echo '</div>';
 
