@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "start": "gulp",
-    "prod": "gulp build"
+    "build": "gulp build"
   },
   "engines": {
     "node": ">=5.0.0"
@@ -67,10 +67,7 @@
   "dependencies": {
     "animejs": "^2.0.1",
     "babel-polyfill": "6.23.0",
-    "jquery": "^3.1.1",
-    "lazysizes": "3.0.0-rc4",
-    "lg-video.js": "^1.0.0",
-    "picturefill": "3.0.2",
+    "barba.js": "^1.0.0",
     "swiper": "^3.4.1",
     "whatwg-fetch": "^2.0.3"
   }

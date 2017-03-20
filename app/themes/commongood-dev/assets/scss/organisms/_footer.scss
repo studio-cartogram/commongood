@@ -5,12 +5,16 @@ Footer Component
 .footer {
   position: relative;
   padding: $d-quad 0;
-  min-height: $d-dec;
-
+  transition: all $a-timing * 2 $a-easing;
   @include bp($bp-tablet) {
     padding: $d-quad $d-trio;
     min-height: $d-dec;
   }
+
+  .js-is-loading & {
+    opacity: 0;
+  }
+
 }
 
 .footer__icon {
@@ -21,5 +25,7 @@ Footer Component
 }
 
 .footer__nav {
+  width: 50%;
+  display: inline-block;
 }
 

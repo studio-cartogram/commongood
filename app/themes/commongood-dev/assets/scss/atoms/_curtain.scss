@@ -6,10 +6,7 @@
 	width: 100%;
   z-index: index($l-site, curtain);
 	pointer-events: none;
-}
-
-.curtain--abs {
-	position: absolute;
+  will-change: opacity;
 }
 
 .curtain__inner {
@@ -24,10 +21,10 @@
 }
 
 .curtain__logo {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  bottom: -75vh;
   left: 50%;
-  transform: translatE(-50%, -50%);
+  transform: translate(-50%, -50%);
   opacity: 0.1;
 }
 

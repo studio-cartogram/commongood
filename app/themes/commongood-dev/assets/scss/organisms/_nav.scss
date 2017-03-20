@@ -18,13 +18,8 @@ Nav Component
 }
 
 .nav__inner {
-  overflow: scroll;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	list-style-type: none;
+  overflow-y: scroll;
+	height: 100vh;
 	margin: 0;
 	background: $ca-nav-background;
   display: flex;

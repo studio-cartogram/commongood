@@ -33,6 +33,17 @@ Grid Component
     @include grid-item-offset($i, $d-grid-columns);
   }
 
+  .column-#{$i}-mobile {
+    @include bp($bp-mobile) {
+      @include grid-item($i, $d-grid-columns);
+    }
+  }
+  .offset-#{$i}-mobile {
+    @include bp($bp-mobile) {
+      @include grid-item-offset($i, $d-grid-columns);
+    }
+  }
+
   .column-#{$i}-tablet {
     @include bp($bp-tablet) {
       @include grid-item($i, $d-grid-columns);

@@ -5,10 +5,13 @@ Paragraph Typography
 p,
 .p {
   color: $ca-paragraph-color;
-  margin: 0 0 $d-duo;
+  margin: 0;
+  padding: 0;
 }
 
 .paragraph--lead > p,
 p.paragraph--lead {
-  font-size: $t-font-size-lead;
+  @include bp($bp-tablet) {
+    font-size: $t-font-size-lead;
+  }
 }

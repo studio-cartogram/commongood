@@ -4,7 +4,7 @@ echo '<div class="static__content row">';
 
   echo '<div class="column column-6-tablet ">';
 
-    echo '<div class="paragraph--lead">';
+    echo '<div class="soft-duo--bottom paragraph--lead">';
 
       the_content();
 
@@ -16,9 +16,9 @@ echo '<div class="static__content row">';
 
   echo '<div class="row">';
 
-    echo '<div class="column column-6-tablet">';
+    echo '<div class="column column-6-mobile">';
 
-      echo '<h3 class="secondary">People</h3>';
+      echo '<h3 class="soft-duo--bottom secondary">People</h3>';
 
       if( have_rows('people') ):
 
@@ -31,7 +31,7 @@ echo '<div class="static__content row">';
 
           echo '<ul class="soft-duo--bottom list list--vertical">';
 
-            echo '<li><a class="link" href="mailto:' . $email . '">' . $name . '</a></li>';
+            echo '<li><a class="link link--with-email" data-email="' . $email . '" href="mailto:' . $email . '">' . $name . '</a></li>';
 
             echo '<li>' . $role . '</li>';
 
@@ -45,9 +45,9 @@ echo '<div class="static__content row">';
 
     echo '</div>';
 
-    echo '<div class="column column-6-tablet">';
+    echo '<div class="column column-6-mobile">';
 
-      echo '<h3 class="secondary">Address</h3>';
+      echo '<h3 class="soft-duo--bottom secondary">Address</h3>';
 
       echo '<p class="soft-duo--bottom">';
 
@@ -63,7 +63,7 @@ echo '<div class="static__content row">';
 
       if($phone) :
 
-        echo '<a href="tel:' . $phone . '">'. $phone . '</a>';
+        echo '<br/><a href="tel:' . $phone . '">'. $phone . '</a>';
 
       endif;
 
@@ -71,7 +71,7 @@ echo '<div class="static__content row">';
 
       if( have_rows('representation') ):
 
-        echo '<h3 class="secondary">Representation</h3>';
+        echo '<h3 class="secondary soft-duo--bottom">Representation</h3>';
 
           while( have_rows('representation') ): the_row(); 
 

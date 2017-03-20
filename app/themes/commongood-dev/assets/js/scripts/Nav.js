@@ -3,6 +3,7 @@ import RevealFx from '../vendor/RevealFx'
 
 import {
   ACTIVE_CLASS,
+  MAIN_ELEMENT_ID,
   REVEALER_OPTIONS,
 } from '../config'
 
@@ -30,8 +31,11 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.show)
         this.navToggleEl.addEventListener('click', this.hide)
+        window.addEventListener('keydown', this.trapFocus)
+        this.setShowFocus()
         document.body.classList.add('nav-is-shown')
         this.isVisible = true
+        this.toggleAria()
       },
     })
   }
@@ -54,15 +58,18 @@ class Nav {
       onComplete: () => {
         this.navToggleEl.removeEventListener('click', this.hide)
         this.navToggleEl.addEventListener('click', this.show)
+        this.setHideFocus()
+        window.removeEventListener('keydown', this.trapFocus)
         document.body.classList.remove('nav-is-shown')
         this.isVisible = false
+        this.toggleAria()
       },
     })
   }
 
   updateActiveItem = (currentStatus, prevStatus) => {
-    const currentUrl = currentStatus ? currentStatus.url.split(window.location.protocol)[1] : window.location.pathname
-    const prevUrl = prevStatus && prevStatus.url.split(window.location.protocol)[1]
+    const currentUrl = currentStatus ? currentStatus.url : window.location.href
+    const prevUrl = prevStatus && prevStatus.url
     const currentActiveLinkEl = this.navEl.querySelector(`[href="${currentUrl}"]`)
     const prevActiveLinkEl = this.navEl.querySelector(`[href="${prevUrl}"]`)
 
@@ -88,6 +95,42 @@ class Nav {
 
     for (i = 0; i < navLinks.length; i++) {
       navLinks[i].addEventListener('click', cb)
+    }
+  }
+
+
+  toggleAria = () => {
+    if (this.isVisible) {
+      this.navEl.setAttribute('aria-hidden', 'false')
+      document.getElementById(MAIN_ELEMENT_ID).setAttribute('aria-hidden', 'true')
+    } else {
+      this.navEl.setAttribute('aria-hidden', 'true')
+      document.getElementById(MAIN_ELEMENT_ID).setAttribute('aria-hidden', 'false')
+    }
+  }
+
+  setShowFocus = () => this.navEl.querySelector('a[href]').focus()
+  setHideFocus = () => this.navToggleEl.focus()
+  trapFocus = e => {
+    switch (e.keyCode) {
+      case 27:
+      return this.hide(e)
+
+      case 9:
+      const focusables = Array.prototype.slice.call(this.navEl.querySelectorAll('a[href]'))
+      const focusIndex = focusables.indexOf(document.activeElement)
+
+      if (e.shiftKey) {
+        if (focusIndex === 0) {
+          focusables[focusables.length - 1].focus()
+          return e.preventDefault()
+        }
+      } else if (focusIndex === focusables.length - 1) {
+        focusables[0].focus()
+        return e.preventDefault()
+      } else {
+        return null
+      }
     }
   }
 }

@@ -2,8 +2,11 @@
 Thumbnail Component
 ========================================= */
 
-.thumbnails
+.thumbnails {
+  padding: $d-thumbnail-padding;
+}
 .thumbnail {
+  padding: $d-thumbnail-padding;
 }
 
 .thumbnail {
@@ -11,6 +14,7 @@ Thumbnail Component
   max-width: 100%;
   overflow: hidden;
   cursor: pointer;
+  height: 100%;
 
   @include bp($bp-tablet) {
     flex-basis: 50%;
@@ -34,8 +38,6 @@ Thumbnail Component
   max-width: 100%;
   object-fit: cover;
   transition: all $a-timing * 4;
-
-
 }
 
 .thumbnail__copy {
@@ -47,18 +49,24 @@ Thumbnail Component
   text-align: left;
   transition: all $a-timing $a-easing;
 
-  @include bp($bp-tablet) {
+  @include bp($bp-laptop) {
     opacity:0;
   }
 }
 
+.thumbnail__overlay {
+  left:$d-thumbnail-padding;
+  top: $d-thumbnail-padding;
+  right: $d-thumbnail-padding;
+  bottom: $d-thumbnail-padding;
+}
 
-.thumbnail.is-loading {
-  .thumbnail__img {
+.is-loading {
+  > .thumbnail__img {
     opacity: 0;
   }
 
-  .thumbnail__overlay {
+  + .thumbnail__overlay {
     opacity:0.5;
   }
 }
@@ -76,6 +84,18 @@ Thumbnail Component
 
   .thumbnail__overlay {
     opacity:0.5;
+  }
+}
+
+.thumbnail .thumbnail__img--fallback {
+  display: none;
+}
+.is-broken {
+  > .thumbnail__img {
+    display: none;
+  }
+  > .thumbnail__img--fallback {
+    display: block;
   }
 }
 

@@ -29,5 +29,9 @@ body {
   .js-is-initialized & {
     opacity: 1;
   }
+
+  .js-is-loading & {
+    opacity: 0;
+  }
 }
 

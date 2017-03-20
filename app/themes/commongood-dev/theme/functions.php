@@ -37,7 +37,7 @@
         'supports'            => array( 'title', 'thumbnail')
       );
 
-      $commongood_args = array(
+      $commongoods_args = array(
         'public'              => true,
         'label'               => '@Commongood',
         'has_archive'         => false,
@@ -46,7 +46,7 @@
       );
 
       register_post_type( 'works', $works_args );
-      register_post_type( 'commongood', $commongood_args );
+      register_post_type( 'commongoods', $commongoods_args );
 
       flush_rewrite_rules( false );
 
@@ -116,6 +116,7 @@
       $theme_dir = get_stylesheet_directory_uri();
 
       wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array(), null, true );
+      wp_enqueue_script( 'objectFit', "$theme_dir/assets/js/objectFitPolyfill.basic.min.js", array(), null, true );
 
     }
 

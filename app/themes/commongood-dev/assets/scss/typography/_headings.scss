@@ -22,6 +22,7 @@ h6 {
 
 .mega {
   font-size: $t-font-size-mega;
+  font-size: calc(100% + 5vw);
   font-weight: $t-font-weight-bold;
   line-height: 1;
 }
@@ -33,16 +34,15 @@ h1 {
 h2 {
   font-size: $t-font-size-beta;
   font-weight: $t-font-weight-regular;
+  &.secondary {
+    font-weight: $t-font-weight-bold;
+    color: $ca-heading-secondary-color;
+  }
 }
 
 
 h3 {
   font-size: $t-font-size-gamma;
-  line-height: 2;
-
-  &.secondary {
-    color: $ca-heading-secondary-color;
-  }
 }
 
 h4 {

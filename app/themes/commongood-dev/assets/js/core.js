@@ -9,8 +9,3 @@
 /** ES2015+ Polyfills */
 import 'babel-polyfill'
 
-/** Responsive Images Polyfill */
-import 'picturefill'
-
-/** Fetch Polyfill */
-import 'whatwg-fetch'

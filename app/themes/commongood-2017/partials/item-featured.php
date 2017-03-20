@@ -5,26 +5,40 @@ $count = get_query_var('count');
 $title = get_the_title($item->ID);
 $vimeo_id = get_field('vimeo_id', $item->ID);
 $client = get_field('client', $item->ID);
+$thumbnail = get_field('thumbnail', $item->ID);
+$video_file = get_sub_field('video_file');
 
 echo '<a
         href="' . get_permalink($item->ID) . '"
         class="swiper-slide feature"
       >';
 
+    if ( wp_is_mobile() ) :
     echo '<img
+      data-object-fit="cover"
       data-vimeo-id="' . $vimeo_id . '"
-      class="js-load-vimeo-image feature__img"
+      class="js-load-vimeo-image feature__img "
       alt="' . esc_attr(get_the_title($item->ID)) . '"
     />';
-    // echo '<video
-    //   loop=""
-    //   muted=""
-    //   data-vimeo-id="' . $vimeo_id . '"
-    //   class="js-load-vimeo-image feature__video"
-    //   id="js-video"
-    //   src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
-    //   >';
-    // echo '</video>';
+
+    echo '<img
+      data-object-fit="cover"
+      class="feature__img feature__img--fallback "
+      alt="' . esc_attr(get_the_title($item->ID)) . '"
+      src="' . $thumbnail . '"
+    />';
+    else : 
+      echo '<video
+        data-object-fit="cover"
+        data-vimeo-id="' . $vimeo_id . '"
+        muted
+        loop
+        class="js-load-vimeo-image js-video feature__video fix-fix-cover"
+        src="' . $video_file . '"
+      >';
+    echo '</video>';
+
+    endif;
 
     echo '<div class="feature__copy">';
 

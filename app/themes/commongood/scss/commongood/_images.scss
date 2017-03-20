@@ -1,0 +1,18 @@
+/*------------------------------------*\
+	$IMAGES
+\*------------------------------------*/
+
+.img--circle {
+	&, & > img {
+		@include border-radius(100%)
+	}
+}
+
+
+.img--block {
+	&, img {
+		display: block;
+		width: 100%;
+		height: auto
+	}
+}

@@ -6,17 +6,17 @@
  */
 import Barba from 'barba.js'
 import Swiper from 'swiper'
-// import Player from '@vimeo/player';
 import log from './utils/log'
 import creatDOMEl from './utils/createDOMEl'
-
 import './vendor/webpack.publicPath'
 import Curtain from './scripts/Curtain'
 import Scroll from './scripts/Scroll'
 import Nav from './scripts/Nav'
+import SwiperCurtain from './scripts/SwiperCurtain'
 import Video from './scripts/Video'
 import LoadVimeoImages from './scripts/LoadVimeoImages'
 import loadSprite from './vendor/loadSprite'
+import RevealFx from './vendor/RevealFx'
 
 class App {
   constructor() {
@@ -26,7 +26,15 @@ class App {
     document.body.classList.add('js-is-initialized')
     Barba.Pjax.init()
     Barba.Prefetch.init()
-    Barba.Pjax.getTransition = () => this.Transition
+    Barba.Pjax.getTransition = currentStatus => {
+      const prevView = Barba.HistoryManager.prevStatus().namespace
+      switch (prevView) {
+        case 'single':
+          return this.TransitionSingle
+        default:
+          return this.Transition
+      }
+    }
   }
 
   init = () => {
@@ -35,10 +43,9 @@ class App {
     this.nav = new Nav()
     this.scroll = new Scroll()
     this.initTransitions()
-    this.initFeaturedSwiper()
-    this.initCommongoodsSwiper()
     this.initScrollLinks()
     this.nav.updateActiveItem()
+
     Barba.Dispatcher.on('initStateChange', () => {
       document.body.classList.add('js-is-loading')
       this.nav.hide()
@@ -54,7 +61,6 @@ class App {
       }, 200)
     })
     if (window.location.hash) {
-      log('have hash')
       setTimeout(() => {
         this.scrollTo(window.location.hash)
       }, 0)
@@ -80,55 +86,87 @@ class App {
     })
   }
 
+
   initCommongoodsSwiper = () => {
-    const commonggoodsSwiper = new Swiper('#js-swiper-commongoods', {
+
+    const swiperSelector = '#js-swiper-commongoods'
+    const changeSlide = swiper => {
+      const targetEl = document.getElementById(swiperSelector.substr(1))
+      const prevSlide = swiper.slides[swiper.previousIndex]
+      const currSlide = swiper.slides[swiper.realIndex]
+
+      if (currSlide) {
+        const swiperCurtain = new SwiperCurtain(currSlide)
+        swiperCurtain.show2();
+      }
+
+      if (swiper.realIndex === 0) {
+        this.scroll.scrollTop()
+      } else {
+        this.scroll.scrollTo(targetEl, 64)
+      }
+    }
+
+    const commonggoodsSwiper = new Swiper(swiperSelector, {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
       nextButton: '.js-commongoods__next',
       prevButton: '.js-commongoods__prev',
       paginationType: 'fraction',
+      speed: 500,
       autoHeight: true,
+      effect: 'fade',
+      onInit: changeSlide,
+      onSlideChangeStart: changeSlide,
     })
   }
 
   initFeaturedSwiper = () => {
-    let currVideo
-    let prevVideo
     const changeVideo = swiper => {
-      log(swiper.activeIndex, swiper.realIndex, swiper.previousIndex)
-      const index = swiper.realIndex
-      const prevIndex = swiper.realIndex === 0 ? 0 : swiper.realIndex - 1
-      const prevSlide = index !== prevIndex ? swiper.slides[prevIndex] : null
+      const prevSlide = swiper.realIndex === swiper.previousIndex ? null : swiper.slides[swiper.previousIndex]
       const currSlide = swiper.slides[swiper.realIndex]
+      const currVideo = new Video(currSlide.querySelector('.js-video'))
       if (!currVideo) {
-        currVideo = new Video(currSlide.querySelector('#js-video'))
+        return null
       }
 
       currVideo.play()
 
-      // if (prevSlide) {
-      //   log('has previous')
-      //   prevVideo = new Video(prevSlide.querySelector('#js-video'))
-      //   prevVideo.pause()
-      // }
+      if (prevSlide) {
+        const prevVideo = new Video(prevSlide.querySelector('.js-video'))
+        prevVideo.pause()
+      }
     }
 
     const featuredSwiper = new Swiper('#js-swiper-featured', {
-      autoplay: 10000,
+      autoplay: 5000,
       speed: 500,
-      loop: true,
       effect: 'fade',
       keyboardControl: true,
-      // onInit: changeVideo,
+      onInit: changeVideo,
+      onSlideChangeStart: changeVideo,
     })
-    // featuredSwiper.on('onInit', changeVideo)
-    // featuredSwiper.on('onSlideChangeStart', changeVideo)
   }
 
   initTransitions = () => {
     const _hideCurtain = this.curtain.hide.bind(this)
     const _showCurtain = this.curtain.show.bind(this)
     const _scrollTop = this.scroll.scrollTop.bind(this)
+
+    this.TransitionSingle = Barba.BaseTransition.extend({
+      start() {
+        Promise
+        .all([
+          this.newContainerLoading,
+          _scrollTop().finished,
+        ])
+        .then(this.showNewPage.bind(this))
+      },
+
+      showNewPage() {
+        this.done()
+      },
+    })
 
     this.Transition = Barba.BaseTransition.extend({
       start() {

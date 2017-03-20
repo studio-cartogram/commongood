@@ -10,8 +10,10 @@ const REVEALER_OPTIONS = {
   easing: TRANSITION_EASING,
   direction: 'tb',
 }
+const MAIN_ELEMENT_ID = 'main'
 
 export {
+  MAIN_ELEMENT_ID,
   ACTIVE_CLASS,
   COLOR_BLACK,
   COLOR_DARK,

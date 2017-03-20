@@ -1,4 +1,6 @@
 import log from '../utils/log'
+/** Fetch Polyfill */
+import 'whatwg-fetch'
 import { checkStatus, parseJSON } from '../utils/request'
 
 class LoadVimeoImages {
@@ -33,6 +35,7 @@ class LoadVimeoImages {
   fetchVimeoData = el =>
     fetch(`http://vimeo.com/api/v2/video/${el.dataset.vimeoId}.json`, {
       method: 'GET',
+      withCredentials: true,
       mode: 'cors',
     })
     .then(data => checkStatus(data))
@@ -40,6 +43,9 @@ class LoadVimeoImages {
     .then(data => ({
       large: data[0].thumbnail_large,
     }))
+    .catch(err => {
+      this.handleError(el)
+    })
 
   setElSrc= (el, src) => {
     switch (el.nodeName) {
@@ -50,14 +56,19 @@ class LoadVimeoImages {
         el.src = src
       break
     }
+
     el.addEventListener('load', () => {
-      el.parentNode.parentNode.classList.remove('is-loading')
+      el.parentNode.classList.remove('is-loading')
     })
 
     el.addEventListener('error', () => {
-      el.parentNode.parentNode.classList.remove('is-loading')
-      el.parentNode.parentNode.classList.add('is-broken')
+      this.handleError(el)
     })
+  }
+
+  handleError = el => {
+    el.parentNode.classList.remove('is-loading')
+    el.parentNode.classList.add('is-broken')
   }
 }
 
