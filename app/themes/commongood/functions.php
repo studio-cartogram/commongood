@@ -5,17 +5,17 @@
 	
 	======================================================================================================================== */
 
-	require_once( get_template_directory() . '/lib/admin.php' );
-	require_once( get_template_directory() . '/lib/custom_post_types_taxonomies.php' );
-	require_once( get_template_directory() . '/lib/media.php' );
-	require_once( get_template_directory() . '/lib/navigation.php' );
-	require_once( get_template_directory() . '/lib/utilities.php' );
-	require_once( get_template_directory() . '/lib/gravity_forms.php' );
-	require_once( get_template_directory() . '/lib/comments.php' );
-	// require_once( get_template_directory() . '/lib/init.php' );
-	// require_once( get_template_directory() . '/lib/theme-helpers.php' );
-	// require_once( get_template_directory() . '/lib/theme-functions.php' );
-	// require_once( get_template_directory() . '/lib/theme-comments.php' );
+	require_once( get_stylesheet_directory() . '/lib/admin.php' );
+	require_once( get_stylesheet_directory() . '/lib/custom_post_types_taxonomies.php' );
+	require_once( get_stylesheet_directory() . '/lib/media.php' );
+	require_once( get_stylesheet_directory() . '/lib/navigation.php' );
+	require_once( get_stylesheet_directory() . '/lib/utilities.php' );
+	require_once( get_stylesheet_directory() . '/lib/gravity_forms.php' );
+	require_once( get_stylesheet_directory() . '/lib/comments.php' );
+	// require_once( get_stylesheet_directory() . '/lib/init.php' );
+	// require_once( get_stylesheet_directory() . '/lib/theme-helpers.php' );
+	// require_once( get_stylesheet_directory() . '/lib/theme-functions.php' );
+	// require_once( get_stylesheet_directory() . '/lib/theme-comments.php' );
 
 
 	/* ========================================================================================================================
