@@ -1,0 +1,66 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+.btn {
+
+}
+/*------------------------------------*\
+    $FUNCTIONS
+\*------------------------------------*/
+/**
+ * Button function modifiers.
+ */
+
+
+.btn--primary {
+	
+	&:hover {
+		
+	}
+}
+
+.btn--secondary {
+
+	&:hover {
+	
+	}
+}
+
+.btn--tertiary {
+
+	&:hover {
+		
+	}
+}
+
+.btn--inverted {
+
+	&:hover {
+		
+	}
+}
+
+/*------------------------------------*\
+    $SIZES
+\*------------------------------------*/
+/**
+ * Button size modifiers.
+ *
+ * These all follow the same sizing rules as above; text is 1em, space around it
+ * remains uniform.
+ */
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Button font-size modifiers.
+ */
+
+
+
+.btn--milli {
+	font-size:.9rem;
+}
+
+

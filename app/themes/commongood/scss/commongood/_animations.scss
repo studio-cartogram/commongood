@@ -1,0 +1,27 @@
+.view-wrap {
+	position:relative;
+}
+
+.ng-leave
+{
+  opacity:1;
+	@include transition(all 200ms ease-in );
+  
+}
+.ng-enter
+{
+  opacity:0;
+  @include transition(all 200ms ease-in 200ms);
+  
+}
+
+.ng-leave.ng-leave-active {
+	opacity:0;
+}
+
+.ng-enter.ng-enter-active{
+	opacity: 1;
+}
+
+
+

@@ -1,0 +1,88 @@
+/*
+Theme Name: truefriend
+Theme URI: http://www.truefriend.ca
+Description: Base Wordpress Parent
+Author: Matt Seccafien
+Author URI: http://www.studiocartogram.com
+Version: 1.0
+*/
+@charset "UTF-8";
+
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ *
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * Setup
+ */
+
+@import "compass/css3";
+@import "vars";
+@import "../bower_components/inuit.css/inuit";
+@import "../bower_components/foundation/scss/foundation/components/flex-video";
+
+
+/**
+ * Begin importing your stuff here.
+ * Vendor First
+ */
+
+
+
+
+
+
+/**
+ * Generic Styles
+ */
+@import "generic/helper";
+@import "generic/mixins";
+@import "generic/grid";
+
+/**
+ * Theme Styles
+ */
+@import "commongood/fonts";
+@import "commongood/colors";
+@import "commongood/logo";
+@import "commongood/screen";
+@import "commongood/buttons";
+@import "commongood/navs";
+@import "commongood/type";
+@import "commongood/headings";
+@import "commongood/lists";
+@import "commongood/links";
+@import "commongood/fonts";
+@import "commongood/iconfont";
+@import "commongood/icons";
+@import "commongood/images";
+@import "commongood/forms";
+@import "commongood/animations";
+@import "commongood/spinner";
+
+/**
+ * Theme Parts
+ */
+
+@import "commongood/header";
+@import "commongood/footer";
+
+/**
+ * Vendor
+ */
+
+
+
+/**
+ * Shame
+ */
+
+@import "commongood/shame";
+
