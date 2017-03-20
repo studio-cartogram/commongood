@@ -2,7 +2,7 @@
 
 get_template_part('partials/head');
 
-// get_template_part('partials/analytics');
+get_template_part('partials/analytics');
 
 get_header();
 
