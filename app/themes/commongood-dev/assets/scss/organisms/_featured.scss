@@ -11,14 +11,14 @@
   background: $ca-feature-background;
 }
 
-.feature__video {
+.feature:not(.object-fit-polyfill) .feature__video {
   height: 132vh;
   width: 100%;
   object-fit: cover;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .feature__img {
