@@ -1,7 +1,7 @@
 .static {
   padding: 0 $d-trio;
   @include bp($bp-tablet) {
-    padding: 0 $d-sep;
+    padding: $d-sep $d-sep 0 $d-sep;
   }
 }
 
@@ -14,7 +14,6 @@
   margin-bottom: $d-duo;
   @include bp($bp-tablet) {
     margin-top: $d-duo - 1px;
-    margin-left: $d-quin;
   }
 
   @include bp($bp-laptop-extra) {

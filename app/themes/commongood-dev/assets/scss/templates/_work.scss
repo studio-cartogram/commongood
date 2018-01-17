@@ -1,7 +1,7 @@
 .work {
   padding: 0 $d-trio;
   @include bp($bp-tablet) {
-    padding: 0 $d-sep;
+    padding: $d-sep $d-sep 0 $d-sep;
   }
   opacity: 1;
   transition: all $a-timing * 2 $a-easing;
@@ -35,7 +35,6 @@
   @include bp($bp-tablet) {
     margin-top: $d-base/2;
     margin-bottom: $d-base/2;
-    margin-left: $d-quin;
   }
 
   @include bp($bp-laptop-extra) {

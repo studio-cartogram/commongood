@@ -7,19 +7,25 @@
   transition: all $a-timing $a-easing;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: $d-oct;
-  padding: 0 $d-trio 0 0;
+  padding: 0 0 0 $d-trio;
   pointer-events: none;
 
   @include bp($bp-tablet) {
-    padding: 0 $d-sep 0 $d-trio;
+    padding: 0 $d-trio 0 $d-sep;
   }
 
   &.is-active {
     transform: translateX(-100%);
     @include bp($bp-tablet) {
       transform: translateX(0%);
+    }
+  }
+
+  a {
+    &:hover {
+      opacity: 0.80;
     }
   }
 }
@@ -48,8 +54,16 @@
   }
 
   &.header__group--right {
-    flex-grow: 1;
     text-align: right;
+  }
+
+  &.header__group--center {
+    text-align: center;
+
+    .header__item--text {
+      padding: $d-quad;
+      pointer-events: auto;
+    }
   }
 
 }
