@@ -1,4 +1,3 @@
-
 <?php
 
 if( have_rows('featured_works', 'options') ):
