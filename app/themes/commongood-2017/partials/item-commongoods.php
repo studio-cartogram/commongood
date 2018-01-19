@@ -4,6 +4,8 @@ $item = get_query_var('item');
 $content = get_the_content($item->ID);
 $title = get_the_title($item->ID);
 $website = get_field('website', $item->ID);
+$works = get_field('works', $item->ID);
+$reel = get_field('reel', $item->ID);
 $attachment_id = get_post_thumbnail_id($item->ID);
 $thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->ID) : wp_get_attachment_image_url( $attachment_id, 'img_large' ));
 
@@ -27,7 +29,9 @@ echo '<div class="swiper-slide">';
 
       echo '<p class="soft-duo--bottom">' . $content . '</p>';
 
-      if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Work' . '</a> '; endif;
+      // if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Work' . '</a> '; endif;
+
+      if ($works) : echo '<a class="commongood__link link" href="' . esc_attr(get_permalink($item->ID)) . '" target="_blank">' . 'View Work' . '</a> '; endif;
 
       echo '</div>';
 
@@ -37,11 +41,40 @@ echo '<div class="swiper-slide">';
 
       echo '<div class="js-curtain-1">';
 
-        echo '<img
-          class="commongood__img__img"
-          alt="' . esc_attr(get_the_title($item->ID)) . '"
-          src="' . $thumbnail . '"
-        />';
+        echo '<div id="js-swiper-commongoods-child" class="swiper-container swiper-container-child">';
+
+          echo '<div class="swiper-wrapper">';
+
+            if( $works ):
+
+            foreach( $works as $post):
+
+            setup_postdata($post);
+
+            $title = get_the_title();
+            $client = get_field('client');
+            $vimeo_id = get_field('vimeo_id');
+            $thumbnail = get_field('thumbnail');
+
+            echo '<div class="swiper-slide">';
+
+              echo '<a href="' . esc_attr(get_permalink()) . '"><img
+                class="commongood__img__img"
+                alt="' . esc_attr(get_the_title()) . '"
+                src="' . $thumbnail . '"
+              /></a>';
+
+            echo '</div>';
+
+            endforeach;
+
+            wp_reset_postdata();
+
+            endif;
+
+          echo '</div>';
+
+        echo '</div>';
 
       echo '</div>';
 
