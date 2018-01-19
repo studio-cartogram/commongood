@@ -86,7 +86,6 @@ class App {
     })
   }
 
-
   initCommongoodsSwiper = () => {
 
     const swiperSelector = '#js-swiper-commongoods'
@@ -115,9 +114,18 @@ class App {
       paginationType: 'fraction',
       speed: 500,
       autoHeight: true,
+      autoplay: 12000,
+      nested: true,
       effect: 'fade',
       onInit: changeSlide,
       onSlideChangeStart: changeSlide,
+    })
+
+    const commonggoodsSwiperChild = new Swiper('#js-swiper-commongoods-child', {
+      autoplay: 1000,
+      speed: 500,
+      effect: 'fade',
+      loop: true,
     })
   }
 
