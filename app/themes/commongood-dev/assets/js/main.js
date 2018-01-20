@@ -106,6 +106,17 @@ class App {
       }
     }
 
+    const initChildSwiper = swiper => {
+      // console.log(swiper)
+      const childSwiperSelector = swiper.wrapper.find('.js-swiper-commongoods-child');
+      const commonggoodsSwiperChild = new Swiper(childSwiperSelector, {
+        autoplay: 1000,
+        speed: 500,
+        effect: 'fade',
+        loop: true,
+      })
+    }
+
     const commonggoodsSwiper = new Swiper(swiperSelector, {
       keyboardControl: true,
       pagination: '.js-commongoods__pagination',
@@ -119,13 +130,7 @@ class App {
       effect: 'fade',
       onInit: changeSlide,
       onSlideChangeStart: changeSlide,
-    })
-
-    const commonggoodsSwiperChild = new Swiper('#js-swiper-commongoods-child', {
-      autoplay: 1000,
-      speed: 500,
-      effect: 'fade',
-      loop: true,
+      onSlideChangeEnd: initChildSwiper,
     })
   }
 
