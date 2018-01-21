@@ -46,24 +46,28 @@ echo '<div class="swiper-slide">';
 
             if( $works ):
 
-            foreach( $works as $work):
+            foreach( $works as $post):
 
-            $title = get_the_title($work);
-            $client = get_field('client', $work);
-            $vimeo_id = get_field('vimeo_id', $work);
-            $thumbnail = get_field('thumbnail', $work);
+            setup_postdata($post);
+
+            $title = get_the_title();
+            $client = get_field('client');
+            $vimeo_id = get_field('vimeo_id');
+            $thumbnail = get_field('thumbnail');
 
             echo '<div class="swiper-slide">';
 
-              echo '<a href="' . esc_attr(get_permalink()) . '"><img
+              echo '<a href="' . (get_permalink()) . '"><img
                 class="commongood__img__img"
-                alt="' . esc_attr(get_the_title($work)) . '"
+                alt="' . (get_the_title()) . '"
                 src="' . $thumbnail . '"
               /></a>';
 
             echo '</div>';
 
             endforeach;
+
+            wp_reset_postdata();
 
             endif;
 
