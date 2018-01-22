@@ -11,7 +11,6 @@ echo '<section class="row work__header">';
 
     echo '<span class="beta inline-block ">' . $title . '</span>';
 
-
   echo '</div>';
 
   echo '<div class="work__back hamburger is-active">';

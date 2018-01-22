@@ -56,7 +56,6 @@
 
 }
 
-
 .work__footer {
   padding: $d-duo 0;
   opacity: 1;
@@ -66,5 +65,12 @@
     opacity: 0;
     transform: translate3d(0, $d-dec * 3, 0);
   }
+}
+
+.work__related {
+  width: 100%;
+  margin: auto;
+  max-width: $d-container-max;
+  padding-top: $d-quin;
 }
 
