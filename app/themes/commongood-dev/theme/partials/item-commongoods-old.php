@@ -4,19 +4,9 @@ $item = get_query_var('item');
 $content = get_the_content($item->ID);
 $title = get_the_title($item->ID);
 $website = get_field('website', $item->ID);
+$works = get_field('director_works', $item->ID);
 $attachment_id = get_post_thumbnail_id($item->ID);
 $thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->ID) : wp_get_attachment_image_url( $attachment_id, 'img_large' ));
-
-$directorWorks = get_posts(array(
-  'post_type' => 'works',
-  'meta_query' => array(
-    array(
-      'key' => 'talent', // name of custom field
-      'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123.This prevents a match for "1234" 
-      'compare' => 'LIKE'
-    )
-  )
-));
 
 echo '<div class="swiper-slide">';
 
@@ -38,7 +28,9 @@ echo '<div class="swiper-slide">';
 
       echo '<p class="soft-duo--bottom">' . $content . '</p>';
 
-      if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Website' . '</a> '; endif;
+      // if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Work' . '</a> '; endif;
+
+      if ($works) : echo '<a class="commongood__link link" href="' . esc_attr(get_permalink($item->ID)) . '" target="_blank">' . 'View Work' . '</a> '; endif;
 
       echo '</div>';
 
@@ -52,9 +44,9 @@ echo '<div class="swiper-slide">';
 
           echo '<div class="swiper-wrapper">';
 
-            if( $directorWorks ):
+            if( $works ):
 
-            foreach( $directorWorks as $post):
+            foreach( $works as $post):
 
             setup_postdata($post);
 
@@ -90,5 +82,6 @@ echo '<div class="swiper-slide">';
   echo '</div>';
 
 echo '</div>';
+
 
 ?>
