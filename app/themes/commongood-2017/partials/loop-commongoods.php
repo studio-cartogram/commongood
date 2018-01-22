@@ -4,10 +4,11 @@ $context = get_query_var( 'context' );
 $modifications = array();
 $post_type = ($context == 'commongoods' ? 'commongoods' : 'works');
 $modifications['post_type'] = array($post_type);
+// $modifications['posts_per_page'] = 1;
 
 $args = array_merge(
   // $wp_query->query_vars,
-  $modifications 
+  $modifications
 );
 
 $the_query = new WP_Query($args);
