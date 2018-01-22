@@ -68,7 +68,7 @@
     "animejs": "^2.0.1",
     "babel-polyfill": "6.23.0",
     "barba.js": "^1.0.0",
-    "swiper": "^3.4.1",
+    "swiper": "^4.1.0",
     "whatwg-fetch": "^2.0.3"
   }
 }

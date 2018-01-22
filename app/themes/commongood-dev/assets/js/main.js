@@ -18,6 +18,7 @@ import LoadVimeoImages from './scripts/LoadVimeoImages'
 import loadSprite from './vendor/loadSprite'
 import RevealFx from './vendor/RevealFx'
 
+
 class App {
   constructor() {
     this.init()
@@ -89,28 +90,31 @@ class App {
   initCommongoodsSwiper = () => {
 
     const swiperSelector = '#js-swiper-commongoods'
-    const changeSlide = swiper => {
+    const that = this;
+    function changeSlide() {
       const targetEl = document.getElementById(swiperSelector.substr(1))
-      const prevSlide = swiper.slides[swiper.previousIndex]
-      const currSlide = swiper.slides[swiper.realIndex]
+      const prevSlide = this.slides[this.previousIndex]
+      const currSlide = this.slides[this.activeIndex]
+      console.log(this.activeIndex, this.realIndex)
 
       if (currSlide) {
         const swiperCurtain = new SwiperCurtain(currSlide)
         swiperCurtain.show2();
       }
 
-      if (swiper.realIndex === 0) {
-        this.scroll.scrollTop()
+      if (this.realIndex === 0) {
+        that.scroll.scrollTop()
       } else {
-        this.scroll.scrollTo(targetEl, 64)
+        that.scroll.scrollTo(targetEl, 64)
       }
     }
 
-    const initChildSwiper = swiper => {
-      // console.log(swiper)
-      const childSwiperSelector = swiper.wrapper.find('.js-swiper-commongoods-child');
+    function initChildSwiper() {
+      const childSwiperSelector = this.$wrapperEl.find('.js-swiper-commongoods-child');
       const commonggoodsSwiperChild = new Swiper(childSwiperSelector, {
-        autoplay: 1000,
+        autoplay: {
+          delay: 1000,
+        },
         speed: 500,
         effect: 'fade',
         loop: true,
@@ -118,26 +122,34 @@ class App {
     }
 
     const commonggoodsSwiper = new Swiper(swiperSelector, {
-      keyboardControl: true,
-      pagination: '.js-commongoods__pagination',
-      nextButton: '.js-commongoods__next',
-      prevButton: '.js-commongoods__prev',
-      paginationType: 'fraction',
+      autoplay: {
+        delay: 12000,
+      },
       speed: 500,
+      loop: true,
+      navigation: {
+        nextEl: '.js-commongoods__next',
+        prevEl: '.js-commongoods__prev',
+      },
+      pagination: {
+        el: '.js-commongoods__pagination',
+        type: 'fraction',
+      },
       autoHeight: true,
-      autoplay: 12000,
       nested: true,
       effect: 'fade',
-      onInit: changeSlide,
-      onSlideChangeStart: changeSlide,
-      onSlideChangeEnd: initChildSwiper,
+      on: {
+        slideChangeTransitionStart: changeSlide,
+        slideChangeTransitionEnd: initChildSwiper,
+
+      },
     })
   }
 
   initFeaturedSwiper = () => {
-    const changeVideo = swiper => {
-      const prevSlide = swiper.realIndex === swiper.previousIndex ? null : swiper.slides[swiper.previousIndex]
-      const currSlide = swiper.slides[swiper.realIndex]
+    function changeVideo() {
+      const prevSlide = this.realIndex === this.previousIndex ? null : this.slides[this.previousIndex]
+      const currSlide = this.slides[this.realIndex]
       const currVideo = new Video(currSlide.querySelector('.js-video'))
       if (!currVideo) {
         return null
@@ -152,12 +164,19 @@ class App {
     }
 
     const featuredSwiper = new Swiper('#js-swiper-featured', {
-      autoplay: 5000,
+      autoplay: {
+        delay: 5000,
+      },
       speed: 500,
       effect: 'fade',
-      keyboardControl: true,
-      onInit: changeVideo,
-      onSlideChangeStart: changeVideo,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+      },
+      on: {
+        // init: changeSlide,
+        slideChangeTransitionStart: changeVideo,
+      },
     })
   }
 
