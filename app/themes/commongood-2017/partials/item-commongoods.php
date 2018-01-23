@@ -38,7 +38,7 @@ echo '<div class="swiper-slide">';
 
       echo '<p class="soft-duo--bottom">' . $content . '</p>';
 
-      if ($website) : echo '<a class="commongood__link link" href="' . $website . '" target="_blank">' . 'View Website' . '</a> '; endif;
+      if ($directorWorks) : echo '<a class="commongood__link link" href="' . get_permalink() . '">' . 'View Work' . '</a> '; endif;
 
       echo '</div>';
 
