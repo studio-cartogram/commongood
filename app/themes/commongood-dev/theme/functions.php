@@ -170,6 +170,7 @@
       add_image_size('img_thumbnail',500, 500, true);
       add_image_size('img_medium',800, 800, false);
       add_image_size('img_large',1200, 800, true);
+      add_image_size('img_xlarge',1600, 1000, true);
 
       /* ========================================================================================================================
 
