@@ -15,8 +15,6 @@ if ($talent) :
 
       echo '</div>';
 
-      echo '<span class="epsilon inline-block">Post ID: '. $exclude .'</span>';
-
       $directorWorks = get_posts(array(
         'post_type' => 'works',
         'post__not_in' => array($exclude),
@@ -35,7 +33,7 @@ if ($talent) :
 
         foreach( $directorWorks as $work ):
 
-          $title = get_the_title();
+          $title = get_the_title($work->ID);
           $client = get_field('client', $work->ID );
           $vimeo_id = get_field('vimeo_id', $work->ID);
           $thumbnail = get_field('thumbnail', $work->ID);
@@ -51,13 +49,13 @@ if ($talent) :
                 data-vimeo-id="' . $vimeo_id . '"
                 data-object-fit="cover"
                 class="js-load-vimeo-image thumbnail__img "
-                alt="' . esc_attr(get_the_title($work->ID)) . '"
+                alt="' . get_the_title($work->ID) . '"
               />';
 
               echo '<img
                 data-object-fit="cover"
                 class="thumbnail__img thumbnail__img--fallback"
-                alt="' . esc_attr(get_the_title($work->ID)) . '"
+                alt="' . get_the_title($work->ID) . '"
                 src="' . $thumbnail . '"
               />';
 
