@@ -1,29 +1,30 @@
 <?php
-
+$exclude = get_the_ID();
 $talent = get_field('talent');
 
 if ($talent) :
 
   echo '<section class="work__related">';
 
-    foreach( $talent as $post ):
-
-      setup_postdata($post);
+    foreach( $talent as $t ):
 
       echo '<div class="work__related--header">';
 
         echo '<span class="epsilon inline-block">More from&nbsp;</span>';
-        echo '<span class="delta inline-block">' . get_the_title() . '</span>'; 
+        echo '<span class="delta inline-block">' . get_the_title($t->ID) . '</span>'; 
 
       echo '</div>';
 
+      echo '<span class="epsilon inline-block">Post ID: '. $exclude .'</span>';
+
       $directorWorks = get_posts(array(
         'post_type' => 'works',
+        'post__not_in' => array($exclude),
         'meta_query' => array(
           array(
-            'key' => 'talent', // name of custom field
-            'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123.This prevents a match for "1234" 
-            'compare' => 'LIKE'
+            'key' => 'talent',
+            'value' => '"' . $t->ID . '"',
+            'compare' => 'LIKE',
           )
         )
       ));
@@ -32,16 +33,14 @@ if ($talent) :
 
         echo '<div id="all-work" class="row row--full thumbnails js-videos">';
 
-        foreach( $directorWorks as $post ):
-
-          setup_postdata($post);
+        foreach( $directorWorks as $work ):
 
           $title = get_the_title();
-          $client = get_field('client');
-          $vimeo_id = get_field('vimeo_id');
-          $thumbnail = get_field('thumbnail');
+          $client = get_field('client', $work->ID );
+          $vimeo_id = get_field('vimeo_id', $work->ID);
+          $thumbnail = get_field('thumbnail', $work->ID);
 
-          echo '<a href="' . get_permalink() . '" class="thumbnail column">';
+          echo '<a href="' . get_permalink($work->ID) . '" class="thumbnail column">';
 
             echo '<div
               style="padding-bottom: 56%;"
@@ -52,13 +51,13 @@ if ($talent) :
                 data-vimeo-id="' . $vimeo_id . '"
                 data-object-fit="cover"
                 class="js-load-vimeo-image thumbnail__img "
-                alt="' . esc_attr(get_the_title()) . '"
+                alt="' . esc_attr(get_the_title($work->ID)) . '"
               />';
 
               echo '<img
                 data-object-fit="cover"
                 class="thumbnail__img thumbnail__img--fallback"
-                alt="' . esc_attr(get_the_title()) . '"
+                alt="' . esc_attr(get_the_title($work->ID)) . '"
                 src="' . $thumbnail . '"
               />';
 
@@ -78,15 +77,11 @@ if ($talent) :
 
         endforeach;
 
-        wp_reset_postdata();
-
       endif;
 
     endforeach;
 
   echo '</section>';
-
-  wp_reset_postdata();
 
 endif;
 
