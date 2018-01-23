@@ -11,8 +11,8 @@ $directorWorks = get_posts(array(
   'post_type' => 'works',
   'meta_query' => array(
     array(
-      'key' => 'talent', // name of custom field
-      'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123.This prevents a match for "1234" 
+      'key' => 'talent', 
+      'value' => '"' . $item->ID . '"', 
       'compare' => 'LIKE'
     )
   )
@@ -54,28 +54,24 @@ echo '<div class="swiper-slide">';
 
             if( $directorWorks ):
 
-            foreach( $directorWorks as $post):
+            foreach( $directorWorks as $work):
 
-            setup_postdata($post);
-
-            $title = get_the_title();
-            $client = get_field('client');
-            $vimeo_id = get_field('vimeo_id');
-            $thumbnail = get_field('thumbnail');
+            $title = get_the_title($work->ID);
+            $client = get_field('client', $work->ID);
+            $vimeo_id = get_field('vimeo_id', $work->ID);
+            $thumbnail = (get_field('thumbnail', $work->ID) ? get_field('thumbnail', $work->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
 
             echo '<div class="swiper-slide">';
 
-              echo '<a href="' . (get_permalink()) . '"><img
+              echo '<a href="' . (get_permalink($work->ID)) . '"><img
                 class="commongood__img__img"
-                alt="' . (get_the_title()) . '"
+                alt="' . (get_the_title($work->ID)) . '"
                 src="' . $thumbnail . '"
               /></a>';
 
             echo '</div>';
 
             endforeach;
-
-            wp_reset_postdata();
 
             endif;
 
@@ -90,5 +86,4 @@ echo '<div class="swiper-slide">';
   echo '</div>';
 
 echo '</div>';
-
 ?>
