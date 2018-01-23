@@ -5,7 +5,7 @@ $content = get_the_content($item->ID);
 $title = get_the_title($item->ID);
 $website = get_field('website', $item->ID);
 $attachment_id = get_post_thumbnail_id($item->ID);
-$thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->ID) : wp_get_attachment_image_url( $attachment_id, 'img_large' ));
+$thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
 
 $directorWorks = get_posts(array(
   'post_type' => 'works',
