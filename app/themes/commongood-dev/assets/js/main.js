@@ -113,11 +113,12 @@ class App {
       const childSwiperSelector = this.$wrapperEl.find('.js-swiper-commongoods-child');
       const commonggoodsSwiperChild = new Swiper(childSwiperSelector, {
         autoplay: {
-          delay: 1000,
+          delay: 3000,
         },
         speed: 500,
         effect: 'fade',
         loop: true,
+        height: 375,
       })
     }
 
@@ -135,9 +136,10 @@ class App {
         el: '.js-commongoods__pagination',
         type: 'fraction',
       },
-      autoHeight: true,
+      
       nested: true,
       effect: 'fade',
+      height: 375,
       on: {
         slideChangeTransitionStart: changeSlide,
         slideChangeTransitionEnd: initChildSwiper,
