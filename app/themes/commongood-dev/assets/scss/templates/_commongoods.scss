@@ -93,3 +93,15 @@
     opacity: 0.1;
   }
 }
+
+.single-commongoods {
+
+  .work {
+    padding-top: $d-dec;
+  }
+
+  .work__header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
