@@ -1,0 +1,19 @@
+.swiper-container-fade .swiper-slide .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.swiper-container-fade .swiper-slide .swiper-slide a {
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.swiper-container-fade .swiper-slide .swiper-slide img {
+  width: auto;
+  height: 375px;
+}
