@@ -21,7 +21,7 @@
   width: 100vw;
   margin-bottom: $d-base;
   position: relative;
-  z-index:3;
+  z-index: 3;
 
   @include bp($bp-tablet) {
     margin-top: $d-oct;
@@ -59,6 +59,11 @@
   overflow: hidden;
 }
 
+.work__related--header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .single-commongoods {
 
   .work {
@@ -73,9 +78,4 @@
   .commongood__back {
     padding-left: $d-trio;
   }
-}
-
-.work__related--header {
-  display: flex;
-  justify-content: space-between;
 }
