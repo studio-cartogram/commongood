@@ -25,7 +25,7 @@ echo '<div id="barba-wrapper">';
 
         echo '<span class="alpha inline-block">' . $title . '</span>';
 
-        echo '<a href="'. $siteUrl .'/commongood" class="epsilon inline-block">';
+        echo '<a href="'. $siteUrl .'/commongood" class="commongood__back epsilon inline-block">';
         
         echo 'All Directors</a>';
 

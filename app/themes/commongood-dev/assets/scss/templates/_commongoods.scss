@@ -59,7 +59,6 @@
   overflow: hidden;
 }
 
-
 .single-commongoods {
 
   .work {
@@ -70,4 +69,13 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .commongood__back {
+    padding-left: $d-trio;
+  }
+}
+
+.work__related--header {
+  display: flex;
+  justify-content: space-between;
 }

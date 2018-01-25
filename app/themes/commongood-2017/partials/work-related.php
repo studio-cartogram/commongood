@@ -1,6 +1,7 @@
 <?php
 $exclude = get_the_ID();
 $talent = get_field('talent');
+$siteUrl = get_site_url();
 
 if ($talent) :
 
@@ -10,8 +11,19 @@ if ($talent) :
 
       echo '<div class="work__related--header">';
 
-        echo '<span class="epsilon inline-block">More from&nbsp;</span>';
-        echo '<span class="delta inline-block">' . get_the_title($t->ID) . '</span>'; 
+        echo '<div class="work__related--header-item">';
+
+          echo '<span class="epsilon inline-block">More from&nbsp;</span>';
+          echo '<span class="delta inline-block">' . get_the_title($t->ID) . '</span>';
+
+        echo '</div>';
+
+        echo '<div class="work__related--header-item">';
+
+          echo '<a href="'. $siteUrl .'/commongood" class="epsilon inline-block">';
+          echo 'All Directors</a>';
+
+        echo '</div>';
 
       echo '</div>';
 
