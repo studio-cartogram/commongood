@@ -22,7 +22,7 @@ if( $directorWorks ):
     $vimeo_id = get_field('vimeo_id', $work->ID);
     $thumbnail = get_field('thumbnail', $work->ID);
 
-    echo '<a href="' . get_permalink($work->ID) . '" class="thumbnail column">';
+    echo '<a href="' . get_permalink($work->ID) . '?show_director_works=true" class="thumbnail column">';
 
       echo '<div
         style="padding-bottom: 56%;"

@@ -63,7 +63,7 @@ echo '<div class="swiper-slide">';
 
             echo '<div class="swiper-slide">';
 
-              echo '<a href="' . (get_permalink($work->ID)) . '"><img
+              echo '<a href="' . (get_permalink($work->ID)) . '?show_director_works=true"><img
                 class="commongood__img__img"
                 alt="' . (get_the_title($work->ID)) . '"
                 src="' . $thumbnail . '"

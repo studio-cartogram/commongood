@@ -21,8 +21,14 @@ echo '<div id="barba-wrapper">';
       get_template_part('partials/work-header');
       get_template_part('partials/work-video');
       get_template_part('partials/work-footer');
-      get_template_part('partials/work-prev-next');
-      get_template_part('partials/work-related');
+
+      if (isset($_GET['show_director_works']) === false) {
+        get_template_part('partials/work-prev-next');
+      }
+
+      if (isset($_GET['show_director_works'])) {
+        get_template_part('partials/work-related');
+      }
 
     echo '</div>';
 
