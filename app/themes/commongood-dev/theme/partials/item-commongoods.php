@@ -18,64 +18,56 @@ $directorWorks = get_posts(array(
   )
 ));
 
-echo '<div class="swiper-slide">';
+echo '<div class="commongood row">';
 
-  echo '<div class="commongood row">';
+  echo '<div class="js-content column column-4-tablet commongood__content">';
 
-    echo '<div class="js-content column column-4-tablet commongood__content">';
+    echo '<div class="commongood__title">';
 
-      echo '<div class="commongood__title">';
-
-        echo '<div class="js-curtain-2">';
-
-          echo '<h2 class="mega">' . $title . '</h2>';
-
-        echo '</div>';
-
-      echo '</div>';
-
-      echo '<div class="js-curtain-3">';
-
-      echo '<p class="soft-duo--bottom">' . $content . '</p>';
-
-      if ($directorWorks) : echo '<a class="commongood__link link" href="' . get_permalink() . '">' . 'View Work' . '</a> '; endif;
-
-      echo '</div>';
+        echo '<h2 class="mega">' . $title . '</h2>';
 
     echo '</div>';
 
-    echo '<div class="column column-8-tablet commongood__img">';
+    // echo '<div class="commongood__content">';
 
-      echo '<div class="js-curtain-1">';
+    echo '<p class="soft-duo--bottom">' . $content . '</p>';
 
-        echo '<div class="swiper-container swiper-container-child js-swiper-commongoods-child">';
+    if ($directorWorks) : echo '<a class="commongood__link link" href="' . get_permalink() . '">' . 'View Work' . '</a> '; endif;
 
-          echo '<div class="swiper-wrapper">';
+    // echo '</div>';
 
-            if( $directorWorks ):
+  echo '</div>';
 
-            foreach( $directorWorks as $work):
+  echo '<div class="column column-8-tablet commongood__img">';
 
-            $title = get_the_title($work->ID);
-            $client = get_field('client', $work->ID);
-            $vimeo_id = get_field('vimeo_id', $work->ID);
-            $thumbnail = (get_field('thumbnail', $work->ID) ? get_field('thumbnail', $work->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
+    echo '<div class="">';
 
-            echo '<div class="swiper-slide">';
+      echo '<div id="js-swiper-commongoods" class="swiper-container swiper-container-child js-swiper-commongoods-child">';
 
-              echo '<a href="' . (get_permalink($work->ID)) . '?show_director_works=true"><img
-                class="commongood__img__img"
-                alt="' . (get_the_title($work->ID)) . '"
-                src="' . $thumbnail . '"
-              /></a>';
+        echo '<div class="swiper-wrapper">';
 
-            echo '</div>';
+          if( $directorWorks ):
 
-            endforeach;
+          foreach( $directorWorks as $work):
 
-            endif;
+          $title = get_the_title($work->ID);
+          $client = get_field('client', $work->ID);
+          $vimeo_id = get_field('vimeo_id', $work->ID);
+          $thumbnail = (get_field('thumbnail', $work->ID) ? get_field('thumbnail', $work->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
+
+          echo '<div class="swiper-slide">';
+
+            echo '<a href="' . (get_permalink($work->ID)) . '?show_director_works=true"><img
+              class="commongood__img__img"
+              alt="' . (get_the_title($work->ID)) . '"
+              src="' . $thumbnail . '"
+            /></a>';
 
           echo '</div>';
+
+          endforeach;
+
+          endif;
 
         echo '</div>';
 
@@ -86,4 +78,5 @@ echo '<div class="swiper-slide">';
   echo '</div>';
 
 echo '</div>';
+
 ?>

@@ -15,10 +15,9 @@ $the_query = new WP_Query($args);
 
 if ( $the_query->have_posts() ) :
 
+  echo '<div class="commongoods">';
 
-  echo '<div id="js-swiper-commongoods" class="commongoods swiper-container swiper-container-parent">';
-
-    echo '<div class="swiper-wrapper">';
+    echo '<div class="">';
 
       while ( $the_query->have_posts() ) : $the_query->the_post();
 
@@ -30,25 +29,7 @@ if ( $the_query->have_posts() ) :
 
     echo '</div>';
 
-    echo '<div class="commongoods__controls">';
-
-
-    echo '<div class="js-commongoods__prev commongoods__prev">';
-      set_query_var( 'icon', 'arrow-left' );
-      get_template_part('partials/icon');
-    echo '</div>';
-
-    echo '<div class="js-commongoods__next commongoods__next">';
-      set_query_var( 'icon', 'arrow-right' );
-      get_template_part('partials/icon');
-    echo '</div>';
-
-    echo '<div class="delta js-commongoods__pagination commongoods__pagination"></div>';
-
-    echo '</div>';
-
   echo '</div>';
-
 
 else :
 

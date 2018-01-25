@@ -89,62 +89,15 @@ class App {
 
   initCommongoodsSwiper = () => {
 
-    const swiperSelector = '#js-swiper-commongoods'
     const that = this;
-    function changeSlide() {
-      const targetEl = document.getElementById(swiperSelector.substr(1))
-      const prevSlide = this.slides[this.previousIndex]
-      const currSlide = this.slides[this.activeIndex]
-      console.log(this.activeIndex, this.realIndex)
-
-      if (currSlide) {
-        const swiperCurtain = new SwiperCurtain(currSlide)
-        swiperCurtain.show2();
-      }
-
-      if (this.realIndex === 0) {
-        that.scroll.scrollTop()
-      } else {
-        that.scroll.scrollTo(targetEl, 64)
-      }
-    }
-
-    function initChildSwiper() {
-      const childSwiperSelector = this.$wrapperEl.find('.js-swiper-commongoods-child');
-      const commonggoodsSwiperChild = new Swiper(childSwiperSelector, {
-        autoplay: {
-          delay: 3000,
-        },
-        speed: 500,
-        effect: 'fade',
-        loop: true,
-        height: 375,
-      })
-    }
-
-    const commonggoodsSwiper = new Swiper(swiperSelector, {
+    const commonggoodsSwiper = new Swiper('.js-swiper-commongoods-child', {
       autoplay: {
-        delay: 12000,
+        delay: 3000,
       },
       speed: 500,
-      loop: true,
-      navigation: {
-        nextEl: '.js-commongoods__next',
-        prevEl: '.js-commongoods__prev',
-      },
-      pagination: {
-        el: '.js-commongoods__pagination',
-        type: 'fraction',
-      },
-      
-      nested: true,
       effect: 'fade',
+      loop: true,
       height: 375,
-      on: {
-        slideChangeTransitionStart: changeSlide,
-        slideChangeTransitionEnd: initChildSwiper,
-
-      },
     })
   }
 
