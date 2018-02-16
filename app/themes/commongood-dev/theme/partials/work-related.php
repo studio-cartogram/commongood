@@ -28,7 +28,7 @@ if ($talent) :
       echo '</div>';
 
       $directorWorks = get_posts(array(
-        'post_type' => 'works',
+        'post_type' => 'reels',
         'post__not_in' => array($exclude),
         'meta_query' => array(
           array(

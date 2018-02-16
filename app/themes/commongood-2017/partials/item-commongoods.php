@@ -8,7 +8,7 @@ $attachment_id = get_post_thumbnail_id($item->ID);
 $thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
 
 $directorWorks = get_posts(array(
-  'post_type' => 'works',
+  'post_type' => 'reels',
   'meta_query' => array(
     array(
       'key' => 'talent', 

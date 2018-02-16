@@ -1,7 +1,7 @@
 <?php
 
 $directorWorks = get_posts(array(
-  'post_type' => 'works',
+  'post_type' => 'reels',
   'meta_query' => array(
     array(
       'key' => 'talent', 

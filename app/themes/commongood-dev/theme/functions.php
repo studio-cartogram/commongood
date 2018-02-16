@@ -37,6 +37,14 @@
         'supports'            => array( 'title', 'thumbnail')
       );
 
+      $reels_args = array(
+        'public'              => true,
+        'label'               => 'Director Reels',
+        'has_archive'         => false,
+        'exclude_from-search' => true,
+        'supports'            => array( 'title', 'thumbnail')
+      );
+
       $commongoods_args = array(
         'public'              => true,
         'label'               => '@Commongood',
@@ -46,6 +54,7 @@
       );
 
       register_post_type( 'works', $works_args );
+      register_post_type( 'reels', $reels_args );
       register_post_type( 'commongoods', $commongoods_args );
 
       flush_rewrite_rules( false );
