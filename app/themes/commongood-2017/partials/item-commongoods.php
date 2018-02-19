@@ -9,6 +9,7 @@ $thumbnail = (get_field('thumbnail', $item->ID) ? get_field('thumbnail', $item->
 
 $directorWorks = get_posts(array(
   'post_type' => 'reels',
+  'posts_per_page' => -1,
   'meta_query' => array(
     array(
       'key' => 'talent', 
@@ -48,24 +49,24 @@ echo '<div class="commongood row">';
 
           if( $directorWorks ):
 
-          foreach( $directorWorks as $work):
+            foreach( $directorWorks as $work):
 
-          $title = get_the_title($work->ID);
-          $client = get_field('client', $work->ID);
-          $vimeo_id = get_field('vimeo_id', $work->ID);
-          $thumbnail = (get_field('thumbnail', $work->ID) ? get_field('thumbnail', $work->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
+              $title = get_the_title($work->ID);
+              $client = get_field('client', $work->ID);
+              $vimeo_id = get_field('vimeo_id', $work->ID);
+              $thumbnail = (get_field('thumbnail', $work->ID) ? get_field('thumbnail', $work->ID) : wp_get_attachment_image_url( $attachment_id, 'img_xlarge' ));
 
-          echo '<div class="swiper-slide">';
+              echo '<div class="swiper-slide">';
 
-            echo '<a href="' . (get_permalink($work->ID)) . '?show_director_works=true"><img
-              class="commongood__img__img"
-              alt="' . (get_the_title($work->ID)) . '"
-              src="' . $thumbnail . '"
-            /></a>';
+                echo '<a href="' . (get_permalink($work->ID)) . '?show_director_works=true"><img
+                  class="commongood__img__img"
+                  alt="' . (get_the_title($work->ID)) . '"
+                  src="' . $thumbnail . '"
+                /></a>';
 
-          echo '</div>';
+              echo '</div>';
 
-          endforeach;
+            endforeach;
 
           endif;
 
