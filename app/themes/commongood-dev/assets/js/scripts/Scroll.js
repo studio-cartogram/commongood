@@ -27,7 +27,7 @@ class Scroll {
   }
 
   scrollTo = (target, offset = 0) => {
-    const container = document.body
+    const container = document.scrollingElement || document.documentElement
     const config = this.createScrollConfig({
       container,
       start: container.scrollTop,
