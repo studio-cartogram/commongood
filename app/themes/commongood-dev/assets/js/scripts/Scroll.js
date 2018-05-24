@@ -40,7 +40,7 @@ class Scroll {
   }
 
   scrollTop = () => {
-    const container = document.body
+    const container = document.scrollingElement || document.documentElement
     const config = this.createScrollConfig({
       container,
       start: container.scrollTop,
