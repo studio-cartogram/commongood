@@ -23,12 +23,12 @@ class LoadVimeoImages {
     el.parentNode.parentNode.classList.add('is-loading')
 
     if (localSrc) {
-      return this.setElSrc(el, localSrc)
+      return this.setElSrc(el, JSON.parse(localSrc))
     }
 
     return this.fetchVimeoData(el).then(srcs => {
-      localStorage.setItem(`image-${el.dataset.vimeoId}`, srcs.large)
-      return this.setElSrc(el, srcs.large)
+      localStorage.setItem(`image-${el.dataset.vimeoId}`, JSON.stringify(srcs))
+      return this.setElSrc(el, srcs)
     })
   }
 
@@ -40,20 +40,24 @@ class LoadVimeoImages {
     })
     .then(data => checkStatus(data))
     .then(data => parseJSON(data))
-    .then(data => ({
-      large: data[0].thumbnail_large,
-    }))
+    .then(data => {
+      const imageId = this.getImageIdFromSrc(data[0].thumbnail_large)
+       return {
+          large: `https://i.vimeocdn.com/video/${imageId}_1920x800.jpg`,
+          small: data[0].thumbnail_large,
+       }
+      })
     .catch(err => {
       this.handleError(el)
     })
 
-  setElSrc= (el, src) => {
+  setElSrc= (el, srcs) => {
     switch (el.nodeName) {
       case 'VIDEO':
-        el.poster = src
+        el.poster = srcs.large
       break
       default:
-        el.src = src
+        el.src = srcs.small
       break
     }
 
@@ -69,6 +73,12 @@ class LoadVimeoImages {
   handleError = el => {
     el.parentNode.classList.remove('is-loading')
     el.parentNode.classList.add('is-broken')
+  }
+
+  getImageIdFromSrc = src => {
+  const parts = src.split('/')
+  const fileName = parts[parts.length - 1]
+  return fileName.split('_')[0]
   }
 }
 
